@@ -1,0 +1,16 @@
+doctype 5
+include container
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/navigation.js')
+    style(type='text/css')
+  body
+    img.backgroundImage(src="../images/GreenTunnel.jpg")
+    +container('frame')
+      #banner
+      #navigation
+      #content
+        block content
+      #footer

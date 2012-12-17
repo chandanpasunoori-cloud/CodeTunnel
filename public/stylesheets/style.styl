@@ -1,0 +1,46 @@
+textColor = #0f0
+backgroundColor = #000
+
+opacity(value)
+  opacity: value
+  -moz-opacity: value
+  filter: unquote('alpha(opacity=' + round(value * 100) + ')')
+
+border-radius(value)
+  border-radius: value
+  -moz-border-radius: value
+
+.container
+  position: relative
+
+.translucentFrame
+  background: textColor
+  opacity: .5
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 1
+  border-radius: 5px
+
+.contentFrame
+  position: relative
+  z-index: 2
+  padding: 5px
+
+body
+  background: backgroundColor
+  color: textColor
+
+#frame
+  position: relative
+
+.backgroundImage
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  position: fixed
+  z-index: 0
+  opacity: .15
