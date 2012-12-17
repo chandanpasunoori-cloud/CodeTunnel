@@ -8,9 +8,10 @@ html
     style(type='text/css')
   body
     img.backgroundImage(src="../images/GreenTunnel.jpg")
-    +container('frame')
-      #banner
-      #navigation
-      #content
-        block content
-      #footer
+    +container#myContainer
+      block content
+//      #banner
+//      #navigation
+//      #content
+//        block content
+//      #footer
