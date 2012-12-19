@@ -1,5 +1,4 @@
 doctype 5
-include container
 html
   head
     title= title
@@ -8,10 +7,9 @@ html
     style(type='text/css')
   body
     img.backgroundImage(src="../images/GreenTunnel.jpg")
-    +container#myContainer
-      block content
-//      #banner
-//      #navigation
-//      #content
-//        block content
-//      #footer
+    include container
+      #banner
+      #navigation
+      #content
+        block content
+      #footer

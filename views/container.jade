@@ -1,5 +1,4 @@
-mixin container
-  .container(id=attributes.id)
-    .translucentFrame
-    .contentFrame
-      block
+.container
+  .translucentFrame
+  .contentFrame
+    yield
