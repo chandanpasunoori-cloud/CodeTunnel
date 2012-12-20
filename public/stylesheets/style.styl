@@ -15,7 +15,7 @@ border-radius(value)
 
 .translucentFrame
   background: textColor
-  opacity: .25
+  opacity: .1
   position: absolute
   top: 0
   left: 0
@@ -27,14 +27,17 @@ border-radius(value)
 .contentFrame
   position: relative
   z-index: 2
-  padding: 5px
 
 body
   background: backgroundColor
   color: textColor
+  font-size: 15px
+  font-family: Consolas
 
 #frame
   position: relative
+  margin: 15px auto auto auto
+  width: 90%
 
 .backgroundImage
   top: 0
@@ -44,3 +47,20 @@ body
   position: fixed
   z-index: 0
   opacity: .15
+
+#banner
+  text-align: center
+  font-size: 55px
+  padding: 15px
+  font-family: Courier New
+  border-bottom: solid 1px darken(textColor, 50%)
+
+#content
+  padding: 15px
+
+a, a:visited
+  color: lighten(textColor, 75%)
+  text-decoration: none
+
+a:hover
+  text-decoration: underline

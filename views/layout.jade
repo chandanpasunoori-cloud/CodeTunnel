@@ -2,14 +2,17 @@ doctype 5
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='/javascripts/navigation.js')
-    style(type='text/css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
   body
     img.backgroundImage(src="../images/GreenTunnel.jpg")
-    include container
-      #banner
-      #navigation
-      #content
-        block content
-      #footer
+    #frame
+      include container
+        #banner= bannerText
+        #navigation
+          ul
+            li Blog
+            li Projects
+            li About
+        #content
+          block content
+        #footer

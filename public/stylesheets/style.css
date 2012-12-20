@@ -3,9 +3,9 @@
 }
 .translucentFrame {
   background: #0f0;
-  opacity: 0.25;
-  -moz-opacity: 0.25;
-  filter: alpha(opacity=25);
+  opacity: 0.1;
+  -moz-opacity: 0.1;
+  filter: alpha(opacity=10);
   position: absolute;
   top: 0;
   left: 0;
@@ -18,14 +18,17 @@
 .contentFrame {
   position: relative;
   z-index: 2;
-  padding: 5px;
 }
 body {
   background: #000;
   color: #0f0;
+  font-size: 15px;
+  font-family: Consolas;
 }
 #frame {
   position: relative;
+  margin: 15px auto auto auto;
+  width: 90%;
 }
 .backgroundImage {
   top: 0;
@@ -37,4 +40,22 @@ body {
   opacity: 0.15;
   -moz-opacity: 0.15;
   filter: alpha(opacity=15);
+}
+#banner {
+  text-align: center;
+  font-size: 55px;
+  padding: 15px;
+  font-family: Courier New;
+  border-bottom: solid 1px #008000;
+}
+#content {
+  padding: 15px;
+}
+a,
+a:visited {
+  color: #bfffbf;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }

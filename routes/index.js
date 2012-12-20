@@ -4,5 +4,6 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+  req.settings.title = 'CodeTunnel.com';
+  res.render('index', req.settings);
 };
