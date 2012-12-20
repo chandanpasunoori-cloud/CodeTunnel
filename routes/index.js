@@ -3,7 +3,7 @@
  * GET home page.
  */
 
-exports.index = function(req, res){
+exports.home = function(req, res){
   req.settings.title = 'CodeTunnel.com';
   req.settings.posts = [
     { title: 'post 1' },
@@ -12,5 +12,24 @@ exports.index = function(req, res){
     { title: 'post 4' },
     { title: 'post 5' }
   ];
-  res.render('index', req.settings);
+  var viewName = 'home/index';
+  if (!req.isAjax)
+    viewName += '_full';
+  res.render(viewName, req.settings);
+};
+
+exports.projects = function(req, res) {
+  req.settings.title = 'My Projects';
+  var viewName = 'projects/index';
+  if (!req.isAjax)
+    viewName += '_full';
+  res.render(viewName, req.settings);
+};
+
+exports.about = function(req, res) {
+  req.settings.title = 'About Me';
+  var viewName = 'about/index';
+  if (!req.isAjax)
+    viewName += '_full';
+  res.render(viewName, req.settings);
 };

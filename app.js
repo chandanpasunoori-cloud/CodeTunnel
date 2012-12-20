@@ -8,6 +8,7 @@ var express = require('express'),
   user = require('./routes/user'),
   http = require('http'),
   path = require('path'),
+  stylus = require('stylus'),
   settings = {
     bannerText: 'Code.Tunnel();'
   };
@@ -20,6 +21,7 @@ app.configure(function(){
   app.set('view engine', 'jade');
   app.use (function (req, res, next) {
     req.settings = settings;
+    req.isAjax = req.headers['x-requested-with'] === 'XMLHttpRequest';
     next();
   });
   app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
@@ -29,7 +31,19 @@ app.configure(function(){
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
   app.use(app.router);
-  app.use(require('stylus').middleware(__dirname + '/public'));
+  app.use(stylus.middleware({
+    src: __dirname + '/public',
+    compile: function (str, path) {
+      var mylib = function(style) {
+        style.define('randomColor', function () {
+          //var unit = new stylus.nodes.Unit('#5f5', 'rgba');
+          var rgb = stylus.color();
+          return rgb;
+        });
+      };
+      return stylus(str).use(mylib);
+    }
+  }));
   app.use(express.static(path.join(__dirname, 'public')));
 });
 

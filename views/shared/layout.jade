@@ -1,0 +1,23 @@
+doctype 5
+html
+  head
+    title= title
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+    script(type='text/javascript', src='/scripts/preloadImages.js')
+    script(type='text/javascript', src='/scripts/ajaxNavigation.js')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  body
+    img.backgroundImage(src="../images/ColorlessTunnel.jpg")
+    #frame
+      include container
+        #banner= bannerText
+        ul#navigation
+          li
+            a(href="/") Blog
+          li
+            a(href="/projects") Projects
+          li
+            a(href="/about") About
+        #content
+          block content
+        #footer
