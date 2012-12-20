@@ -8,11 +8,13 @@ html
     #frame
       include container
         #banner= bannerText
-        #navigation
-          ul
-            li Blog
-            li Projects
-            li About
+        ul#navigation
+          li
+            a(href="/") Blog
+          li
+            a(href="/projects") Projects
+          li
+            a(href="/about") About
         #content
           block content
         #footer

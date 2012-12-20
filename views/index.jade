@@ -1,5 +1,7 @@
 extends layout
 
 block append content
-  p I've been quite fond of a library known as SignalR.
-  p One of the best serach engines in history is <a href="http://www.google.com">Google.com</a>
+  include pageControls
+  each post in posts
+    include summary
+  include pageControls

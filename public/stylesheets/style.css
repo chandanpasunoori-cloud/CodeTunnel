@@ -48,6 +48,14 @@ body {
   font-family: Courier New;
   border-bottom: solid 1px #008000;
 }
+#navigation {
+  margin: 0;
+  padding: 15px;
+}
+#navigation li {
+  display: inline;
+  margin-right: 15px;
+}
 #content {
   padding: 15px;
 }
@@ -58,4 +66,11 @@ a:visited {
 }
 a:hover {
   text-decoration: underline;
+}
+.postSummary {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.pageControls {
+  margin-bottom: 15px;
 }
