@@ -1,3 +1,8 @@
-for (var count = 0; count < 1000; count++) {
-  console.log(Math.floor(Math.random() * (30 - 7 + 1)) + 7);
-}
+var db = require('mongoskin').db('localhost:27017/rockband');
+
+var bands = db.collection('bands');
+
+bands.find().toArray(function(err, result) {
+  console.log(result);
+  db.close();
+});

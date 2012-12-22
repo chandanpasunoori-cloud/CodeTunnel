@@ -9,6 +9,7 @@ var express = require('express'),
   http = require('http'),
   path = require('path'),
   stylus = require('stylus'),
+  db = require('mongoskin').db('localhost:27017/codeTunnelDB);
   settings = {
     bannerText: 'Code.Tunnel();'
   };
