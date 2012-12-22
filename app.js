@@ -31,19 +31,7 @@ app.configure(function(){
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
   app.use(app.router);
-  app.use(stylus.middleware({
-    src: __dirname + '/public',
-    compile: function (str, path) {
-      var mylib = function(style) {
-        style.define('randomColor', function () {
-          //var unit = new stylus.nodes.Unit('#5f5', 'rgba');
-          var rgb = stylus.color();
-          return rgb;
-        });
-      };
-      return stylus(str).use(mylib);
-    }
-  }));
+  app.use(stylus.middleware(__dirname + '/public'));
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
