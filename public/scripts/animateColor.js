@@ -2,46 +2,30 @@
 
   $(function () {
 
-    (function animateColors() {
+    var colorIndex = 0;
 
-      var $banner = $('#banner'),
-        $containers = $('.translucentFrame'),
-        $links = $('a'),
+    (function changeColors() {
+      var
         $body = $('body'),
-        delay = 3000,
-        color = new $.Color(getRandomColor());
+        $banner = $('#banner'),
+        $links = $('a'),
+        $translucentFrame = $('.translucentFrame'),
+        delay = (Math.floor(Math.random() * (30 - 5 + 1)) + 5) * 1000;
 
-      $.when(
+      $body.removeClass('bodyColor' + colorIndex);
+      $translucentFrame.removeClass('containerColor' + colorIndex)
+      $banner.removeClass('borderColor' + colorIndex);
+      $links.removeClass('linkColor' + colorIndex);
 
-          $banner.animate({
-            borderColor: color.lightness('.3')
-          }, delay),
+      colorIndex = Math.floor(Math.random()*13);
 
-          $containers.animate({
-            backgroundColor: color
-          }, delay),
+      $body.addClass('bodyColor' + colorIndex);
+      $translucentFrame.addClass('containerColor' + colorIndex)
+      $banner.addClass('borderColor' + colorIndex);
+      $links.addClass('linkColor' + colorIndex);
 
-          $links.animate({
-            color: color.lightness('.9')
-          }, delay),
-
-          $body.animate({
-            color: color
-          }, delay)
-
-      ).then(animateColors);
-
-    })()
-
+      setTimeout(changeColors, delay);
+    })();
   });
-
-  function getRandomColor() {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.round(Math.random() * 15)];
-    }
-    return color;
-  }
 
 })(jQuery);

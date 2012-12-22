@@ -2,7 +2,7 @@
   position: relative;
 }
 .translucentFrame {
-  background: #4f4;
+  background: #3df53d;
   opacity: 0.07;
   -moz-opacity: 0.07;
   filter: alpha(opacity=7);
@@ -14,16 +14,24 @@
   z-index: 1;
   border-radius: 5px;
   -moz-border-radius: 5px;
+  -webkit-transition: background-color 0.5s linear;
+  -moz-transition: background-color 0.5s linear;
+  -o-transition: background-color 0.5s linear;
+  transition: background-color 0.5s linear;
 }
 .contentFrame {
   position: relative;
   z-index: 2;
 }
 body {
-  background: #000600;
-  color: #4f4;
+  background: #000900;
+  color: #3df53d;
   font-size: 15px;
   font-family: Consolas;
+  -webkit-transition: color 0.5s linear, background-color 0.5s linear;
+  -moz-transition: color 0.5s linear, background-color 0.5s linear;
+  -o-transition: color 0.5s linear, background-color 0.5s linear;
+  transition: color 0.5s linear, background-color 0.5s linear;
 }
 #frame {
   position: relative;
@@ -46,7 +54,11 @@ body {
   font-size: 55px;
   padding: 15px;
   font-family: Courier New;
-  border-bottom: solid 1px #00a200;
+  border-bottom: solid 1px #056605;
+  -webkit-transition: border-color 0.5s linear;
+  -moz-transition: border-color 0.5s linear;
+  -o-transition: border-color 0.5s linear;
+  transition: border-color 0.5s linear;
 }
 #navigation {
   margin: 0;
@@ -61,8 +73,12 @@ body {
 }
 a,
 a:visited {
-  color: #d0ffd0;
+  color: #cffccf;
   text-decoration: none;
+  -webkit-transition: color 0.5s linear;
+  -moz-transition: color 0.5s linear;
+  -o-transition: color 0.5s linear;
+  transition: color 0.5s linear;
 }
 a $:hover,
 a:visited $:hover {
@@ -74,4 +90,172 @@ a:visited $:hover {
 }
 .pageControls {
   margin-bottom: 15px;
+}
+.bodyColor0 {
+  color: #80ffbf !important;
+  background-color: #000b06 !important;
+}
+.borderColor0 {
+  border-color: #008643 !important;
+}
+.linkColor0,
+.linkColor0:visited {
+  color: #ccffe6 !important;
+}
+.containerColor0 {
+  background-color: #80ffbf !important;
+}
+.bodyColor1 {
+  color: #80ffff !important;
+  background-color: #000b0b !important;
+}
+.borderColor1 {
+  border-color: #008686 !important;
+}
+.linkColor1,
+.linkColor1:visited {
+  color: #cff !important;
+}
+.containerColor1 {
+  background-color: #80ffff !important;
+}
+.bodyColor2 {
+  color: #80bfff !important;
+  background-color: #00060b !important;
+}
+.borderColor2 {
+  border-color: #004386 !important;
+}
+.linkColor2,
+.linkColor2:visited {
+  color: #cce5ff !important;
+}
+.containerColor2 {
+  background-color: #80bfff !important;
+}
+.bodyColor3 {
+  color: #8080ff !important;
+  background-color: #00000b !important;
+}
+.borderColor3 {
+  border-color: #000086 !important;
+}
+.linkColor3,
+.linkColor3:visited {
+  color: #ccf !important;
+}
+.containerColor3 {
+  background-color: #8080ff !important;
+}
+.bodyColor4 {
+  color: #bf80ff !important;
+  background-color: #06000b !important;
+}
+.borderColor4 {
+  border-color: #430086 !important;
+}
+.linkColor4,
+.linkColor4:visited {
+  color: #e5ccff !important;
+}
+.containerColor4 {
+  background-color: #bf80ff !important;
+}
+.bodyColor5 {
+  color: #ff80ff !important;
+  background-color: #0b000b !important;
+}
+.borderColor5 {
+  border-color: #860086 !important;
+}
+.linkColor5,
+.linkColor5:visited {
+  color: #fcf !important;
+}
+.containerColor5 {
+  background-color: #ff80ff !important;
+}
+.bodyColor6 {
+  color: #ff80bf !important;
+  background-color: #0b0006 !important;
+}
+.borderColor6 {
+  border-color: #860043 !important;
+}
+.linkColor6,
+.linkColor6:visited {
+  color: #ffcce6 !important;
+}
+.containerColor6 {
+  background-color: #ff80bf !important;
+}
+.bodyColor7 {
+  color: #ff8080 !important;
+  background-color: #0b0000 !important;
+}
+.borderColor7 {
+  border-color: #860000 !important;
+}
+.linkColor7,
+.linkColor7:visited {
+  color: #fcc !important;
+}
+.containerColor7 {
+  background-color: #ff8080 !important;
+}
+.bodyColor8 {
+  color: #ffbf80 !important;
+  background-color: #0b0600 !important;
+}
+.borderColor8 {
+  border-color: #864300 !important;
+}
+.linkColor8,
+.linkColor8:visited {
+  color: #ffe6cc !important;
+}
+.containerColor8 {
+  background-color: #ffbf80 !important;
+}
+.bodyColor9 {
+  color: #ffff80 !important;
+  background-color: #0b0b00 !important;
+}
+.borderColor9 {
+  border-color: #868600 !important;
+}
+.linkColor9,
+.linkColor9:visited {
+  color: #ffc !important;
+}
+.containerColor9 {
+  background-color: #ffff80 !important;
+}
+.bodyColor10 {
+  color: #bfff80 !important;
+  background-color: #060b00 !important;
+}
+.borderColor10 {
+  border-color: #438600 !important;
+}
+.linkColor10,
+.linkColor10:visited {
+  color: #e6ffcc !important;
+}
+.containerColor10 {
+  background-color: #bfff80 !important;
+}
+.bodyColor11 {
+  color: #80ff80 !important;
+  background-color: #000b00 !important;
+}
+.borderColor11 {
+  border-color: #008600 !important;
+}
+.linkColor11,
+.linkColor11:visited {
+  color: #cfc !important;
+}
+.containerColor11 {
+  background-color: #80ff80 !important;
 }
