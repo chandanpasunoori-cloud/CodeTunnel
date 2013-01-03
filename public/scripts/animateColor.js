@@ -24,6 +24,8 @@
       $banner.addClass('borderColor' + colorIndex);
       $links.addClass('linkColor' + colorIndex);
 
+      $(document).data('colorIndex', colorIndex);
+
       setTimeout(changeColors, delay);
     })();
   });
