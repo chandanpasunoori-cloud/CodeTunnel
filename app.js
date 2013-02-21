@@ -22,7 +22,7 @@ var domain = 'nodetunnel.azurewebsites.net',
 
 // Configure passport
 passport.use(new GooglePassport({
-    returnURL: rootUrl + '/auth/google/return',
+    returnURL: rootUrl + '/',
     realm: rootUrl
   },
   function(identifier, profile, done) {
