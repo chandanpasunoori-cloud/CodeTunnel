@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-var domain = 'localhost:1337',//'nodetunnel.azurewebsites.net',
+var domain = 'nodetunnel.azurewebsites.net',
   port = 1337,
   rootUrl = 'http://' + domain,
   express = require('express'),
