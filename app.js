@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-var domain = 'localhost',
+var domain = 'nodetunnel.azurewebsites.net',
   port = 3000,
-  rootUrl = 'http://' + domain + ':' + port,
+  rootUrl = 'http://' + domain,
   express = require('express'),
   routes = require('./routes'),
   user = require('./routes/user'),
@@ -103,5 +103,5 @@ app.get('/logout', function (req, res) {
 })
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log("http://localhost:" + app.get('port'));
+  console.log("App is listening on port " + app.get('port'));
 });
