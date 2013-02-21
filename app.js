@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-var domain = 'nodetunnel.azurewebsites.net',
-  port = 1337,
+var domain = process.env.DOMAIN || 'localhost:3000',
+  port = process.env.PORT || 3000,
   rootUrl = 'http://' + domain,
   express = require('express'),
   routes = require('./routes'),
@@ -17,7 +17,7 @@ var domain = 'nodetunnel.azurewebsites.net',
   TwitterPassport = require('passport-twitter').Strategy,
   db = require('mongoskin').db('localhost:27017/codeTunnelDB');
   settings = {
-    bannerText: process.env.food || 'Code.Tunnel();'
+    bannerText: process.env.BANNER_TEXT || 'Code.Tunnel();'
   };
 
 // Configure passport
@@ -63,7 +63,6 @@ passport.deserializeUser(function(user, done) {
 var app = express();
 
 app.configure(function(){
-  app.set('port', process.env.PORT || port);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
@@ -102,6 +101,6 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 })
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(port, function(){
   console.log("App is listening on port " + app.get('port'));
 });
