@@ -8,17 +8,23 @@ html
     script(type='text/javascript', src='/scripts/animateColor.js')
     link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
   body
-    img.backgroundImage(src="../images/ColorlessTunnel.jpg")
+    img.backgroundImage(src="../images/codetunnel.jpg")
     #frame
       include container
-        #banner= bannerText
+        #banner
+          a.hijax(href="/")= bannerText
         ul#navigation
           li
-            a(href="/") Blog
-          li
+            a.hijax(href="/") Blog
+          //li
             a(href="/projects") Projects
           li
-            a(href="/about") About
+            a.hijax(href="/about") About
+          li.right
+            if (!user)
+              a.hijax(href="/login") Login
+            else
+              span Welcome, #{user.firstName}! (<a href="/logout">logout</a>)
         #content
           block content
         #footer

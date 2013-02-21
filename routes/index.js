@@ -13,7 +13,7 @@ exports.home = function(req, res){
     { title: 'post 5' }
   ];
   var viewName = 'home/index';
-  if (!req.isAjax)
+  if (!req.xhr)
     viewName += '_full';
   res.render(viewName, req.settings);
 };
@@ -21,7 +21,7 @@ exports.home = function(req, res){
 exports.projects = function(req, res) {
   req.settings.title = 'My Projects';
   var viewName = 'projects/index';
-  if (!req.isAjax)
+  if (!req.xhr)
     viewName += '_full';
   res.render(viewName, req.settings);
 };
@@ -29,7 +29,15 @@ exports.projects = function(req, res) {
 exports.about = function(req, res) {
   req.settings.title = 'About Me';
   var viewName = 'about/index';
-  if (!req.isAjax)
+  if (!req.xhr)
+    viewName += '_full';
+  res.render(viewName, req.settings);
+};
+
+exports.login = function(req, res) {
+  req.settings.title = 'Authenticate';
+  var viewName = 'admin/login';
+  if (!req.xhr)
     viewName += '_full';
   res.render(viewName, req.settings);
 };

@@ -3,17 +3,17 @@
 }
 .translucentFrame {
   background: #3df53d;
-  opacity: 0.07;
-  -moz-opacity: 0.07;
-  filter: alpha(opacity=7);
+  opacity: 0.1;
+  -moz-opacity: 0.1;
+  filter: alpha(opacity=10);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
   -webkit-transition: background-color 0.5s linear;
   -moz-transition: background-color 0.5s linear;
   -o-transition: background-color 0.5s linear;
@@ -25,7 +25,7 @@
 }
 body {
   background: #000900;
-  color: #3df53d;
+  color: #a8faa8;
   font-size: 15px;
   font-family: Consolas;
   -webkit-transition: color 0.5s linear, background-color 0.5s linear;
@@ -36,7 +36,7 @@ body {
 #frame {
   position: relative;
   margin: 15px auto auto auto;
-  width: 90%;
+  width: 900px;
 }
 .backgroundImage {
   top: 0;
@@ -45,9 +45,9 @@ body {
   height: 100%;
   position: fixed;
   z-index: 0;
-  opacity: 0.1;
-  -moz-opacity: 0.1;
-  filter: alpha(opacity=10);
+  opacity: 0.05;
+  -moz-opacity: 0.05;
+  filter: alpha(opacity=5);
 }
 #banner {
   text-align: center;
@@ -73,15 +73,14 @@ body {
 }
 a,
 a:visited {
-  color: #cffccf;
+  color: #e2fde2;
   text-decoration: none;
   -webkit-transition: color 0.5s linear;
   -moz-transition: color 0.5s linear;
   -o-transition: color 0.5s linear;
   transition: color 0.5s linear;
 }
-a $:hover,
-a:visited $:hover {
+a:hover {
   text-decoration: underline;
 }
 .postSummary {
@@ -91,8 +90,11 @@ a:visited $:hover {
 .pageControls {
   margin-bottom: 15px;
 }
+.right {
+  float: right;
+}
 .bodyColor0 {
-  color: #80ffbf !important;
+  color: #c6ffe2 !important;
   background-color: #000b06 !important;
 }
 .borderColor0 {
@@ -100,13 +102,13 @@ a:visited $:hover {
 }
 .linkColor0,
 .linkColor0:visited {
-  color: #ccffe6 !important;
+  color: #ecfff5 !important;
 }
 .containerColor0 {
   background-color: #80ffbf !important;
 }
 .bodyColor1 {
-  color: #80ffff !important;
+  color: #c6ffff !important;
   background-color: #000b0b !important;
 }
 .borderColor1 {
@@ -114,13 +116,13 @@ a:visited $:hover {
 }
 .linkColor1,
 .linkColor1:visited {
-  color: #cff !important;
+  color: #ecffff !important;
 }
 .containerColor1 {
   background-color: #80ffff !important;
 }
 .bodyColor2 {
-  color: #80bfff !important;
+  color: #c6e2ff !important;
   background-color: #00060b !important;
 }
 .borderColor2 {
@@ -128,13 +130,13 @@ a:visited $:hover {
 }
 .linkColor2,
 .linkColor2:visited {
-  color: #cce5ff !important;
+  color: #ecf5ff !important;
 }
 .containerColor2 {
   background-color: #80bfff !important;
 }
 .bodyColor3 {
-  color: #8080ff !important;
+  color: #c6c6ff !important;
   background-color: #00000b !important;
 }
 .borderColor3 {
@@ -142,13 +144,13 @@ a:visited $:hover {
 }
 .linkColor3,
 .linkColor3:visited {
-  color: #ccf !important;
+  color: #ececff !important;
 }
 .containerColor3 {
   background-color: #8080ff !important;
 }
 .bodyColor4 {
-  color: #bf80ff !important;
+  color: #e2c6ff !important;
   background-color: #06000b !important;
 }
 .borderColor4 {
@@ -156,13 +158,13 @@ a:visited $:hover {
 }
 .linkColor4,
 .linkColor4:visited {
-  color: #e5ccff !important;
+  color: #f5ecff !important;
 }
 .containerColor4 {
   background-color: #bf80ff !important;
 }
 .bodyColor5 {
-  color: #ff80ff !important;
+  color: #ffc6ff !important;
   background-color: #0b000b !important;
 }
 .borderColor5 {
@@ -170,13 +172,13 @@ a:visited $:hover {
 }
 .linkColor5,
 .linkColor5:visited {
-  color: #fcf !important;
+  color: #ffecff !important;
 }
 .containerColor5 {
   background-color: #ff80ff !important;
 }
 .bodyColor6 {
-  color: #ff80bf !important;
+  color: #ffc6e2 !important;
   background-color: #0b0006 !important;
 }
 .borderColor6 {
@@ -184,13 +186,13 @@ a:visited $:hover {
 }
 .linkColor6,
 .linkColor6:visited {
-  color: #ffcce6 !important;
+  color: #ffecf5 !important;
 }
 .containerColor6 {
   background-color: #ff80bf !important;
 }
 .bodyColor7 {
-  color: #ff8080 !important;
+  color: #ffc6c6 !important;
   background-color: #0b0000 !important;
 }
 .borderColor7 {
@@ -198,13 +200,13 @@ a:visited $:hover {
 }
 .linkColor7,
 .linkColor7:visited {
-  color: #fcc !important;
+  color: #ffecec !important;
 }
 .containerColor7 {
   background-color: #ff8080 !important;
 }
 .bodyColor8 {
-  color: #ffbf80 !important;
+  color: #ffe2c6 !important;
   background-color: #0b0600 !important;
 }
 .borderColor8 {
@@ -212,13 +214,13 @@ a:visited $:hover {
 }
 .linkColor8,
 .linkColor8:visited {
-  color: #ffe6cc !important;
+  color: #fff5ec !important;
 }
 .containerColor8 {
   background-color: #ffbf80 !important;
 }
 .bodyColor9 {
-  color: #ffff80 !important;
+  color: #ffffc6 !important;
   background-color: #0b0b00 !important;
 }
 .borderColor9 {
@@ -226,13 +228,13 @@ a:visited $:hover {
 }
 .linkColor9,
 .linkColor9:visited {
-  color: #ffc !important;
+  color: #ffffec !important;
 }
 .containerColor9 {
   background-color: #ffff80 !important;
 }
 .bodyColor10 {
-  color: #bfff80 !important;
+  color: #e2ffc6 !important;
   background-color: #060b00 !important;
 }
 .borderColor10 {
@@ -240,13 +242,13 @@ a:visited $:hover {
 }
 .linkColor10,
 .linkColor10:visited {
-  color: #e6ffcc !important;
+  color: #f5ffec !important;
 }
 .containerColor10 {
   background-color: #bfff80 !important;
 }
 .bodyColor11 {
-  color: #80ff80 !important;
+  color: #c6ffc6 !important;
   background-color: #000b00 !important;
 }
 .borderColor11 {
@@ -254,7 +256,7 @@ a:visited $:hover {
 }
 .linkColor11,
 .linkColor11:visited {
-  color: #cfc !important;
+  color: #ecffec !important;
 }
 .containerColor11 {
   background-color: #80ff80 !important;

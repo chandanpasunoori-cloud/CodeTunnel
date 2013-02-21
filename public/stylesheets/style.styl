@@ -21,14 +21,14 @@ border-radius(value)
 
 .translucentFrame
   background: mainColor
-  opacity: .07
+  opacity: .1
   position: absolute
   top: 0
   left: 0
   width: 100%
   height: 100%
   z-index: 1
-  border-radius: 5px
+  border-radius: 10px
   transition: background-color colorChangeSpeed linear
 
 .contentFrame
@@ -37,7 +37,7 @@ border-radius(value)
 
 body
   background: darken(mainColor, 97%)
-  color: mainColor
+  color: lighten(mainColor, 55%)
   font-size: 15px
   font-family: Consolas
   transition: color colorChangeSpeed linear, background-color colorChangeSpeed linear
@@ -45,7 +45,7 @@ body
 #frame
   position: relative
   margin: 15px auto auto auto
-  width: 90%
+  width: 900px
 
 .backgroundImage
   top: 0
@@ -54,7 +54,7 @@ body
   height: 100%
   position: fixed
   z-index: 0
-  opacity: .1
+  opacity: .05
 
 #banner
   text-align: center
@@ -75,11 +75,11 @@ body
   padding: 15px
 
 a, a:visited
-  color: lighten(mainColor, 75%)
+  color: lighten(mainColor, 85%)
   text-decoration: none
   transition: color colorChangeSpeed linear
-  $:hover
-    text-decoration: underline
+a:hover
+  text-decoration: underline
 
 .postSummary
   padding: 10px
@@ -88,17 +88,20 @@ a, a:visited
 .pageControls
   margin-bottom: 15px
 
+.right
+  float: right
+
 //colors = 10 30 50 70 90 110 130 150 170 190 210 230 250 270 290 310 330 350
 colors = 150 180 210 240 270 300 330 0 30 60 90 120
 
 for hue, index in colors
   color = hsl(hue, 100%, 75%)
   .bodyColor{index}
-    color: color !important
+    color: lighten(color, 55%) !important
     background-color: darken(color, 97%) !important
   .borderColor{index}
     border-color: darken(color, 65%) !important
   .linkColor{index}, .linkColor{index}:visited
-    color: lighten(color, 60%) !important
+    color: lighten(color, 85%) !important
   .containerColor{index}
     background-color: color !important

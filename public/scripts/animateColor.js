@@ -10,7 +10,7 @@
         $banner = $('#banner'),
         $links = $('a'),
         $translucentFrame = $('.translucentFrame'),
-        delay = 15000;
+        delay = 2000;//15000;
 
       $body.removeClass('bodyColor' + colorIndex);
       $translucentFrame.removeClass('containerColor' + colorIndex)
