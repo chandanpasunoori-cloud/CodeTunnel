@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-var domain = 'nodetunnel.azurewebsites.net',
+var domain = 'localhost:1337',//'nodetunnel.azurewebsites.net',
   port = 1337,
   rootUrl = 'http://' + domain,
   express = require('express'),
@@ -17,7 +17,7 @@ var domain = 'nodetunnel.azurewebsites.net',
   TwitterPassport = require('passport-twitter').Strategy,
   db = require('mongoskin').db('localhost:27017/codeTunnelDB');
   settings = {
-    bannerText: 'Code.TunnelPizza();'
+    bannerText: 'Code.Tunnel();'
   };
 
 // Configure passport
@@ -94,7 +94,7 @@ app.get('/projects', routes.projects);
 app.get('/about', routes.about);
 app.get('/login', routes.login);
 app.get('/auth/google', passport.authenticate('google'));
-app.get('/auth/google/return', passport.authenticate('google', { successRedirect: '/about', failureRedirect: '/login' }));
+app.get('/auth/google/return', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/logout', function (req, res) {
