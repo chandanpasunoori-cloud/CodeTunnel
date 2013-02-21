@@ -17,7 +17,7 @@ var domain = 'nodetunnel.azurewebsites.net',
   TwitterPassport = require('passport-twitter').Strategy,
   db = require('mongoskin').db('localhost:27017/codeTunnelDB');
   settings = {
-    bannerText: 'Code.Tunnel();'
+    bannerText: process.env.food || 'Code.Tunnel();'
   };
 
 // Configure passport
