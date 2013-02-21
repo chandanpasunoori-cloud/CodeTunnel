@@ -23,7 +23,8 @@ var domain = process.env.DOMAIN || 'localhost:3000',
 // Configure passport
 passport.use(new GooglePassport({
     returnURL: rootUrl + '/auth/google/return',
-    realm: rootUrl
+    realm: rootUrl,
+    profile: false
   },
   function(identifier, profile, done) {
     var user = {
