@@ -13,7 +13,7 @@ var domain = process.env.DOMAIN || 'localhost:3000',
   path = require('path'),
   stylus = require('stylus'),
   passport = require('passport'),
-  GooglePassport = require('passport-google').Strategy,
+  GooglePassport = require('passport-google-oauth').Strategy,
   TwitterPassport = require('passport-twitter').Strategy,
   db = require('mongoskin').db('localhost:27017/codeTunnelDB');
   settings = {
@@ -22,15 +22,14 @@ var domain = process.env.DOMAIN || 'localhost:3000',
 
 // Configure passport
 passport.use(new GooglePassport({
-    returnURL: rootUrl + '/auth/google/return',
-    realm: rootUrl,
-    profile: false
+    consumerKey: 'codetunnel.com',
+    consumerSecret: 'k/xfnt6set8PbAHaZ20QF38V',
+    callbackURL: rootUrl + '/auth/google/callback'
   },
-  function(identifier, profile, done) {
+  function(token, tokenSecret, profile, done) {
     var user = {
-      email: profile.emails[0].value,
-      firstName: profile.name.givenName,
-      lastName: profile.name.familyName,
+      firstName: profile.displayName.split(' ')[0],
+      lastName: profile.displayName.split(' ')[1],
       displayName: profile.displayName
     };
     done(null, user);
@@ -44,9 +43,8 @@ passport.use(new TwitterPassport({
   },
   function(token, tokenSecret, profile, done) {
     var user = {
-      email: profile.emails[0].value,
-      firstName: profile.name.givenName,
-      lastName: profile.name.familyName,
+      firstName: profile.displayName.split(' ')[0],
+      lastName: profile.displayName.split(' ')[1],
       displayName: profile.displayName
     };
     done(null, user);
@@ -93,8 +91,10 @@ app.get('/users', user.list);
 app.get('/projects', routes.projects);
 app.get('/about', routes.about);
 app.get('/login', routes.login);
-app.get('/auth/google', passport.authenticate('google'));
-app.get('/auth/google/return', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
+app.get('/auth/google', passport.authenticate('google', {
+  scope: 'https://www.google.com/m8/feeds'
+}));
+app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/logout', function (req, res) {
