@@ -15,6 +15,7 @@ var domain = process.env.DOMAIN || 'localhost:3000',
   passport = require('passport'),
   GooglePassport = require('passport-google-oauth').OAuth2Strategy,
   TwitterPassport = require('passport-twitter').Strategy,
+  FacebookPassport = require('passport-facebook').Strategy,
   db = require('mongoskin').db('localhost:27017/codeTunnelDB');
   settings = {
     bannerText: process.env.BANNER_TEXT || 'Code.Tunnel();'
@@ -51,10 +52,24 @@ passport.use(new TwitterPassport({
   }
 ));
 
+passport.use(new FacebookPassport({
+    clientID: process.env.FACEBOOK_APP_ID || 'fake_app_id',
+    clientSecret: process.env.FACEBOOK_APP_SECRET || 'fake_app_secret',
+    callbackURL: rootUrl + '/auth/facebook/callback'
+  },
+  function(accessToken, refreshToken, profile, done) {
+    var user = {
+      firstName: profile.displayName.split(' ')[0],
+      lastName: profile.displayName.split(' ')[1],
+      displayName: profile.displayName
+    };
+    done(null, user);
+  }
+));
+
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
-
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
@@ -100,10 +115,12 @@ app.get('/auth/google', passport.authenticate('google', {
 app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/', failureRedirect: '/login' }));
+app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
-})
+});
 
 http.createServer(app).listen(port, function(){
   console.log("App is listening on port " + app.get('port'));
