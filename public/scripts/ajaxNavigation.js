@@ -3,6 +3,7 @@
     $(document).on('click', 'a.hijax', function (e) {
       e.preventDefault();
       if (!$(document).data('loading')) {
+        $(document).unbind('initialize');
         $(document).data('loading', true);
         var $link = $(this);
         var $content = $('#content');
@@ -28,7 +29,9 @@
                 $content.html(content);
                 var colorIndex = $(document).data('colorIndex');
                 $content.find('.translucentFrame').addClass('containerColor' + colorIndex);
-                $content.slideDown('fast');
+                $content.slideDown('fast', function () {
+                  $(document).trigger('initialize');
+                });
               });
             }
           });
