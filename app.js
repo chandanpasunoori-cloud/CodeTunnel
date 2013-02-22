@@ -22,8 +22,8 @@ var domain = process.env.DOMAIN || 'localhost:3000',
 
 // Configure passport
 passport.use(new GooglePassport({
-    clientID: '840650585631.apps.googleusercontent.com',
-    clientSecret: 'Mo_o1J5AwS7kDuu2FWS0dDr_',
+    clientID: process.env.GOOGLE_CLIENT_ID || 'fake_client_id',
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET || 'fake_client_secret',
     callbackURL: rootUrl + '/auth/google/callback'
   },
   function(token, tokenSecret, profile, done) {
@@ -37,8 +37,8 @@ passport.use(new GooglePassport({
 ));
 
 passport.use(new TwitterPassport({
-    consumerKey: 'NRRizR6Xq8QRe1lJKscA',
-    consumerSecret: 'dkFFdzeZfOLVIp2USmH8rtcGhQUqAoTT0SlfLUXoI3o',
+    consumerKey: process.env.TWITTER_CONSUMER_KEY || 'fake_consumer_key',
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET || 'fake_consumer_secret',
     callbackURL: rootUrl + '/auth/twitter/callback'
   },
   function(token, tokenSecret, profile, done) {
