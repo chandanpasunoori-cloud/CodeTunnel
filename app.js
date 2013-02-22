@@ -13,7 +13,7 @@ var domain = process.env.DOMAIN || 'localhost:3000',
   path = require('path'),
   stylus = require('stylus'),
   passport = require('passport'),
-  GooglePassport = require('passport-google-oauth').Strategy,
+  GooglePassport = require('passport-google-oauth').OAuth2Strategy,
   TwitterPassport = require('passport-twitter').Strategy,
   db = require('mongoskin').db('localhost:27017/codeTunnelDB');
   settings = {
@@ -22,8 +22,8 @@ var domain = process.env.DOMAIN || 'localhost:3000',
 
 // Configure passport
 passport.use(new GooglePassport({
-    consumerKey: 'codetunnel.com',
-    consumerSecret: 'k/xfnt6set8PbAHaZ20QF38V',
+    clientID: '840650585631.apps.googleusercontent.com',
+    clientSecret: 'Mo_o1J5AwS7kDuu2FWS0dDr_',
     callbackURL: rootUrl + '/auth/google/callback'
   },
   function(token, tokenSecret, profile, done) {
@@ -92,7 +92,10 @@ app.get('/projects', routes.projects);
 app.get('/about', routes.about);
 app.get('/login', routes.login);
 app.get('/auth/google', passport.authenticate('google', {
-  scope: 'https://www.google.com/m8/feeds'
+  scope: [
+    'https://www.googleapis.com/auth/userinfo.profile',
+    'https://www.googleapis.com/auth/userinfo.email'
+  ]
 }));
 app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/auth/twitter', passport.authenticate('twitter'));
