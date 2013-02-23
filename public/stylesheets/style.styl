@@ -1,5 +1,5 @@
 mainColor = hsl(120, 90%, 60%)
-colorChangeSpeed = .5s
+colorChangeSpeed = 1.5s
 
 opacity(value)
   opacity: value
@@ -36,7 +36,7 @@ border-radius(value)
   z-index: 2
 
 body
-  background: darken(mainColor, 97%)
+  background: #000;//darken(mainColor, 97%)
   color: lighten(mainColor, 55%)
   font-size: 15px
   font-family: Consolas
@@ -92,13 +92,13 @@ a:hover
   float: right
 
 //colors = 10 30 50 70 90 110 130 150 170 190 210 230 250 270 290 310 330 350
-colors = 0 30 60 90 120 150 180 210 240 270 300 330
+colors = 90 105 120 135 150 165 180 195 210 225 240 255 270 285 300 315 330 0 15 30 45 60 75
 
 for hue, index in colors
   color = hsl(hue, 100%, 75%)
   .bodyColor{index}
     color: lighten(color, 55%) !important
-    background-color: darken(color, 97%) !important
+    //background-color: darken(color, 97%) !important
   .borderColor{index}
     border-color: darken(color, 65%) !important
   .linkColor{index}, .linkColor{index}:visited

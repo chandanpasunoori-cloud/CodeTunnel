@@ -14,24 +14,24 @@
   z-index: 1;
   border-radius: 10px;
   -moz-border-radius: 10px;
-  -webkit-transition: background-color 0.5s linear;
-  -moz-transition: background-color 0.5s linear;
-  -o-transition: background-color 0.5s linear;
-  transition: background-color 0.5s linear;
+  -webkit-transition: background-color 1.5s linear;
+  -moz-transition: background-color 1.5s linear;
+  -o-transition: background-color 1.5s linear;
+  transition: background-color 1.5s linear;
 }
 .contentFrame {
   position: relative;
   z-index: 2;
 }
 body {
-  background: #000900;
+  background: #000;
   color: #a8faa8;
   font-size: 15px;
   font-family: Consolas;
-  -webkit-transition: color 0.5s linear, background-color 0.5s linear;
-  -moz-transition: color 0.5s linear, background-color 0.5s linear;
-  -o-transition: color 0.5s linear, background-color 0.5s linear;
-  transition: color 0.5s linear, background-color 0.5s linear;
+  -webkit-transition: color 1.5s linear, background-color 1.5s linear;
+  -moz-transition: color 1.5s linear, background-color 1.5s linear;
+  -o-transition: color 1.5s linear, background-color 1.5s linear;
+  transition: color 1.5s linear, background-color 1.5s linear;
 }
 #frame {
   position: relative;
@@ -55,10 +55,10 @@ body {
   padding: 15px;
   font-family: Courier New;
   border-bottom: solid 1px #056605;
-  -webkit-transition: border-color 0.5s linear;
-  -moz-transition: border-color 0.5s linear;
-  -o-transition: border-color 0.5s linear;
-  transition: border-color 0.5s linear;
+  -webkit-transition: border-color 1.5s linear;
+  -moz-transition: border-color 1.5s linear;
+  -o-transition: border-color 1.5s linear;
+  transition: border-color 1.5s linear;
 }
 #navigation {
   margin: 0;
@@ -75,10 +75,10 @@ a,
 a:visited {
   color: #e2fde2;
   text-decoration: none;
-  -webkit-transition: color 0.5s linear;
-  -moz-transition: color 0.5s linear;
-  -o-transition: color 0.5s linear;
-  transition: color 0.5s linear;
+  -webkit-transition: color 1.5s linear;
+  -moz-transition: color 1.5s linear;
+  -o-transition: color 1.5s linear;
+  transition: color 1.5s linear;
 }
 a:hover {
   text-decoration: underline;
@@ -94,92 +94,85 @@ a:hover {
   float: right;
 }
 .bodyColor0 {
-  color: #ffc6c6 !important;
-  background-color: #0b0000 !important;
+  color: #e2ffc6 !important;
 }
 .borderColor0 {
-  border-color: #860000 !important;
+  border-color: #438600 !important;
 }
 .linkColor0,
 .linkColor0:visited {
-  color: #ffecec !important;
+  color: #f5ffec !important;
 }
 .containerColor0 {
-  background-color: #ff8080 !important;
+  background-color: #bfff80 !important;
 }
 .bodyColor1 {
-  color: #ffe2c6 !important;
-  background-color: #0b0600 !important;
+  color: #d4ffc6 !important;
 }
 .borderColor1 {
-  border-color: #864300 !important;
+  border-color: #218600 !important;
 }
 .linkColor1,
 .linkColor1:visited {
-  color: #fff5ec !important;
+  color: #f1ffec !important;
 }
 .containerColor1 {
-  background-color: #ffbf80 !important;
+  background-color: #9fff80 !important;
 }
 .bodyColor2 {
-  color: #ffffc6 !important;
-  background-color: #0b0b00 !important;
+  color: #c6ffc6 !important;
 }
 .borderColor2 {
-  border-color: #868600 !important;
+  border-color: #008600 !important;
 }
 .linkColor2,
 .linkColor2:visited {
-  color: #ffffec !important;
+  color: #ecffec !important;
 }
 .containerColor2 {
-  background-color: #ffff80 !important;
+  background-color: #80ff80 !important;
 }
 .bodyColor3 {
-  color: #e2ffc6 !important;
-  background-color: #060b00 !important;
+  color: #c6ffd4 !important;
 }
 .borderColor3 {
-  border-color: #438600 !important;
+  border-color: #008621 !important;
 }
 .linkColor3,
 .linkColor3:visited {
-  color: #f5ffec !important;
+  color: #ecfff1 !important;
 }
 .containerColor3 {
-  background-color: #bfff80 !important;
+  background-color: #80ff9f !important;
 }
 .bodyColor4 {
-  color: #c6ffc6 !important;
-  background-color: #000b00 !important;
+  color: #c6ffe2 !important;
 }
 .borderColor4 {
-  border-color: #008600 !important;
+  border-color: #008643 !important;
 }
 .linkColor4,
 .linkColor4:visited {
-  color: #ecffec !important;
+  color: #ecfff5 !important;
 }
 .containerColor4 {
-  background-color: #80ff80 !important;
+  background-color: #80ffbf !important;
 }
 .bodyColor5 {
-  color: #c6ffe2 !important;
-  background-color: #000b06 !important;
+  color: #c6fff1 !important;
 }
 .borderColor5 {
-  border-color: #008643 !important;
+  border-color: #008664 !important;
 }
 .linkColor5,
 .linkColor5:visited {
-  color: #ecfff5 !important;
+  color: #ecfffa !important;
 }
 .containerColor5 {
-  background-color: #80ffbf !important;
+  background-color: #80ffdf !important;
 }
 .bodyColor6 {
   color: #c6ffff !important;
-  background-color: #000b0b !important;
 }
 .borderColor6 {
   border-color: #008686 !important;
@@ -192,72 +185,210 @@ a:hover {
   background-color: #80ffff !important;
 }
 .bodyColor7 {
-  color: #c6e2ff !important;
-  background-color: #00060b !important;
+  color: #c6f1ff !important;
 }
 .borderColor7 {
-  border-color: #004386 !important;
+  border-color: #006486 !important;
 }
 .linkColor7,
 .linkColor7:visited {
-  color: #ecf5ff !important;
+  color: #ecfaff !important;
 }
 .containerColor7 {
-  background-color: #80bfff !important;
+  background-color: #80dfff !important;
 }
 .bodyColor8 {
-  color: #c6c6ff !important;
-  background-color: #00000b !important;
+  color: #c6e2ff !important;
 }
 .borderColor8 {
-  border-color: #000086 !important;
+  border-color: #004386 !important;
 }
 .linkColor8,
 .linkColor8:visited {
-  color: #ececff !important;
+  color: #ecf5ff !important;
 }
 .containerColor8 {
-  background-color: #8080ff !important;
+  background-color: #80bfff !important;
 }
 .bodyColor9 {
-  color: #e2c6ff !important;
-  background-color: #06000b !important;
+  color: #c6d4ff !important;
 }
 .borderColor9 {
-  border-color: #430086 !important;
+  border-color: #002186 !important;
 }
 .linkColor9,
 .linkColor9:visited {
-  color: #f5ecff !important;
+  color: #ecf1ff !important;
 }
 .containerColor9 {
-  background-color: #bf80ff !important;
+  background-color: #809fff !important;
 }
 .bodyColor10 {
-  color: #ffc6ff !important;
-  background-color: #0b000b !important;
+  color: #c6c6ff !important;
 }
 .borderColor10 {
-  border-color: #860086 !important;
+  border-color: #000086 !important;
 }
 .linkColor10,
 .linkColor10:visited {
-  color: #ffecff !important;
+  color: #ececff !important;
 }
 .containerColor10 {
-  background-color: #ff80ff !important;
+  background-color: #8080ff !important;
 }
 .bodyColor11 {
-  color: #ffc6e2 !important;
-  background-color: #0b0006 !important;
+  color: #d4c6ff !important;
 }
 .borderColor11 {
-  border-color: #860043 !important;
+  border-color: #210086 !important;
 }
 .linkColor11,
 .linkColor11:visited {
-  color: #ffecf5 !important;
+  color: #f1ecff !important;
 }
 .containerColor11 {
+  background-color: #9f80ff !important;
+}
+.bodyColor12 {
+  color: #e2c6ff !important;
+}
+.borderColor12 {
+  border-color: #430086 !important;
+}
+.linkColor12,
+.linkColor12:visited {
+  color: #f5ecff !important;
+}
+.containerColor12 {
+  background-color: #bf80ff !important;
+}
+.bodyColor13 {
+  color: #f1c6ff !important;
+}
+.borderColor13 {
+  border-color: #640086 !important;
+}
+.linkColor13,
+.linkColor13:visited {
+  color: #faecff !important;
+}
+.containerColor13 {
+  background-color: #df80ff !important;
+}
+.bodyColor14 {
+  color: #ffc6ff !important;
+}
+.borderColor14 {
+  border-color: #860086 !important;
+}
+.linkColor14,
+.linkColor14:visited {
+  color: #ffecff !important;
+}
+.containerColor14 {
+  background-color: #ff80ff !important;
+}
+.bodyColor15 {
+  color: #ffc6f1 !important;
+}
+.borderColor15 {
+  border-color: #860064 !important;
+}
+.linkColor15,
+.linkColor15:visited {
+  color: #ffecfa !important;
+}
+.containerColor15 {
+  background-color: #ff80df !important;
+}
+.bodyColor16 {
+  color: #ffc6e2 !important;
+}
+.borderColor16 {
+  border-color: #860043 !important;
+}
+.linkColor16,
+.linkColor16:visited {
+  color: #ffecf5 !important;
+}
+.containerColor16 {
   background-color: #ff80bf !important;
+}
+.bodyColor17 {
+  color: #ffc6c6 !important;
+}
+.borderColor17 {
+  border-color: #860000 !important;
+}
+.linkColor17,
+.linkColor17:visited {
+  color: #ffecec !important;
+}
+.containerColor17 {
+  background-color: #ff8080 !important;
+}
+.bodyColor18 {
+  color: #ffd4c6 !important;
+}
+.borderColor18 {
+  border-color: #862100 !important;
+}
+.linkColor18,
+.linkColor18:visited {
+  color: #fff1ec !important;
+}
+.containerColor18 {
+  background-color: #ff9f80 !important;
+}
+.bodyColor19 {
+  color: #ffe2c6 !important;
+}
+.borderColor19 {
+  border-color: #864300 !important;
+}
+.linkColor19,
+.linkColor19:visited {
+  color: #fff5ec !important;
+}
+.containerColor19 {
+  background-color: #ffbf80 !important;
+}
+.bodyColor20 {
+  color: #fff1c6 !important;
+}
+.borderColor20 {
+  border-color: #866400 !important;
+}
+.linkColor20,
+.linkColor20:visited {
+  color: #fffaec !important;
+}
+.containerColor20 {
+  background-color: #ffdf80 !important;
+}
+.bodyColor21 {
+  color: #ffffc6 !important;
+}
+.borderColor21 {
+  border-color: #868600 !important;
+}
+.linkColor21,
+.linkColor21:visited {
+  color: #ffffec !important;
+}
+.containerColor21 {
+  background-color: #ffff80 !important;
+}
+.bodyColor22 {
+  color: #f1ffc6 !important;
+}
+.borderColor22 {
+  border-color: #648600 !important;
+}
+.linkColor22,
+.linkColor22:visited {
+  color: #faffec !important;
+}
+.containerColor22 {
+  background-color: #dfff80 !important;
 }
