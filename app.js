@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-var domain = process.env.DOMAIN || 'localhost:3000',
-  port = process.env.PORT || 3000,
+var domain = process.env.DOMAIN,
+  port = process.env.PORT,
   rootUrl = 'http://' + domain,
   express = require('express'),
   routes = require('./routes'),
@@ -18,17 +18,18 @@ var domain = process.env.DOMAIN || 'localhost:3000',
   FacebookPassport = require('passport-facebook').Strategy,
   db = require('mongoskin').db('localhost:27017/codeTunnelDB');
   settings = {
-    bannerText: process.env.BANNER_TEXT || 'Code.Tunnel();'
+    bannerText: process.env.BANNER_TEXT
   };
 
 // Configure passport
 passport.use(new GooglePassport({
-    clientID: process.env.GOOGLE_CLIENT_ID || 'fake_client_id',
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET || 'fake_client_secret',
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: rootUrl + '/auth/google/callback'
   },
   function(token, tokenSecret, profile, done) {
     var user = {
+      googleId: profile.id,
       firstName: profile.displayName.split(' ')[0],
       lastName: profile.displayName.split(' ')[1],
       displayName: profile.displayName
@@ -38,12 +39,13 @@ passport.use(new GooglePassport({
 ));
 
 passport.use(new TwitterPassport({
-    consumerKey: process.env.TWITTER_CONSUMER_KEY || 'fake_consumer_key',
-    consumerSecret: process.env.TWITTER_CONSUMER_SECRET || 'fake_consumer_secret',
+    consumerKey: process.env.TWITTER_CONSUMER_KEY,
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
     callbackURL: rootUrl + '/auth/twitter/callback'
   },
   function(token, tokenSecret, profile, done) {
     var user = {
+      twitterId: profile.id,
       firstName: profile.displayName.split(' ')[0],
       lastName: profile.displayName.split(' ')[1],
       displayName: profile.displayName
@@ -53,12 +55,13 @@ passport.use(new TwitterPassport({
 ));
 
 passport.use(new FacebookPassport({
-    clientID: process.env.FACEBOOK_APP_ID || 'fake_app_id',
-    clientSecret: process.env.FACEBOOK_APP_SECRET || 'fake_app_secret',
+    clientID: process.env.FACEBOOK_APP_ID,
+    clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: rootUrl + '/auth/facebook/callback'
   },
   function(accessToken, refreshToken, profile, done) {
     var user = {
+      facebookId: profile.id,
       firstName: profile.displayName.split(' ')[0],
       lastName: profile.displayName.split(' ')[1],
       displayName: profile.displayName
@@ -123,5 +126,5 @@ app.get('/logout', function (req, res) {
 });
 
 http.createServer(app).listen(port, function(){
-  console.log("App is listening on port " + app.get('port'));
+  console.log("App is listening on port " + port);
 });
