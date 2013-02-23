@@ -10,14 +10,16 @@
         $banner = $('#banner'),
         $links = $('a'),
         $translucentFrame = $('.translucentFrame'),
-        delay = 15000;
+        delay = 500;
 
       $body.removeClass('bodyColor' + colorIndex);
       $translucentFrame.removeClass('containerColor' + colorIndex)
       $banner.removeClass('borderColor' + colorIndex);
       $links.removeClass('linkColor' + colorIndex);
 
-      colorIndex = Math.floor(Math.random()*13);
+      colorIndex++; //= Math.floor(Math.random()*13);
+      if (colorIndex > 13)
+        colorIndex = 0;
 
       $body.addClass('bodyColor' + colorIndex);
       $translucentFrame.addClass('containerColor' + colorIndex)
