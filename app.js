@@ -103,6 +103,12 @@ passport.deserializeUser(function(id, done) {
 var app = express();
 
 app.configure(function(){
+  app.use(function (req, res, next) {
+    res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.header("Pragma", "no-cache");
+    res.header("Expires", 0);
+    next();
+  });
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
