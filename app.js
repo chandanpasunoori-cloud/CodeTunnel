@@ -8,7 +8,6 @@ var domain = process.env.DOMAIN,
   rootUrl = 'http://' + domain,
   express = require('express'),
   routes = require('./routes'),
-  user = require('./routes/user'),
   http = require('http'),
   path = require('path'),
   stylus = require('stylus'),
@@ -16,7 +15,7 @@ var domain = process.env.DOMAIN,
   GooglePassport = require('passport-google-oauth').OAuth2Strategy,
   TwitterPassport = require('passport-twitter').Strategy,
   FacebookPassport = require('passport-facebook').Strategy,
-  db = require('mongoskin').db('localhost:27017/codeTunnelDB');
+  db = require('mongoskin').db(process.env.CUSTOMCONNSTR_MONGODB);
   settings = {
     bannerText: process.env.BANNER_TEXT
   };
@@ -28,13 +27,21 @@ passport.use(new GooglePassport({
     callbackURL: rootUrl + '/auth/google/callback'
   },
   function(token, tokenSecret, profile, done) {
-    var user = {
-      googleId: profile.id,
-      firstName: profile.displayName.split(' ')[0],
-      lastName: profile.displayName.split(' ')[1],
-      displayName: profile.displayName
-    };
-    done(null, user);
+    db.collection('users').findOne({ googleId: profile.id }, function (err, user) {
+      if (!user) {
+        user = {
+          googleId: profile.id,
+          name: {
+            first: profile.displayName.split(' ')[0],
+            last: profile.displayName.split(' ')[1]
+          }
+        };
+        if (profile.emails.length > 0)
+          user.email = profile.emails[0].value;
+        db.collection('users').insert(user);
+      }
+      done(err, user);
+    });
   }
 ));
 
@@ -44,13 +51,19 @@ passport.use(new TwitterPassport({
     callbackURL: rootUrl + '/auth/twitter/callback'
   },
   function(token, tokenSecret, profile, done) {
-    var user = {
-      twitterId: profile.id,
-      firstName: profile.displayName.split(' ')[0],
-      lastName: profile.displayName.split(' ')[1],
-      displayName: profile.displayName
-    };
-    done(null, user);
+    db.collection('users').findOne({ twitterId: profile.id }, function (err, user) {
+      if (!user) {
+        user = {
+          twitterId: profile.id,
+          name: {
+            first: profile.displayName.split(' ')[0],
+            last: profile.displayName.split(' ')[1]
+          }
+        };
+        db.collection('users').insert(user);
+      }
+      done(err, user);
+    });
   }
 ));
 
@@ -60,21 +73,31 @@ passport.use(new FacebookPassport({
     callbackURL: rootUrl + '/auth/facebook/callback'
   },
   function(accessToken, refreshToken, profile, done) {
-    var user = {
-      facebookId: profile.id,
-      firstName: profile.displayName.split(' ')[0],
-      lastName: profile.displayName.split(' ')[1],
-      displayName: profile.displayName
-    };
-    done(null, user);
+    db.collection('users').findOne({ facebookId: profile.id }, function (err, user) {
+      if (!user) {
+        user = {
+          facebookId: profile.id,
+          name: {
+            first: profile.displayName.split(' ')[0],
+            last: profile.displayName.split(' ')[1]
+          }
+        };
+        if (profile.emails.length > 0)
+          user.email = profile.emails[0].value;
+        db.collection('users').insert(user);
+      }
+      done(err, user);
+    });
   }
 ));
 
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  done(null, user._id);
 });
-passport.deserializeUser(function(user, done) {
-  done(null, user);
+passport.deserializeUser(function(id, done) {
+  db.collection('users').findById(id, function (err, user) {
+    done(err, user);
+  });
 });
 
 var app = express();
@@ -105,21 +128,25 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.home);
-app.get('/users', user.list);
 app.get('/projects', routes.projects);
 app.get('/about', routes.about);
 app.get('/login', routes.login);
+app.get('/user/create', routes.createUser);
+app.post('/user/create', function (req, res) {
+  db.collection('users').updateById(req.user._id, { $set: { email: req.body.email }});
+  res.redirect('/');
+});
 app.get('/auth/google', passport.authenticate('google', {
   scope: [
     'https://www.googleapis.com/auth/userinfo.profile',
     'https://www.googleapis.com/auth/userinfo.email'
   ]
 }));
-app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
+app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/user/create', failureRedirect: '/login' }));
 app.get('/auth/twitter', passport.authenticate('twitter'));
-app.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/', failureRedirect: '/login' }));
+app.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/user/create', failureRedirect: '/login' }));
 app.get('/auth/facebook', passport.authenticate('facebook'));
-app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/user/create', failureRedirect: '/login' }));
 app.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');

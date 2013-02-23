@@ -36,8 +36,16 @@ exports.about = function(req, res) {
 
 exports.login = function(req, res) {
   req.settings.title = 'Authenticate';
-  var viewName = 'admin/login';
+  var viewName = 'user/login';
   if (!req.xhr)
     viewName += '_full';
   res.render(viewName, req.settings);
+};
+
+exports.createUser = function(req, res) {
+  req.settings.title = 'Create User';
+  if (!req.user.email)
+    res.render('user/create', req.settings);
+  else
+    res.redirect('/');
 };

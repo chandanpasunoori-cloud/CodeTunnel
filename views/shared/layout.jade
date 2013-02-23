@@ -25,7 +25,7 @@ html
             if (!user)
               a.hijax(href="/login") Login
             else
-              span Welcome, #{user.firstName}! (<a href="/logout">logout</a>)
+              span Welcome, #{user.name.first}! (<a href="/logout">logout</a>)
         #content
           block content
         #footer
