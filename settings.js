@@ -1,0 +1,1 @@
+exports.bannerText = process.env.BANNER_TEXT;

@@ -3,7 +3,7 @@
   $(function () {
 
     var colorIndex = 0,
-      delay = 1.5;
+      delay = 10;
 
     (function changeColors() {
       var
@@ -17,9 +17,10 @@
       $banner.removeClass('borderColor' + colorIndex);
       $links.removeClass('linkColor' + colorIndex);
 
-      colorIndex++; //= Math.floor(Math.random()*13);
-      if (colorIndex > 23)
-        colorIndex = 0;
+      colorIndex = Math.floor(Math.random()*23);
+//      colorIndex++;
+//      if (colorIndex > 23)
+//        colorIndex = 0;
 
       $body.addClass('bodyColor' + colorIndex);
       $translucentFrame.addClass('containerColor' + colorIndex)
@@ -30,15 +31,6 @@
 
       setTimeout(changeColors, delay * 1000);
     })();
-
-//    setTimeout(function () {
-//      $('body, #banner, a, .translucentFrame').css({
-//        'transition-duration': delay + 's',
-//        '-webkit-transition-duration': delay + 's',
-//        '-moz-transition-duration': delay + 's',
-//        '-o-transition-duration': delay + 's'
-//      });
-//    }, delay * 1000);
 
   });
 
