@@ -2,8 +2,7 @@ var express = require('express'),
   passport = require('passport'),
   stylus = require('stylus'),
   path = require('path'),
-  socialAuth = require('./socialAuth'),
-  settings = require('../settings');
+  socialAuth = require('./socialAuth');
 
 exports.config = function (app) {
 
@@ -30,13 +29,20 @@ exports.config = function (app) {
     app.use(express.session());
     app.use(passport.initialize());
     app.use(passport.session());
-    app.use(stylus.middleware('/../public'));
-    app.use(express.static(path.join('public')));
+    app.use(stylus.middleware(__dirname + '/../public'));
+    app.use(express.static(path.join(__dirname, '/../public')));
 
-    //  Build custom settings object to be passed to views.
-    app.use (function (req, res, next) {
-      settings.user = req.user;
-      req.settings = settings;
+    app.use(function (req, res, next) {
+      res.renderView = function (viewName, viewModel) {
+        if (!req.xhr)
+          viewName += '_full';
+        res.render(viewName, viewModel);
+      };
+      res.locals = {
+        title: process.env.BANNER_TEXT,
+        bannerText: process.env.BANNER_TEXT,
+        user: req.user
+      };
       next();
     });
 

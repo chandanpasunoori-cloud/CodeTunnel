@@ -4,28 +4,30 @@
 
     var colorIndex = 0,
       delay = 10;
+      items = [
+        { element: 'body', cssClass: 'bodyColor' },
+        { element: '#banner', cssClass: 'borderColor' },
+        { element: 'a', cssClass: 'linkColor' },
+        { element: '.translucentFrame', cssClass: 'containerColor' },
+        { element: 'a.button', cssClass: 'buttonColor' }
+      ];
+
+    $(document).data('colorItems', items);
 
     (function changeColors() {
-      var
-        $body = $('body'),
-        $banner = $('#banner'),
-        $links = $('a'),
-        $translucentFrame = $('.translucentFrame');
 
-      $body.removeClass('bodyColor' + colorIndex);
-      $translucentFrame.removeClass('containerColor' + colorIndex)
-      $banner.removeClass('borderColor' + colorIndex);
-      $links.removeClass('linkColor' + colorIndex);
+      items.forEach(function (item) {
+        $(item.element).removeClass(item.cssClass + colorIndex);
+      });
 
       colorIndex = Math.floor(Math.random()*23);
 //      colorIndex++;
 //      if (colorIndex > 23)
 //        colorIndex = 0;
 
-      $body.addClass('bodyColor' + colorIndex);
-      $translucentFrame.addClass('containerColor' + colorIndex)
-      $banner.addClass('borderColor' + colorIndex);
-      $links.addClass('linkColor' + colorIndex);
+      items.forEach(function (item) {
+        $(item.element).addClass(item.cssClass + colorIndex);
+      });
 
       $(document).data('colorIndex', colorIndex);
 

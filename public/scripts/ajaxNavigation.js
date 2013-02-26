@@ -27,8 +27,13 @@
                 $(document).data('loading', false);
                 clearInterval(intervalId);
                 $content.html(content);
-                var colorIndex = $(document).data('colorIndex');
-                $content.find('.translucentFrame').addClass('containerColor' + colorIndex);
+
+                var colorIndex = $(document).data('colorIndex'),
+                  items = $(document).data('colorItems');
+                items.forEach(function (item) {
+                  $content.find(item.element).addClass(item.cssClass + colorIndex);
+                });
+
                 $content.slideDown('fast', function () {
                   $(document).trigger('initialize');
                 });
