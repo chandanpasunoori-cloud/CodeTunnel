@@ -14,17 +14,7 @@
 
     $(document).data('colorItems', items);
 
-    var $debug = $('<span>')
-      .css({
-        position: 'absolute',
-        padding: '10px',
-        right: 0,
-        bottom: 0
-      })
-      .appendTo('body');
-
     (function changeColors() {
-      $debug.text(colorIndex);
       items.forEach(function (item) {
         $(item.element).removeClass(item.cssClass + colorIndex);
       });
