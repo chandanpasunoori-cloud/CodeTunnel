@@ -35,8 +35,18 @@ exports.config = function (app) {
     app.use(function (req, res, next) {
       res.renderView = function (viewName, viewModel) {
         if (!req.xhr)
-          viewName += '_full';
-        res.render(viewName, viewModel);
+          res.render(viewName + '_full', viewModel);
+        else
+          res.render(viewName, viewModel, function (err, view) {
+            if (!err)
+              res.json({
+                title: viewModel.title || viewModel._locals.title,
+                bannerText: viewModel.bannerText || viewModel._locals.bannerText,
+                view: view
+              });
+            else
+              throw err;
+          });
       };
       res.locals = {
         title: process.env.BANNER_TEXT,
@@ -48,6 +58,31 @@ exports.config = function (app) {
 
     // Handle routes for this request.
     app.use(app.router);
+
+    // Handle 404 errors.
+    app.use(function(req, res, next) {
+      var bannerAndTitle = '404 not found';
+      res.status(404);
+      res.renderView('shared/404', {
+        title: bannerAndTitle,
+        bannerText: bannerAndTitle,
+        url: req.url
+      });
+    });
+
+    // Handle server errors.
+    app.use(function(err, req, res, next) {
+      var statusCode = err.status || 500,
+        bannerAndTitle = statusCode + ' server error';
+      res.status(statusCode);
+      console.log(err.stack);
+      res.renderView('shared/500', {
+        title: bannerAndTitle,
+        bannerText: bannerAndTitle,
+        statusCode: statusCode,
+        error: err
+      });
+    });
   });
 
   // Development configuration.
