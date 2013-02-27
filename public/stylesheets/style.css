@@ -122,9 +122,9 @@ a.button:hover {
 .borderColor0 {
   border-color: #438600 !important;
 }
-.linkColor0,
-.linkColor0:visited {
-  color: #f5ffec !important;
+a.linkColor0,
+a.linkColor0:visited {
+  color: #f5ffec;
 }
 .containerColor0 {
   background-color: #bfff80 !important;
@@ -143,9 +143,9 @@ a.buttonColor0:hover {
 .borderColor1 {
   border-color: #218600 !important;
 }
-.linkColor1,
-.linkColor1:visited {
-  color: #f1ffec !important;
+a.linkColor1,
+a.linkColor1:visited {
+  color: #f1ffec;
 }
 .containerColor1 {
   background-color: #9fff80 !important;
@@ -164,9 +164,9 @@ a.buttonColor1:hover {
 .borderColor2 {
   border-color: #008600 !important;
 }
-.linkColor2,
-.linkColor2:visited {
-  color: #ecffec !important;
+a.linkColor2,
+a.linkColor2:visited {
+  color: #ecffec;
 }
 .containerColor2 {
   background-color: #80ff80 !important;
@@ -185,9 +185,9 @@ a.buttonColor2:hover {
 .borderColor3 {
   border-color: #008621 !important;
 }
-.linkColor3,
-.linkColor3:visited {
-  color: #ecfff1 !important;
+a.linkColor3,
+a.linkColor3:visited {
+  color: #ecfff1;
 }
 .containerColor3 {
   background-color: #80ff9f !important;
@@ -206,9 +206,9 @@ a.buttonColor3:hover {
 .borderColor4 {
   border-color: #008643 !important;
 }
-.linkColor4,
-.linkColor4:visited {
-  color: #ecfff5 !important;
+a.linkColor4,
+a.linkColor4:visited {
+  color: #ecfff5;
 }
 .containerColor4 {
   background-color: #80ffbf !important;
@@ -227,9 +227,9 @@ a.buttonColor4:hover {
 .borderColor5 {
   border-color: #008664 !important;
 }
-.linkColor5,
-.linkColor5:visited {
-  color: #ecfffa !important;
+a.linkColor5,
+a.linkColor5:visited {
+  color: #ecfffa;
 }
 .containerColor5 {
   background-color: #80ffdf !important;
@@ -248,9 +248,9 @@ a.buttonColor5:hover {
 .borderColor6 {
   border-color: #008686 !important;
 }
-.linkColor6,
-.linkColor6:visited {
-  color: #ecffff !important;
+a.linkColor6,
+a.linkColor6:visited {
+  color: #ecffff;
 }
 .containerColor6 {
   background-color: #80ffff !important;
@@ -269,9 +269,9 @@ a.buttonColor6:hover {
 .borderColor7 {
   border-color: #006486 !important;
 }
-.linkColor7,
-.linkColor7:visited {
-  color: #ecfaff !important;
+a.linkColor7,
+a.linkColor7:visited {
+  color: #ecfaff;
 }
 .containerColor7 {
   background-color: #80dfff !important;
@@ -290,9 +290,9 @@ a.buttonColor7:hover {
 .borderColor8 {
   border-color: #004386 !important;
 }
-.linkColor8,
-.linkColor8:visited {
-  color: #ecf5ff !important;
+a.linkColor8,
+a.linkColor8:visited {
+  color: #ecf5ff;
 }
 .containerColor8 {
   background-color: #80bfff !important;
@@ -311,9 +311,9 @@ a.buttonColor8:hover {
 .borderColor9 {
   border-color: #002186 !important;
 }
-.linkColor9,
-.linkColor9:visited {
-  color: #ecf1ff !important;
+a.linkColor9,
+a.linkColor9:visited {
+  color: #ecf1ff;
 }
 .containerColor9 {
   background-color: #809fff !important;
@@ -332,9 +332,9 @@ a.buttonColor9:hover {
 .borderColor10 {
   border-color: #000086 !important;
 }
-.linkColor10,
-.linkColor10:visited {
-  color: #ececff !important;
+a.linkColor10,
+a.linkColor10:visited {
+  color: #ececff;
 }
 .containerColor10 {
   background-color: #8080ff !important;
@@ -353,9 +353,9 @@ a.buttonColor10:hover {
 .borderColor11 {
   border-color: #210086 !important;
 }
-.linkColor11,
-.linkColor11:visited {
-  color: #f1ecff !important;
+a.linkColor11,
+a.linkColor11:visited {
+  color: #f1ecff;
 }
 .containerColor11 {
   background-color: #9f80ff !important;
@@ -374,9 +374,9 @@ a.buttonColor11:hover {
 .borderColor12 {
   border-color: #430086 !important;
 }
-.linkColor12,
-.linkColor12:visited {
-  color: #f5ecff !important;
+a.linkColor12,
+a.linkColor12:visited {
+  color: #f5ecff;
 }
 .containerColor12 {
   background-color: #bf80ff !important;
@@ -395,9 +395,9 @@ a.buttonColor12:hover {
 .borderColor13 {
   border-color: #640086 !important;
 }
-.linkColor13,
-.linkColor13:visited {
-  color: #faecff !important;
+a.linkColor13,
+a.linkColor13:visited {
+  color: #faecff;
 }
 .containerColor13 {
   background-color: #df80ff !important;
@@ -416,9 +416,9 @@ a.buttonColor13:hover {
 .borderColor14 {
   border-color: #860086 !important;
 }
-.linkColor14,
-.linkColor14:visited {
-  color: #ffecff !important;
+a.linkColor14,
+a.linkColor14:visited {
+  color: #ffecff;
 }
 .containerColor14 {
   background-color: #ff80ff !important;
@@ -437,9 +437,9 @@ a.buttonColor14:hover {
 .borderColor15 {
   border-color: #860064 !important;
 }
-.linkColor15,
-.linkColor15:visited {
-  color: #ffecfa !important;
+a.linkColor15,
+a.linkColor15:visited {
+  color: #ffecfa;
 }
 .containerColor15 {
   background-color: #ff80df !important;
@@ -458,9 +458,9 @@ a.buttonColor15:hover {
 .borderColor16 {
   border-color: #860043 !important;
 }
-.linkColor16,
-.linkColor16:visited {
-  color: #ffecf5 !important;
+a.linkColor16,
+a.linkColor16:visited {
+  color: #ffecf5;
 }
 .containerColor16 {
   background-color: #ff80bf !important;
@@ -479,9 +479,9 @@ a.buttonColor16:hover {
 .borderColor17 {
   border-color: #860021 !important;
 }
-.linkColor17,
-.linkColor17:visited {
-  color: #ffecf1 !important;
+a.linkColor17,
+a.linkColor17:visited {
+  color: #ffecf1;
 }
 .containerColor17 {
   background-color: #ff809f !important;
@@ -500,9 +500,9 @@ a.buttonColor17:hover {
 .borderColor18 {
   border-color: #860000 !important;
 }
-.linkColor18,
-.linkColor18:visited {
-  color: #ffecec !important;
+a.linkColor18,
+a.linkColor18:visited {
+  color: #ffecec;
 }
 .containerColor18 {
   background-color: #ff8080 !important;
@@ -521,9 +521,9 @@ a.buttonColor18:hover {
 .borderColor19 {
   border-color: #860000 !important;
 }
-.linkColor19,
-.linkColor19:visited {
-  color: #ffecec !important;
+a.linkColor19,
+a.linkColor19:visited {
+  color: #ffecec;
 }
 .containerColor19 {
   background-color: #ff8080 !important;
@@ -542,9 +542,9 @@ a.buttonColor19:hover {
 .borderColor20 {
   border-color: #862100 !important;
 }
-.linkColor20,
-.linkColor20:visited {
-  color: #fff1ec !important;
+a.linkColor20,
+a.linkColor20:visited {
+  color: #fff1ec;
 }
 .containerColor20 {
   background-color: #ff9f80 !important;
@@ -563,9 +563,9 @@ a.buttonColor20:hover {
 .borderColor21 {
   border-color: #864300 !important;
 }
-.linkColor21,
-.linkColor21:visited {
-  color: #fff5ec !important;
+a.linkColor21,
+a.linkColor21:visited {
+  color: #fff5ec;
 }
 .containerColor21 {
   background-color: #ffbf80 !important;
@@ -584,9 +584,9 @@ a.buttonColor21:hover {
 .borderColor22 {
   border-color: #866400 !important;
 }
-.linkColor22,
-.linkColor22:visited {
-  color: #fffaec !important;
+a.linkColor22,
+a.linkColor22:visited {
+  color: #fffaec;
 }
 .containerColor22 {
   background-color: #ffdf80 !important;
@@ -605,9 +605,9 @@ a.buttonColor22:hover {
 .borderColor23 {
   border-color: #868600 !important;
 }
-.linkColor23,
-.linkColor23:visited {
-  color: #ffffec !important;
+a.linkColor23,
+a.linkColor23:visited {
+  color: #ffffec;
 }
 .containerColor23 {
   background-color: #ffff80 !important;
@@ -626,9 +626,9 @@ a.buttonColor23:hover {
 .borderColor24 {
   border-color: #648600 !important;
 }
-.linkColor24,
-.linkColor24:visited {
-  color: #faffec !important;
+a.linkColor24,
+a.linkColor24:visited {
+  color: #faffec;
 }
 .containerColor24 {
   background-color: #dfff80 !important;

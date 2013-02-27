@@ -35,5 +35,5 @@ exports.newPost = function (req, res) {
     title: 'New Post',
     bannerText: 'New Post'
   };
-  res.renderView('blog/postForm')
+  res.renderView('blog/postForm', viewModel)
 };
