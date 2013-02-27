@@ -38,6 +38,13 @@
                   $(document).trigger('initialize');
                 });
               });
+            },
+            error: function () {
+              $loading.fadeOut('fast', function () {
+                $(document).data('loading', false);
+                clearInterval(intervalId);
+                $content.html('<h2>An error occurred.</h2>').slideDown('fast');
+              });
             }
           });
         });

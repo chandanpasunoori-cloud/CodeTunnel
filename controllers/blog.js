@@ -29,3 +29,11 @@ exports.about = function(req, res) {
   };
   res.renderView('blog/about', viewModel);
 };
+
+exports.newPost = function (req, res) {
+  var viewModel = {
+    title: 'New Post',
+    bannerText: 'New Post'
+  };
+  res.renderView('blog/postForm')
+};

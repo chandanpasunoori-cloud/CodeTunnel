@@ -21,7 +21,7 @@ html
             a(href="/projects") Projects
           li
             a.hijax(href="/about") About
-          li.right(style="text-align: right;")
+          li.right
             if (!user)
               a.hijax(href="/login") Login
             else
@@ -29,7 +29,7 @@ html
                 img.profilePicture(src=user.picture)
               span Welcome, <a href="#{user.url}">#{user.name.first}</a>!
               br
-              span (<a href="/logout">logout</a>)
+              span(style="font-size: small;") (<a href="/logout">logout</a>)
         #content
           block content
         #footer

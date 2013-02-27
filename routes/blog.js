@@ -5,4 +5,5 @@ exports.registerRoutes = function (app) {
   app.get('/', blogController.home);
   app.get('/about', blogController.about);
   app.get('/projects', blogController.projects);
+  app.get('/blog/post/new', blogController.newPost);
 };

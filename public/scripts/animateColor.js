@@ -3,7 +3,7 @@
   $(function () {
 
     var colorIndex = 0,
-      delay = 10;
+      delay = 0.3;
       items = [
         { element: 'body', cssClass: 'bodyColor' },
         { element: '#banner', cssClass: 'borderColor' },
@@ -14,16 +14,25 @@
 
     $(document).data('colorItems', items);
 
-    (function changeColors() {
+    var $debug = $('<span>')
+      .css({
+        position: 'absolute',
+        padding: '10px',
+        right: 0,
+        bottom: 0
+      })
+      .appendTo('body');
 
+    (function changeColors() {
+      $debug.text(colorIndex);
       items.forEach(function (item) {
         $(item.element).removeClass(item.cssClass + colorIndex);
       });
 
-      colorIndex = Math.floor(Math.random()*23);
-//      colorIndex++;
-//      if (colorIndex > 23)
-//        colorIndex = 0;
+      //colorIndex = Math.floor(Math.random()*23);
+      colorIndex++;
+      if (colorIndex > 25)
+        colorIndex = 0;
 
       items.forEach(function (item) {
         $(item.element).addClass(item.cssClass + colorIndex);
