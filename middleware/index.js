@@ -70,7 +70,7 @@ exports.config = function (app) {
 
     // Handle server errors.
     app.use(function(err, req, res, next) {
-      var statusCode = 200;//err.status || 500;
+      var statusCode = err.status || 500;
       res.status(statusCode);
       var viewModel = {
         title: statusCode + ' server error',
