@@ -34,20 +34,28 @@ exports.config = function (app) {
 
     app.use(function (req, res, next) {
       res.renderView = function (viewName, viewModel) {
+        console.log('renderView() invoked.');
         if (!req.xhr) {
-          if (viewName === 'shared/500')
-            return res.json(viewModel);
+          console.log('Rendering full view: ' + viewName);
           res.render(viewName + '_full', viewModel);
         }
-        else
+        else {
+          console.log('Rendering partial view: ' + viewName);
           res.render(viewName, viewModel, function (err, view) {
-            if (err) return req.next(err);
+            if (err) {
+              console.log(err.stack);
+              return req.next(err);
+            }
+            console.log('Converting partial view to json.');
             res.json({
               title: viewModel.title || viewModel._locals.title,
               bannerText: viewModel.bannerText || viewModel._locals.bannerText,
               view: view
             });
+            console.log('json sent to client.');
           });
+        }
+        console.log('renderView finished.');
       };
       res.locals = {
         title: process.env.BANNER_TEXT,
@@ -63,23 +71,27 @@ exports.config = function (app) {
     // Handle 404 errors.
     app.use(function(req, res, next) {
       res.status(404);
-      res.renderView('shared/404', {
+      var viewModel = {
         title: 'Page Not Found',
         bannerText: 'Page Not Found',
         url: req.url
-      });
+      };
+      res.renderView('shared/404', viewModel);
     });
 
     // Handle server errors.
     app.use(function(err, req, res, next) {
+      console.log('Error handler fired: ' + err.stack);
       var statusCode = err.status || 500;
       res.status(statusCode);
-      res.renderView('shared/500', {
+      var viewModel = {
         title: statusCode + ' server error',
         bannerText: 'Uh oh!',
         statusCode: statusCode,
         error: err
-      });
+      };
+      console.log('Rendering 500 error view');
+      res.renderView('shared/500', viewModel);
     });
   });
 
