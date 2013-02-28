@@ -34,28 +34,17 @@ exports.config = function (app) {
 
     app.use(function (req, res, next) {
       res.renderView = function (viewName, viewModel) {
-        console.log('renderView() invoked.');
-        if (!req.xhr) {
-          console.log('Rendering full view: ' + viewName);
+        if (!req.xhr)
           res.render(viewName + '_full', viewModel);
-        }
-        else {
-          console.log('Rendering partial view: ' + viewName);
+        else
           res.render(viewName, viewModel, function (err, view) {
-            if (err) {
-              console.log(err.stack);
-              return req.next(err);
-            }
-            console.log('Converting partial view to json.');
+            if (err) return req.next(err);
             res.json({
               title: viewModel.title || viewModel._locals.title,
               bannerText: viewModel.bannerText || viewModel._locals.bannerText,
               view: view
             });
-            console.log('json sent to client.');
           });
-        }
-        console.log('renderView finished.');
       };
       res.locals = {
         title: process.env.BANNER_TEXT,
@@ -81,7 +70,6 @@ exports.config = function (app) {
 
     // Handle server errors.
     app.use(function(err, req, res, next) {
-      console.log('Error handler fired: ' + err.stack);
       var statusCode = 200;//err.status || 500;
       res.status(statusCode);
       var viewModel = {
@@ -90,7 +78,6 @@ exports.config = function (app) {
         statusCode: statusCode,
         error: err
       };
-      console.log('Rendering 500 error view');
       res.renderView('shared/500', viewModel);
     });
   });
