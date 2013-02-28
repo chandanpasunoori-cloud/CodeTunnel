@@ -80,7 +80,7 @@ exports.config = function (app) {
         });
       }
       catch (err) {
-        res.send(err.stack);
+        res.send('CUSTOM: ' + err.stack);
       }
     });
   });
