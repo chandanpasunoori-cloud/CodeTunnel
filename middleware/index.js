@@ -82,7 +82,7 @@ exports.config = function (app) {
     // Handle server errors.
     app.use(function(err, req, res, next) {
       console.log('Error handler fired: ' + err.stack);
-      var statusCode = err.status || 500;
+      var statusCode = 200;//err.status || 500;
       res.status(statusCode);
       var viewModel = {
         title: statusCode + ' server error',
