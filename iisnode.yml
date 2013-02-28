@@ -1,0 +1,4 @@
+devErrorsEnabled: true
+debuggingEnabled: true
+debuggerPortRange: 5058-6058
+debuggerPathSegment: debug
