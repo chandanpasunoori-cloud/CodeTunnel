@@ -69,6 +69,7 @@ exports.config = function (app) {
 
     // Handle server errors.
     app.use(function(err, req, res, next) {
+      return res.send(err.stack);
       var statusCode = err.status || 500;
       res.status(statusCode);
       res.renderView('shared/500', {
