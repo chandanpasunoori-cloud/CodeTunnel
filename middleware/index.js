@@ -34,17 +34,22 @@ exports.config = function (app) {
 
     app.use(function (req, res, next) {
       res.renderView = function (viewName, viewModel) {
-        if (!req.xhr)
-          res.render(viewName + '_full', viewModel);
-        else
-          res.render(viewName, viewModel, function (err, view) {
-            if (err) return req.next(err);
-            res.json({
-              title: viewModel.title || viewModel._locals.title,
-              bannerText: viewModel.bannerText || viewModel._locals.bannerText,
-              view: view
+        try {
+          if (!req.xhr)
+            res.render(viewName + '_full', viewModel);
+          else
+            res.render(viewName, viewModel, function (err, view) {
+              if (err) return req.next(err);
+              res.json({
+                title: viewModel.title || viewModel._locals.title,
+                bannerText: viewModel.bannerText || viewModel._locals.bannerText,
+                view: view
+              });
             });
-          });
+        }
+        catch (err) {
+          res.send(err.stack);
+        }
       };
       res.locals = {
         title: process.env.BANNER_TEXT,
@@ -69,7 +74,6 @@ exports.config = function (app) {
 
     // Handle server errors.
     app.use(function(err, req, res, next) {
-      return res.send(err.stack);
       var statusCode = err.status || 500;
       res.status(statusCode);
       res.renderView('shared/500', {
