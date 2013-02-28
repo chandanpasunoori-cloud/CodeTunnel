@@ -34,8 +34,11 @@ exports.config = function (app) {
 
     app.use(function (req, res, next) {
       res.renderView = function (viewName, viewModel) {
-        if (!req.xhr)
+        if (!req.xhr) {
+          if (viewName === 'shared/500')
+            return res.json(viewModel);
           res.render(viewName + '_full', viewModel);
+        }
         else
           res.render(viewName, viewModel, function (err, view) {
             if (err) return req.next(err);
@@ -69,19 +72,14 @@ exports.config = function (app) {
 
     // Handle server errors.
     app.use(function(err, req, res, next) {
-      try {
-        var statusCode = err.status || 500;
-        res.status(statusCode);
-        res.renderView('shared/500', {
-          title: statusCode + ' server error',
-          bannerText: 'Uh oh!',
-          statusCode: statusCode,
-          error: err
-        });
-      }
-      catch (err) {
-        res.send('CUSTOM: ' + err.stack);
-      }
+      var statusCode = err.status || 500;
+      res.status(statusCode);
+      res.renderView('shared/500', {
+        title: statusCode + ' server error',
+        bannerText: 'Uh oh!',
+        statusCode: statusCode,
+        error: err
+      });
     });
   });
 
