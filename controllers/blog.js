@@ -5,12 +5,7 @@ exports.home = function(req, res){
       { title: 'post 2' },
       { title: 'post 3' },
       { title: 'post 4' },
-      { title: 'post 5' },
-      { title: 'post 6' },
-      { title: 'post 7' },
-      { title: 'post 8' },
-      { title: 'post 9' },
-      { title: 'post 10' }
+      { title: 'post 5' }
     ]
   };
   res.renderView('blog/index', viewModel);
@@ -27,7 +22,9 @@ exports.about = function(req, res) {
   var viewModel = {
     title: 'About Me'
   };
-  res.renderView('blog/about', viewModel);
+  setTimeout(function () {
+    res.renderView('blog/about', viewModel);
+  }, 3000);
 };
 
 exports.newPost = function (req, res) {

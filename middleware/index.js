@@ -38,7 +38,7 @@ exports.config = function (app) {
           res.render(viewName + '_full', viewModel);
         else
           res.render(viewName, viewModel, function (err, view) {
-            if (!err)
+            if (view)
               res.json({
                 title: viewModel.title || viewModel._locals.title,
                 bannerText: viewModel.bannerText || viewModel._locals.bannerText,
@@ -75,7 +75,6 @@ exports.config = function (app) {
       var statusCode = err.status || 500,
         bannerAndTitle = statusCode + ' server error';
       res.status(statusCode);
-      console.log(err.stack);
       res.renderView('shared/500', {
         title: bannerAndTitle,
         bannerText: bannerAndTitle,

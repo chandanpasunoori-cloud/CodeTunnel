@@ -1,5 +1,9 @@
 (function ($) {
   $(function () {
-    $(document).trigger('initialize');
+    $(document).trigger({
+      type: 'initialize',
+      firstLoad: true,
+      debug: true
+    });
   });
 })(jQuery);

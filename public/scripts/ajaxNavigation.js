@@ -1,16 +1,17 @@
 (function ($) {
-  $(function () {
+  $(document).bind('initialize', function (e) {
+    if (!e.firstLoad) return;
 
     var $content = $('#content'),
       $loading = $('<div>')
       .css({
-        marginLeft: '45%',
+        //marginLeft: '45%',
         padding: '10px',
-        textAlign: 'left',
+        textAlign: 'center',
         fontStyle: 'italic',
         display: 'none'
       })
-      .text('Loading')
+      .text('LOADING')
       .insertAfter($content);
 
     window.addEventListener('popstate', function (e) {
@@ -26,14 +27,12 @@
       if ($(document).data('loading'))
         return;
 
-      $(document)
-        .unbind('initialize')
-        .data('loading', true);
+      $(document).data('loading', true);
       $loading.fadeIn('fast');
       $content.slideUp('fast', function () {
         $content.data('intervalId', loadingAnimation($loading));
         $.get(url).done(displayPageContent).error(function (data) {
-            displayPageContent(JSON.parse(data.responseText));
+          displayPageContent(JSON.parse(data.responseText));
         });
       });
     }
@@ -43,15 +42,13 @@
         $(document).data('loading', false);
         clearInterval($content.data('intervalId'));
         document.title = data.title;
-        $('#banner a').text(data.bannerText);
+        $('#banner').text(data.bannerText);
         $content.html(data.view);
-
         var colorIndex = $(document).data('colorIndex'),
           items = $(document).data('colorItems');
         items.forEach(function (item) {
           $content.find(item.element).addClass(item.cssClass + colorIndex);
         });
-
         $content.slideDown('fast', function () {
           $(document).trigger('initialize');
         });
@@ -61,23 +58,25 @@
     $(document).on('click', 'a.hijax', function (e) {
       e.preventDefault();
       var url = $(this).attr('href');
-      if (url.split('/').pop() !== document.location.href.split('/').pop()) {
+
+      if (url.split('/').pop() !== document.location.href.split('/').pop())
         history.pushState({ url: url }, url, url);
-        getPageContent(url);
-      }
+
+      getPageContent(url);
     });
   });
 
   function loadingAnimation($elem) {
     var count = 0;
     return setInterval(function () {
-      $elem.text('Loading');
+      $elem.text('LOADING');
       for (var index = 0; index <= count; index++) {
+        $elem.prepend('.');
         $elem.append('.');
       }
       count++;
-      if (count >= 10) count = 0;
-    }, 350);
+      if (count >= 15) count = 0;
+    }, 75);
   }
 
 })(jQuery);
