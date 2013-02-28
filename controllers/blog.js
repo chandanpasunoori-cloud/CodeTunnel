@@ -24,7 +24,8 @@ exports.about = function(req, res) {
   };
   setTimeout(function () {
     res.renderView('blog/about', viewModel);
-  }, 3000);
+  }, 10000);
+  //res.renderView('blog/about', viewModel);
 };
 
 exports.newPost = function (req, res) {

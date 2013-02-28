@@ -9,7 +9,8 @@
         padding: '10px',
         textAlign: 'center',
         fontStyle: 'italic',
-        display: 'none'
+        display: 'none',
+        clear: 'both'
       })
       .text('LOADING')
       .insertAfter($content);

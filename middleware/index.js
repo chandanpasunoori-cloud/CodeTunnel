@@ -38,14 +38,12 @@ exports.config = function (app) {
           res.render(viewName + '_full', viewModel);
         else
           res.render(viewName, viewModel, function (err, view) {
-            if (view)
-              res.json({
-                title: viewModel.title || viewModel._locals.title,
-                bannerText: viewModel.bannerText || viewModel._locals.bannerText,
-                view: view
-              });
-            else
-              throw err;
+            if (err) return req.next(err);
+            res.json({
+              title: viewModel.title || viewModel._locals.title,
+              bannerText: viewModel.bannerText || viewModel._locals.bannerText,
+              view: view
+            });
           });
       };
       res.locals = {
@@ -61,23 +59,21 @@ exports.config = function (app) {
 
     // Handle 404 errors.
     app.use(function(req, res, next) {
-      var bannerAndTitle = '404 not found';
       res.status(404);
       res.renderView('shared/404', {
-        title: bannerAndTitle,
-        bannerText: bannerAndTitle,
+        title: 'Page Not Found',
+        bannerText: 'Page Not Found',
         url: req.url
       });
     });
 
     // Handle server errors.
     app.use(function(err, req, res, next) {
-      var statusCode = err.status || 500,
-        bannerAndTitle = statusCode + ' server error';
+      var statusCode = err.status || 500;
       res.status(statusCode);
       res.renderView('shared/500', {
-        title: bannerAndTitle,
-        bannerText: bannerAndTitle,
+        title: statusCode + ' server error',
+        bannerText: 'Uh oh!',
         statusCode: statusCode,
         error: err
       });
