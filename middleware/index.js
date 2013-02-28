@@ -59,7 +59,6 @@ exports.config = function (app) {
 
     // Handle 404 errors.
     app.use(function(req, res, next) {
-      if (req.url === '/debug') return next();
       res.status(404);
       var viewModel = {
         title: 'Page Not Found',
