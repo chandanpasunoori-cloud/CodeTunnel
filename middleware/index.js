@@ -59,26 +59,36 @@ exports.config = function (app) {
 
     // Handle 404 errors.
     app.use(function(req, res, next) {
-      res.status(404);
-      var viewModel = {
-        title: 'Page Not Found',
-        bannerText: 'Page Not Found',
-        url: req.url
-      };
-      res.renderView('shared/404', viewModel);
+      try {
+        res.status(404);
+        var viewModel = {
+          title: 'Page Not Found',
+          bannerText: 'Page Not Found',
+          url: req.url
+        };
+        res.renderView('shared/404', viewModel);
+      }
+      catch (err) {
+        next(err);
+      }
     });
 
     // Handle server errors.
     app.use(function(err, req, res, next) {
-      var statusCode = err.status || 500;
-      res.status(statusCode);
-      var viewModel = {
-        title: statusCode + ' server error',
-        bannerText: 'Uh oh!',
-        statusCode: statusCode,
-        error: err
-      };
-      res.renderView('shared/500', viewModel);
+      try {
+        var statusCode = err.status || 500;
+        res.status(statusCode);
+        var viewModel = {
+          title: statusCode + ' server error',
+          bannerText: 'Uh oh!',
+          statusCode: statusCode,
+          error: err
+        };
+        res.renderView('shared/500', viewModel);
+      }
+      catch (err) {
+        next(err);
+      }
     });
   });
 

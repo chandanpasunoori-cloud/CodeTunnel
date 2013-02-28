@@ -1,9 +1,10 @@
 (function ($) {
   $(function () {
-    $(document).trigger({
+    var initializeEvent = {
       type: 'initialize',
       firstLoad: true,
-      debug: true
-    });
+      debug: false
+    };
+    $(document).trigger(initializeEvent);
   });
 })(jQuery);

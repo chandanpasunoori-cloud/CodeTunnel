@@ -2,12 +2,12 @@ doctype 5
 html
   head
     title= title
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
     script(type='text/javascript', src='/scripts/preloadImages.js')
     script(type='text/javascript', src='/scripts/ajaxNavigation.js')
     script(type='text/javascript', src='/scripts/animateColor.js')
     script(type='text/javascript', src='/scripts/initialize.js')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
   body
     img.backgroundImage(src="../images/codetunnel.jpg")
     #frame
@@ -16,10 +16,10 @@ html
         ul#navigation
           li
             a.hijax(href="/") Blog
-          //li
-            a(href="/projects") Projects
           li
-            a.hijax(href="/about") About
+            a.hijax(href="/portfolio") Portfolio
+          li
+            a.hijax(href="/resume") Hire Me!
           li.right
             if (!user)
               a.hijax(href="/login") Login

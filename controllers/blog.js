@@ -11,19 +11,21 @@ exports.home = function(req, res){
   res.renderView('blog/index', viewModel);
 };
 
-exports.projects = function(req, res) {
+exports.portfolio = function(req, res) {
   var viewModel = {
-    title: 'My Projects'
+    title: 'My Portfolio',
+    bannerText: 'My Portfolio'
   };
-  res.renderView('projects/index', viewModel);
+  res.renderView('blog/portfolio', viewModel);
 };
 
-exports.about = function(req, res) {
+exports.resume = function(req, res) {
   var viewModel = {
-    title: 'About Me'
+    title: 'Hire Me!',
+    bannerText: 'Hire Me!'
   };
   setTimeout(function () {
-    res.renderView('blog/about', viewModel);
+    res.renderView('blog/resume', viewModel);
   }, 5000);
   //res.renderView('blog/about', viewModel);
 };
