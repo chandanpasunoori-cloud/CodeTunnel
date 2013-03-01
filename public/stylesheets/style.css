@@ -71,6 +71,8 @@ body {
 }
 #navigation li {
   display: inline;
+}
+#navigation li.nav {
   margin-right: 35px;
 }
 #content {
