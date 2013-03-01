@@ -1,4 +1,5 @@
-var db = require('mongoskin').db(process.env.CUSTOMCONNSTR_MONGODB);
+var db = require('mongoskin').db(process.env.CUSTOMCONNSTR_MONGODB),
+  markdown = require('node-markdown').Markdown;
 
 exports.home = function(req, res){
   var viewModel = {
@@ -33,6 +34,7 @@ exports.post = function (req, res) {
   var viewModel = {
     blogPost: req.blogPost
   };
+  viewModel.blogPost.content = markdown(viewModel.blogPost.content);
   res.renderView('blog/post', viewModel);
 };
 
@@ -55,7 +57,7 @@ exports.editPost = function (req, res) {
 };
 
 exports.savePost = function (req, res) {
-  if (!req.body.postId) {
+  if (!req.param('postSlug')) {
     db.collection('blogPosts').insert({
       date: new Date(),
       author: req.user._id,
@@ -69,17 +71,18 @@ exports.savePost = function (req, res) {
     });
   }
   else {
-    db.collection('blogPosts').update({ _id: req.body.postId }, {
+    var newSlug = convertToSlug(req.param('postTitle'));
+    db.collection('blogPosts').update({ slug: req.param('postSlug') }, {
       $set: {
         editDate: new Date(),
         title: req.param('postTitle'),
-        slug: convertToSlug(req.param('postTitle')),
+        slug: newSlug,
         content: req.param('postContent')
       }
     },
-    function (err, blogPost) {
+    function (err) {
       if (err) return req.next(err);
-      res.redirect('/blog/post/' + blogPost.slug);
+      res.redirect('/blog/post/' + newSlug);
     });
   }
 };

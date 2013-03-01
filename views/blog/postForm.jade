@@ -1,6 +1,6 @@
 form(action="/blog/post/save", method="POST")
   if (blogPost)
-    input(name="postId", type="hidden", value=blogPost._id)
+    input(name="postSlug", type="hidden", value=blogPost.slug)
   label(for="postTitle") Title
   br
   input(name="postTitle", type="text", style="width: 865px;", value= blogPost ? blogPost.title : null)

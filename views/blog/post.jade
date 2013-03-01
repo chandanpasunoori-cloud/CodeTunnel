@@ -1,6 +1,6 @@
-div= blogPost.title
-div= blogPost.author
-div= blogPost.content
-div= blogPost.date
-if (blogPost.editDate)
-  div= blogPost.editDate
+//include ../shared/container
+div.blogPost
+  div.postTitle= blogPost.title
+  div.postDate= blogPost.date
+  br
+  div.postContent!= blogPost.content
