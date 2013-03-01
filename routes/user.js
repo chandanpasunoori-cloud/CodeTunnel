@@ -1,4 +1,4 @@
-var userController = require('../controllers/user');
+var userController = require('../controllers/userController');
 
 exports.registerRoutes = function (app) {
   // Setup user routes.
