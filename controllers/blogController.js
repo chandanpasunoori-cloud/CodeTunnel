@@ -26,7 +26,7 @@ exports.resume = function(req, res) {
     title: 'Hire Me!',
     bannerText: 'Hire Me!'
   };
-  res.renderView('blog/about', viewModel);
+  res.renderView('blog/resume', viewModel);
 };
 
 exports.post = function (req, res) {
