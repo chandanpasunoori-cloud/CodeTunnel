@@ -3,7 +3,7 @@ var rootUrl = 'http://' + process.env.DOMAIN,
   GooglePassport = require('passport-google-oauth').OAuth2Strategy,
   TwitterPassport = require('passport-twitter').Strategy,
   FacebookPassport = require('passport-facebook').Strategy,
-  db = require('mongoskin').db(process.env.CUSTOMCONNSTR_MONGODB);
+  db = require('../db');
 
 exports.config = function () {
   // Configure passport

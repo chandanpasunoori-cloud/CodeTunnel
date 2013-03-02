@@ -1,6 +1,6 @@
 var passport = require('passport');
 
-exports.registerRoutes = function (app) {
+exports.register = function (app) {
   // Social auth provider routes.
   app.get('/auth/google', passport.authenticate('google', { scope: [ 'https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email' ] }));
   app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/user/create', failureRedirect: '/login' }));

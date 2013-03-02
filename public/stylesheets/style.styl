@@ -66,7 +66,7 @@ body
   font-size: 55px
   padding: 15px
   font-family: Courier New
-  border-bottom: solid 1px darken(mainColor, 65%)
+  border-bottom: solid 1px darken(mainColor, 55%)
   transition: border-color colorChangeSpeed linear
 
 #navigation
@@ -82,6 +82,14 @@ body
   padding: 15px
   overflow-x: auto
 
+input, textarea
+  background: transparent
+  border: dotted 1px darken(mainColor, 65%)
+  border-radius: 5px
+  padding: 10px
+  color: lighten(mainColor, 55%)
+
+
 a, a:visited
   color: lighten(mainColor, 85%)
   text-decoration: none
@@ -92,8 +100,9 @@ a:hover
 .blogPost
   padding: 15px
   .postTitle
-    font-size: 25px
+    font-size: 20px
   .postDate
+    font-style: italic
     font-size: 13px
 
 .postSummary
@@ -107,14 +116,15 @@ a:hover
   float: right
   text-align: right
 
-a.button
+.button
   padding: 3px 5px 3px 5px
   color: darken(mainColor, 75%) !important
   background-color: lighten(mainColor, 25%)
   border-radius: 5px
   transition: background-color colorChangeSpeed linear
+  cursor: pointer
 
-a.button:hover
+.button:hover
   background-color: darken(mainColor, 50%)
   color: lighten(mainColor, 85%) !important
   text-decoration: none
@@ -128,14 +138,17 @@ for hue, index in colors
     color: lighten(color, 55%) !important
     //background-color: darken(color, 97%) !important
   .borderColor{index}
-    border-color: darken(color, 65%) !important
+    border-color: darken(color, 55%) !important
   a.linkColor{index}, a.linkColor{index}:visited
     color: lighten(color, 85%)
   .containerColor{index}
     background-color: color !important
-  a.buttonColor{index}
+  .buttonColor{index}
     color: darken(color, 75%) !important
     background-color: lighten(color, 25%)
-  a.buttonColor{index}:hover
+  .buttonColor{index}:hover
     background-color: darken(color, 50%)
     color: lighten(color, 85%) !important
+  .inputColor{index}
+    border-color: darken(color, 55%) !important
+    color: lighten(color, 55%)

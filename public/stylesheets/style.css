@@ -59,7 +59,7 @@ body {
   font-size: 55px;
   padding: 15px;
   font-family: Courier New;
-  border-bottom: solid 1px #056605;
+  border-bottom: solid 1px #078307;
   -webkit-transition: border-color 0.3s linear;
   -moz-transition: border-color 0.3s linear;
   -o-transition: border-color 0.3s linear;
@@ -80,6 +80,15 @@ body {
   padding: 15px;
   overflow-x: auto;
 }
+input,
+textarea {
+  background: transparent;
+  border: dotted 1px #056605;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 10px;
+  color: #a8faa8;
+}
 a,
 a:visited {
   color: #e2fde2;
@@ -96,9 +105,10 @@ a:hover {
   padding: 15px;
 }
 .blogPost .postTitle {
-  font-size: 25px;
+  font-size: 20px;
 }
 .blogPost .postDate {
+  font-style: italic;
   font-size: 13px;
 }
 .postSummary {
@@ -112,7 +122,7 @@ a:hover {
   float: right;
   text-align: right;
 }
-a.button {
+.button {
   padding: 3px 5px 3px 5px;
   color: #044904 !important;
   background-color: #6ef76e;
@@ -122,8 +132,9 @@ a.button {
   -moz-transition: background-color 0.3s linear;
   -o-transition: background-color 0.3s linear;
   transition: background-color 0.3s linear;
+  cursor: pointer;
 }
-a.button:hover {
+.button:hover {
   background-color: #089108;
   color: #e2fde2 !important;
   text-decoration: none;
@@ -132,7 +143,7 @@ a.button:hover {
   color: #ffc6c6 !important;
 }
 .borderColor0 {
-  border-color: #860000 !important;
+  border-color: #ac0000 !important;
 }
 a.linkColor0,
 a.linkColor0:visited {
@@ -141,19 +152,23 @@ a.linkColor0:visited {
 .containerColor0 {
   background-color: #ff8080 !important;
 }
-a.buttonColor0 {
+.buttonColor0 {
   color: #600000 !important;
   background-color: #ff9f9f;
 }
-a.buttonColor0:hover {
+.buttonColor0:hover {
   background-color: #bf0000;
   color: #ffecec !important;
+}
+.inputColor0 {
+  border-color: #ac0000 !important;
+  color: #ffc6c6;
 }
 .bodyColor1 {
   color: #ffe2c6 !important;
 }
 .borderColor1 {
-  border-color: #864300 !important;
+  border-color: #ac5600 !important;
 }
 a.linkColor1,
 a.linkColor1:visited {
@@ -162,19 +177,23 @@ a.linkColor1:visited {
 .containerColor1 {
   background-color: #ffbf80 !important;
 }
-a.buttonColor1 {
+.buttonColor1 {
   color: #603000 !important;
   background-color: #ffcf9f;
 }
-a.buttonColor1:hover {
+.buttonColor1:hover {
   background-color: #bf6000;
   color: #fff5ec !important;
+}
+.inputColor1 {
+  border-color: #ac5600 !important;
+  color: #ffe2c6;
 }
 .bodyColor2 {
   color: #ffffc6 !important;
 }
 .borderColor2 {
-  border-color: #868600 !important;
+  border-color: #acac00 !important;
 }
 a.linkColor2,
 a.linkColor2:visited {
@@ -183,19 +202,23 @@ a.linkColor2:visited {
 .containerColor2 {
   background-color: #ffff80 !important;
 }
-a.buttonColor2 {
+.buttonColor2 {
   color: #606000 !important;
   background-color: #ffff9f;
 }
-a.buttonColor2:hover {
+.buttonColor2:hover {
   background-color: #bfbf00;
   color: #ffffec !important;
+}
+.inputColor2 {
+  border-color: #acac00 !important;
+  color: #ffffc6;
 }
 .bodyColor3 {
   color: #e2ffc6 !important;
 }
 .borderColor3 {
-  border-color: #438600 !important;
+  border-color: #56ac00 !important;
 }
 a.linkColor3,
 a.linkColor3:visited {
@@ -204,19 +227,23 @@ a.linkColor3:visited {
 .containerColor3 {
   background-color: #bfff80 !important;
 }
-a.buttonColor3 {
+.buttonColor3 {
   color: #306000 !important;
   background-color: #cfff9f;
 }
-a.buttonColor3:hover {
+.buttonColor3:hover {
   background-color: #60bf00;
   color: #f5ffec !important;
+}
+.inputColor3 {
+  border-color: #56ac00 !important;
+  color: #e2ffc6;
 }
 .bodyColor4 {
   color: #c6ffc6 !important;
 }
 .borderColor4 {
-  border-color: #008600 !important;
+  border-color: #00ac00 !important;
 }
 a.linkColor4,
 a.linkColor4:visited {
@@ -225,19 +252,23 @@ a.linkColor4:visited {
 .containerColor4 {
   background-color: #80ff80 !important;
 }
-a.buttonColor4 {
+.buttonColor4 {
   color: #006000 !important;
   background-color: #9fff9f;
 }
-a.buttonColor4:hover {
+.buttonColor4:hover {
   background-color: #00bf00;
   color: #ecffec !important;
+}
+.inputColor4 {
+  border-color: #00ac00 !important;
+  color: #c6ffc6;
 }
 .bodyColor5 {
   color: #c6ffe2 !important;
 }
 .borderColor5 {
-  border-color: #008643 !important;
+  border-color: #00ac56 !important;
 }
 a.linkColor5,
 a.linkColor5:visited {
@@ -246,19 +277,23 @@ a.linkColor5:visited {
 .containerColor5 {
   background-color: #80ffbf !important;
 }
-a.buttonColor5 {
+.buttonColor5 {
   color: #006030 !important;
   background-color: #9fffcf;
 }
-a.buttonColor5:hover {
+.buttonColor5:hover {
   background-color: #00bf60;
   color: #ecfff5 !important;
+}
+.inputColor5 {
+  border-color: #00ac56 !important;
+  color: #c6ffe2;
 }
 .bodyColor6 {
   color: #c6ffff !important;
 }
 .borderColor6 {
-  border-color: #008686 !important;
+  border-color: #00acac !important;
 }
 a.linkColor6,
 a.linkColor6:visited {
@@ -267,19 +302,23 @@ a.linkColor6:visited {
 .containerColor6 {
   background-color: #80ffff !important;
 }
-a.buttonColor6 {
+.buttonColor6 {
   color: #006060 !important;
   background-color: #9fffff;
 }
-a.buttonColor6:hover {
+.buttonColor6:hover {
   background-color: #00bfbf;
   color: #ecffff !important;
+}
+.inputColor6 {
+  border-color: #00acac !important;
+  color: #c6ffff;
 }
 .bodyColor7 {
   color: #c6e2ff !important;
 }
 .borderColor7 {
-  border-color: #004386 !important;
+  border-color: #0056ac !important;
 }
 a.linkColor7,
 a.linkColor7:visited {
@@ -288,19 +327,23 @@ a.linkColor7:visited {
 .containerColor7 {
   background-color: #80bfff !important;
 }
-a.buttonColor7 {
+.buttonColor7 {
   color: #003060 !important;
   background-color: #9fcfff;
 }
-a.buttonColor7:hover {
+.buttonColor7:hover {
   background-color: #0060bf;
   color: #ecf5ff !important;
+}
+.inputColor7 {
+  border-color: #0056ac !important;
+  color: #c6e2ff;
 }
 .bodyColor8 {
   color: #c6c6ff !important;
 }
 .borderColor8 {
-  border-color: #000086 !important;
+  border-color: #0000ac !important;
 }
 a.linkColor8,
 a.linkColor8:visited {
@@ -309,19 +352,23 @@ a.linkColor8:visited {
 .containerColor8 {
   background-color: #8080ff !important;
 }
-a.buttonColor8 {
+.buttonColor8 {
   color: #000060 !important;
   background-color: #9f9fff;
 }
-a.buttonColor8:hover {
+.buttonColor8:hover {
   background-color: #0000bf;
   color: #ececff !important;
+}
+.inputColor8 {
+  border-color: #0000ac !important;
+  color: #c6c6ff;
 }
 .bodyColor9 {
   color: #e2c6ff !important;
 }
 .borderColor9 {
-  border-color: #430086 !important;
+  border-color: #5600ac !important;
 }
 a.linkColor9,
 a.linkColor9:visited {
@@ -330,19 +377,23 @@ a.linkColor9:visited {
 .containerColor9 {
   background-color: #bf80ff !important;
 }
-a.buttonColor9 {
+.buttonColor9 {
   color: #300060 !important;
   background-color: #cf9fff;
 }
-a.buttonColor9:hover {
+.buttonColor9:hover {
   background-color: #6000bf;
   color: #f5ecff !important;
+}
+.inputColor9 {
+  border-color: #5600ac !important;
+  color: #e2c6ff;
 }
 .bodyColor10 {
   color: #ffc6ff !important;
 }
 .borderColor10 {
-  border-color: #860086 !important;
+  border-color: #ac00ac !important;
 }
 a.linkColor10,
 a.linkColor10:visited {
@@ -351,19 +402,23 @@ a.linkColor10:visited {
 .containerColor10 {
   background-color: #ff80ff !important;
 }
-a.buttonColor10 {
+.buttonColor10 {
   color: #600060 !important;
   background-color: #ff9fff;
 }
-a.buttonColor10:hover {
+.buttonColor10:hover {
   background-color: #bf00bf;
   color: #ffecff !important;
+}
+.inputColor10 {
+  border-color: #ac00ac !important;
+  color: #ffc6ff;
 }
 .bodyColor11 {
   color: #ffc6e2 !important;
 }
 .borderColor11 {
-  border-color: #860043 !important;
+  border-color: #ac0056 !important;
 }
 a.linkColor11,
 a.linkColor11:visited {
@@ -372,11 +427,15 @@ a.linkColor11:visited {
 .containerColor11 {
   background-color: #ff80bf !important;
 }
-a.buttonColor11 {
+.buttonColor11 {
   color: #600030 !important;
   background-color: #ff9fcf;
 }
-a.buttonColor11:hover {
+.buttonColor11:hover {
   background-color: #bf0060;
   color: #ffecf5 !important;
+}
+.inputColor11 {
+  border-color: #ac0056 !important;
+  color: #ffc6e2;
 }

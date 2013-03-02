@@ -1,14 +1,12 @@
-form(action="/blog/post/save", method="POST")
-  if (blogPost)
-    input(name="postSlug", type="hidden", value=blogPost.slug)
+form(action=blogPost ? 'update' : 'create', method="POST")
   label(for="postTitle") Title
   br
-  input(name="postTitle", type="text", style="width: 865px;", value= blogPost ? blogPost.title : null)
+  input(name="postTitle", type="text", style="width: 850px;", value= blogPost ? blogPost.title : null)
   br
   br
   label(for="postContent") Content
   br
-  textarea(name="postContent", style="width: 865px; height: 400px;")= blogPost ? blogPost.content : null
+  textarea(name="postContent", style="width: 850px; height: 400px;")= blogPost ? blogPost.content : null
   br
   br
-  input(type="submit", value="Save")
+  input.button(type="submit", value=blogPost ? 'Update' : 'Create')

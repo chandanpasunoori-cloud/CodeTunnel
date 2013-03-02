@@ -10,7 +10,8 @@
         { element: '#banner', cssClass: 'borderColor' },
         { element: 'a', cssClass: 'linkColor' },
         { element: '.translucentFrame', cssClass: 'containerColor' },
-        { element: 'a.button', cssClass: 'buttonColor' }
+        { element: '.button', cssClass: 'buttonColor' },
+	    { element: 'input, textarea', cssClass: 'inputColor' }
       ];
 
     if (e.debug) {
