@@ -4,7 +4,8 @@ var express = require('express'),
 	path = require('path'),
 	socialAuth = require('./socialAuth'),
 	db = require('../db'),
-	MongoSkinSessionStore = require('connect-mongoskin');
+	MongoSkinSessionStore = require('connect-mongoskin'),
+  moment = require('moment');
 
 exports.config = function (app) {
 
@@ -34,6 +35,12 @@ exports.config = function (app) {
 		app.use(stylus.middleware(__dirname + '/../public'));
 		app.use(express.static(path.join(__dirname, '/../public')));
 
+    app.locals = {
+      title: process.env.BANNER_TEXT,
+      bannerText: process.env.BANNER_TEXT,
+      moment: moment
+    };
+
 		app.use(function (req, res, next) {
 			res.renderView = function (viewName, viewModel) {
 				if (!req.xhr)
@@ -42,16 +49,14 @@ exports.config = function (app) {
 					res.render(viewName, viewModel, function (err, view) {
 						if (err) return req.next(err);
 						res.json({
-							title:viewModel.title || viewModel._locals.title,
-							bannerText:viewModel.bannerText || viewModel._locals.bannerText,
+							title: viewModel.title || app.locals.title,
+							bannerText:viewModel.bannerText || app.locals.bannerText,
 							view:view
 						});
 					});
 			};
 			res.locals = {
-				title:process.env.BANNER_TEXT,
-				bannerText:process.env.BANNER_TEXT,
-				user:req.user
+				user: req.user
 			};
 			next();
 		});
@@ -89,6 +94,8 @@ exports.config = function (app) {
 				res.renderView('shared/500', viewModel);
 			}
 			catch (ex) {
+        console.log('Error while rendering error view.');
+        console.log(ex.stack);
 				next(err);
 			}
 		});

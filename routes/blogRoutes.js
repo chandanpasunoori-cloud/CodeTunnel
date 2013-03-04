@@ -12,10 +12,14 @@ exports.register = function (app) {
 		});
 	});
 
-	// Setup application routes.
-	app.get('/', blogController.home);
+	// Setup blog routes.
 	app.get('/resume', blogController.resume);
 	app.get('/portfolio', blogController.portfolio);
+  app.get(/^(?:\/(?:blog\/)?page(\d+))?\/?$/, function (req, res) {
+    // Set named parameter to first capture group. Express, you need to figure this out >:(
+    req.params.page = req.params[0];
+    blogController.home(req, res);
+  });
 	app.get('/blog/post/new', authorizeUser, blogController.newPost);
 	app.get('/blog/post/:slug', blogController.post);
 	app.get('/blog/post/:slug/edit', authorizeUser, blogController.editPost);

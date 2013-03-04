@@ -1,6 +1,6 @@
 //include ../shared/container
 div.blogPost
   div.postTitle= blogPost.title
-  div.postDate= blogPost.date
+  div.postDate Posted by {post.author.name} on #{moment(post.date).format('dddd MMMM DD, YYYY')}
   br
   div.postContent!= blogPost.content

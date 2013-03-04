@@ -1,3 +1,4 @@
 include ../shared/container
   .postSummary
-    span= post.title
+    a.hijax.postTitle(href= '/blog/post/' + post.slug)= post.title
+    div.postDate Posted by #{post.author.name.first} on #{moment(post.date).format('dddd MMMM DD, YYYY')}
