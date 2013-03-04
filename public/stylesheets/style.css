@@ -108,12 +108,19 @@ a:hover {
   font-style: italic;
   font-size: 13px;
 }
+.managePost {
+  font-size: 13px;
+}
 .postSummary {
   padding: 10px;
   margin-bottom: 15px;
 }
 .pageControls {
+  clear: both;
   margin-bottom: 15px;
+}
+.pageControls .pageLink {
+  margin-right: 10px;
 }
 .right {
   float: right;

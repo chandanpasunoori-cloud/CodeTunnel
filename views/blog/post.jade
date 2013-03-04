@@ -1,6 +1,8 @@
-//include ../shared/container
+// include ../shared/container
 div.blogPost
+  if (user && user.author && user._id.toString() === blogPost.author._id.toString())
+    a.hijax.right.button(href='/blog/post/' + blogPost.slug + '/edit') Edit Post
   div.postTitle= blogPost.title
-  div.postDate Posted by {post.author.name} on #{moment(post.date).format('dddd MMMM DD, YYYY')}
+  div.postDate Posted by #{blogPost.author.name.first} #{blogPost.author.name.last} on #{moment(blogPost.date).format('dddd MMMM DD, YYYY')}
   br
   div.postContent!= blogPost.content

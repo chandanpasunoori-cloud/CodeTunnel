@@ -1,4 +1,12 @@
 include ../shared/container
   .postSummary
-    a.hijax.postTitle(href= '/blog/post/' + post.slug)= post.title
-    div.postDate Posted by #{post.author.name.first} on #{moment(post.date).format('dddd MMMM DD, YYYY')}
+    if (user && user.author && user._id.toString() === blogPost.author._id.toString())
+      a.hijax.right.button(href='/blog/post/' + blogPost.slug + '/edit') Edit Post
+    a.hijax.postTitle(href='/blog/post/' + blogPost.slug)= blogPost.title
+    div.postDate Posted by #{blogPost.author.name.first} #{blogPost.author.name.last} on #{moment(blogPost.date).format('dddd MMMM DD, YYYY')}
+    br
+    if (blogPost.content.length > 500)
+      div.postContent= blogPost.content.slice(0, 500) + '...'
+        a(href='/blog/post/' + blogPost.slug) (read more)
+    else
+      div.postContent= blogPost.content

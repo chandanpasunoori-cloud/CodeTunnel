@@ -2,16 +2,15 @@ var db = require('../db'),
   markdown = require('node-markdown').Markdown;
 
 exports.home = function (req, res) {
-    db.collection('blogPosts').getPage(req.param('page') || 1, 3, function (err, blogPosts) {
+    var currentPage = parseInt(req.param('page')) || 1;
+    db.collection('blogPosts').getPage(currentPage, 5, function (err, page) {
         if (err) req.next(err);
-        blogPosts.forEach(function (blogPost) {
-            db.collection('users').findOne({ _id: blogPost.author }, function (err, user) {
-                if (err) req.next(err);
-                blogPost.author = user;
-            });
-        });
+        // If current page is greater than the total number of pages then show 404
+        if (currentPage > page.totalPages) req.next();
         var viewModel = {
-            posts: blogPosts
+            totalPages: page.totalPages,
+            currentPage: currentPage,
+            blogPosts: page.blogPosts
         };
         res.renderView('blog/index', viewModel);
     });
@@ -90,6 +89,12 @@ exports.createPost = function (req, res) {
 };
 
 exports.updatePost = function (req, res) {
+
+    if (req.param('deletePost')) {
+        db.collection('blogPosts').remove({ slug: req.param('slug') });
+        return res.redirect('/');
+    }
+
     // Create slug from title.
     var newSlug = convertToSlug(req.param('postTitle'));
 

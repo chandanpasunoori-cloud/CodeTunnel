@@ -1,1 +1,14 @@
-div.pageControls 1 2 3 >>
+div.pageControls
+  if totalPages > 1
+    if currentPage > 1
+      a.hijax.pageLink(href='/page1') <<
+      a.hijax.pageLink(href='/page' + (currentPage - 1)) <
+    - for (var page = 1; page < totalPages + 1; page++) {
+      if page == currentPage
+        a.hijax.pageLink.button(href='/page' + page)= page
+      else
+        a.hijax.pageLink(href='/page' + page)= page
+    - }
+    if currentPage < totalPages
+      a.hijax.pageLink(href='/page' + (currentPage + 1)) >
+      a.hijax.pageLink(href='/page' + totalPages) >>
