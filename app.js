@@ -1,5 +1,3 @@
-require('./config')();
-
 // Load required modules.
 var port = process.env.PORT,
   http = require('http'),
