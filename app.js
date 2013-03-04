@@ -1,7 +1,4 @@
-
-/**
- * Module dependencies.
- */
+require('./config')();
 
 // Load required modules.
 var port = process.env.PORT,
