@@ -4,7 +4,8 @@ include ../shared/container
     - var isCommentAuthor = user && (user._id.toString() === comment.author._id.toString());
     if (isPostAuthor || isCommentAuthor)
       form(action='/blog/post/' + blogPost.slug + '/comment/' + comment._id + '/delete', method='POST')
-        input.right.button(type="submit", value="Delete Comment")
-    div(style="font-weight: bold;") <a href="#{comment.author.url}">#{comment.author.name.first} #{comment.author.name.last}</a> says:
-    .commentContent!= markdown(comment.content, true)
+        input.right.button(type="submit", value="Delete")
+    div(style="font-weight: bold;")
+      a(href=comment.author.url)= comment.author.name.first + ' ' + comment.author.name.last
     .commentDate posted #{moment(comment.date).fromNow()}
+    .commentContent!= markdown(comment.content, true)
