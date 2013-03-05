@@ -2,7 +2,7 @@
   position: relative;
 }
 .translucentFrame {
-  background: #3df53d;
+  background: #8fef8f;
   opacity: 0.2;
   -moz-opacity: 0.2;
   filter: alpha(opacity=20);
@@ -14,10 +14,10 @@
   z-index: 1;
   border-radius: 10px;
   -moz-border-radius: 10px;
-  -webkit-transition: background-color 0.3s linear;
-  -moz-transition: background-color 0.3s linear;
-  -o-transition: background-color 0.3s linear;
-  transition: background-color 0.3s linear;
+  -webkit-transition: background-color 5s linear;
+  -moz-transition: background-color 5s linear;
+  -o-transition: background-color 5s linear;
+  transition: background-color 5s linear;
 }
 .contentFrame {
   position: relative;
@@ -25,13 +25,13 @@
 }
 body {
   background: #000;
-  color: #a8faa8;
+  color: #cdf8cd;
   font-size: 15px;
   font-family: Consolas;
-  -webkit-transition: color 0.3s linear, background-color 0.3s linear;
-  -moz-transition: color 0.3s linear, background-color 0.3s linear;
-  -o-transition: color 0.3s linear, background-color 0.3s linear;
-  transition: color 0.3s linear, background-color 0.3s linear;
+  -webkit-transition: color 5s linear, background-color 5s linear;
+  -moz-transition: color 5s linear, background-color 5s linear;
+  -o-transition: color 5s linear, background-color 5s linear;
+  transition: color 5s linear, background-color 5s linear;
 }
 #frame {
   position: relative;
@@ -59,11 +59,11 @@ body {
   font-size: 55px;
   padding: 15px;
   font-family: Courier New;
-  border-bottom: solid 1px #078307;
-  -webkit-transition: border-color 0.3s linear;
-  -moz-transition: border-color 0.3s linear;
-  -o-transition: border-color 0.3s linear;
-  transition: border-color 0.3s linear;
+  border-bottom: solid 1px #052105;
+  -webkit-transition: border-color 5s linear;
+  -moz-transition: border-color 5s linear;
+  -o-transition: border-color 5s linear;
+  transition: border-color 5s linear;
 }
 #navigation {
   margin: 0;
@@ -83,20 +83,23 @@ body {
 input,
 textarea {
   background: transparent;
-  border: dotted 1px #056605;
+  border: dashed 1px #abf3ab;
   border-radius: 5px;
   -moz-border-radius: 5px;
   padding: 10px;
-  color: #a8faa8;
+  color: #cdf8cd;
+}
+hr {
+  border: solid 1px #052105;
 }
 a,
 a:visited {
-  color: #e2fde2;
+  color: #eefdee;
   text-decoration: none;
-  -webkit-transition: color 0.3s linear;
-  -moz-transition: color 0.3s linear;
-  -o-transition: color 0.3s linear;
-  transition: color 0.3s linear;
+  -webkit-transition: color 5s linear;
+  -moz-transition: color 5s linear;
+  -o-transition: color 5s linear;
+  transition: color 5s linear;
 }
 a:hover {
   text-decoration: underline;
@@ -104,12 +107,20 @@ a:hover {
 .postTitle {
   font-size: 20px;
 }
-.postDate {
+.postDate,
+.commentDate {
   font-style: italic;
   font-size: 13px;
 }
 .managePost {
   font-size: 13px;
+}
+.comments {
+  margin-top: 50px;
+}
+.comment {
+  padding: 15px;
+  margin: 12.5px 0 12.5px;
 }
 .postSummary {
   padding: 10px;
@@ -128,318 +139,319 @@ a:hover {
 }
 .button {
   padding: 3px 5px 3px 5px;
-  color: #044904 !important;
-  background-color: #6ef76e;
+  color: #0c540c !important;
+  background-color: #abf3ab;
+  border: none;
   border-radius: 5px;
   -moz-border-radius: 5px;
-  -webkit-transition: background-color 0.3s linear;
-  -moz-transition: background-color 0.3s linear;
-  -o-transition: background-color 0.3s linear;
-  transition: background-color 0.3s linear;
+  -webkit-transition: background-color 5s linear;
+  -moz-transition: background-color 5s linear;
+  -o-transition: background-color 5s linear;
+  transition: background-color 5s linear;
   cursor: pointer;
 }
 .button:hover {
-  background-color: #089108;
-  color: #e2fde2 !important;
+  background-color: #18a718;
+  color: #eefdee !important;
   text-decoration: none;
 }
 .bodyColor0 {
-  color: #ffc6c6 !important;
+  color: #f8cdcd !important;
 }
 .borderColor0 {
-  border-color: #ac0000 !important;
+  border-color: #210505 !important;
 }
 a.linkColor0,
 a.linkColor0:visited {
-  color: #ffecec;
+  color: #fdeeee;
 }
 .containerColor0 {
-  background-color: #ff8080 !important;
+  background-color: #ef8f8f !important;
 }
 .buttonColor0 {
-  color: #600000 !important;
-  background-color: #ff9f9f;
+  color: #540c0c !important;
+  background-color: #f3abab;
 }
 .buttonColor0:hover {
-  background-color: #bf0000;
-  color: #ffecec !important;
+  background-color: #a71818;
+  color: #fdeeee !important;
 }
 .inputColor0 {
-  border-color: #ac0000 !important;
-  color: #ffc6c6;
+  border-color: #f3abab !important;
+  color: #f8cdcd;
 }
 .bodyColor1 {
-  color: #ffe2c6 !important;
+  color: #f8e2cd !important;
 }
 .borderColor1 {
-  border-color: #ac5600 !important;
+  border-color: #211305 !important;
 }
 a.linkColor1,
 a.linkColor1:visited {
-  color: #fff5ec;
+  color: #fdf5ee;
 }
 .containerColor1 {
-  background-color: #ffbf80 !important;
+  background-color: #efbf8f !important;
 }
 .buttonColor1 {
-  color: #603000 !important;
-  background-color: #ffcf9f;
+  color: #54300c !important;
+  background-color: #f3cfab;
 }
 .buttonColor1:hover {
-  background-color: #bf6000;
-  color: #fff5ec !important;
+  background-color: #a76018;
+  color: #fdf5ee !important;
 }
 .inputColor1 {
-  border-color: #ac5600 !important;
-  color: #ffe2c6;
+  border-color: #f3cfab !important;
+  color: #f8e2cd;
 }
 .bodyColor2 {
-  color: #ffffc6 !important;
+  color: #f8f8cd !important;
 }
 .borderColor2 {
-  border-color: #acac00 !important;
+  border-color: #212105 !important;
 }
 a.linkColor2,
 a.linkColor2:visited {
-  color: #ffffec;
+  color: #fdfdee;
 }
 .containerColor2 {
-  background-color: #ffff80 !important;
+  background-color: #efef8f !important;
 }
 .buttonColor2 {
-  color: #606000 !important;
-  background-color: #ffff9f;
+  color: #54540c !important;
+  background-color: #f3f3ab;
 }
 .buttonColor2:hover {
-  background-color: #bfbf00;
-  color: #ffffec !important;
+  background-color: #a7a718;
+  color: #fdfdee !important;
 }
 .inputColor2 {
-  border-color: #acac00 !important;
-  color: #ffffc6;
+  border-color: #f3f3ab !important;
+  color: #f8f8cd;
 }
 .bodyColor3 {
-  color: #e2ffc6 !important;
+  color: #e2f8cd !important;
 }
 .borderColor3 {
-  border-color: #56ac00 !important;
+  border-color: #132105 !important;
 }
 a.linkColor3,
 a.linkColor3:visited {
-  color: #f5ffec;
+  color: #f5fdee;
 }
 .containerColor3 {
-  background-color: #bfff80 !important;
+  background-color: #bfef8f !important;
 }
 .buttonColor3 {
-  color: #306000 !important;
-  background-color: #cfff9f;
+  color: #30540c !important;
+  background-color: #cff3ab;
 }
 .buttonColor3:hover {
-  background-color: #60bf00;
-  color: #f5ffec !important;
+  background-color: #60a718;
+  color: #f5fdee !important;
 }
 .inputColor3 {
-  border-color: #56ac00 !important;
-  color: #e2ffc6;
+  border-color: #cff3ab !important;
+  color: #e2f8cd;
 }
 .bodyColor4 {
-  color: #c6ffc6 !important;
+  color: #cdf8cd !important;
 }
 .borderColor4 {
-  border-color: #00ac00 !important;
+  border-color: #052105 !important;
 }
 a.linkColor4,
 a.linkColor4:visited {
-  color: #ecffec;
+  color: #eefdee;
 }
 .containerColor4 {
-  background-color: #80ff80 !important;
+  background-color: #8fef8f !important;
 }
 .buttonColor4 {
-  color: #006000 !important;
-  background-color: #9fff9f;
+  color: #0c540c !important;
+  background-color: #abf3ab;
 }
 .buttonColor4:hover {
-  background-color: #00bf00;
-  color: #ecffec !important;
+  background-color: #18a718;
+  color: #eefdee !important;
 }
 .inputColor4 {
-  border-color: #00ac00 !important;
-  color: #c6ffc6;
+  border-color: #abf3ab !important;
+  color: #cdf8cd;
 }
 .bodyColor5 {
-  color: #c6ffe2 !important;
+  color: #cdf8e2 !important;
 }
 .borderColor5 {
-  border-color: #00ac56 !important;
+  border-color: #052113 !important;
 }
 a.linkColor5,
 a.linkColor5:visited {
-  color: #ecfff5;
+  color: #eefdf5;
 }
 .containerColor5 {
-  background-color: #80ffbf !important;
+  background-color: #8fefbf !important;
 }
 .buttonColor5 {
-  color: #006030 !important;
-  background-color: #9fffcf;
+  color: #0c5430 !important;
+  background-color: #abf3cf;
 }
 .buttonColor5:hover {
-  background-color: #00bf60;
-  color: #ecfff5 !important;
+  background-color: #18a760;
+  color: #eefdf5 !important;
 }
 .inputColor5 {
-  border-color: #00ac56 !important;
-  color: #c6ffe2;
+  border-color: #abf3cf !important;
+  color: #cdf8e2;
 }
 .bodyColor6 {
-  color: #c6ffff !important;
+  color: #cdf8f8 !important;
 }
 .borderColor6 {
-  border-color: #00acac !important;
+  border-color: #052121 !important;
 }
 a.linkColor6,
 a.linkColor6:visited {
-  color: #ecffff;
+  color: #eefdfd;
 }
 .containerColor6 {
-  background-color: #80ffff !important;
+  background-color: #8fefef !important;
 }
 .buttonColor6 {
-  color: #006060 !important;
-  background-color: #9fffff;
+  color: #0c5454 !important;
+  background-color: #abf3f3;
 }
 .buttonColor6:hover {
-  background-color: #00bfbf;
-  color: #ecffff !important;
+  background-color: #18a7a7;
+  color: #eefdfd !important;
 }
 .inputColor6 {
-  border-color: #00acac !important;
-  color: #c6ffff;
+  border-color: #abf3f3 !important;
+  color: #cdf8f8;
 }
 .bodyColor7 {
-  color: #c6e2ff !important;
+  color: #cde2f8 !important;
 }
 .borderColor7 {
-  border-color: #0056ac !important;
+  border-color: #051321 !important;
 }
 a.linkColor7,
 a.linkColor7:visited {
-  color: #ecf5ff;
+  color: #eef5fd;
 }
 .containerColor7 {
-  background-color: #80bfff !important;
+  background-color: #8fbfef !important;
 }
 .buttonColor7 {
-  color: #003060 !important;
-  background-color: #9fcfff;
+  color: #0c3054 !important;
+  background-color: #abcff3;
 }
 .buttonColor7:hover {
-  background-color: #0060bf;
-  color: #ecf5ff !important;
+  background-color: #1860a7;
+  color: #eef5fd !important;
 }
 .inputColor7 {
-  border-color: #0056ac !important;
-  color: #c6e2ff;
+  border-color: #abcff3 !important;
+  color: #cde2f8;
 }
 .bodyColor8 {
-  color: #c6c6ff !important;
+  color: #cdcdf8 !important;
 }
 .borderColor8 {
-  border-color: #0000ac !important;
+  border-color: #050521 !important;
 }
 a.linkColor8,
 a.linkColor8:visited {
-  color: #ececff;
+  color: #eeeefd;
 }
 .containerColor8 {
-  background-color: #8080ff !important;
+  background-color: #8f8fef !important;
 }
 .buttonColor8 {
-  color: #000060 !important;
-  background-color: #9f9fff;
+  color: #0c0c54 !important;
+  background-color: #ababf3;
 }
 .buttonColor8:hover {
-  background-color: #0000bf;
-  color: #ececff !important;
+  background-color: #1818a7;
+  color: #eeeefd !important;
 }
 .inputColor8 {
-  border-color: #0000ac !important;
-  color: #c6c6ff;
+  border-color: #ababf3 !important;
+  color: #cdcdf8;
 }
 .bodyColor9 {
-  color: #e2c6ff !important;
+  color: #e2cdf8 !important;
 }
 .borderColor9 {
-  border-color: #5600ac !important;
+  border-color: #130521 !important;
 }
 a.linkColor9,
 a.linkColor9:visited {
-  color: #f5ecff;
+  color: #f5eefd;
 }
 .containerColor9 {
-  background-color: #bf80ff !important;
+  background-color: #bf8fef !important;
 }
 .buttonColor9 {
-  color: #300060 !important;
-  background-color: #cf9fff;
+  color: #300c54 !important;
+  background-color: #cfabf3;
 }
 .buttonColor9:hover {
-  background-color: #6000bf;
-  color: #f5ecff !important;
+  background-color: #6018a7;
+  color: #f5eefd !important;
 }
 .inputColor9 {
-  border-color: #5600ac !important;
-  color: #e2c6ff;
+  border-color: #cfabf3 !important;
+  color: #e2cdf8;
 }
 .bodyColor10 {
-  color: #ffc6ff !important;
+  color: #f8cdf8 !important;
 }
 .borderColor10 {
-  border-color: #ac00ac !important;
+  border-color: #210521 !important;
 }
 a.linkColor10,
 a.linkColor10:visited {
-  color: #ffecff;
+  color: #fdeefd;
 }
 .containerColor10 {
-  background-color: #ff80ff !important;
+  background-color: #ef8fef !important;
 }
 .buttonColor10 {
-  color: #600060 !important;
-  background-color: #ff9fff;
+  color: #540c54 !important;
+  background-color: #f3abf3;
 }
 .buttonColor10:hover {
-  background-color: #bf00bf;
-  color: #ffecff !important;
+  background-color: #a718a7;
+  color: #fdeefd !important;
 }
 .inputColor10 {
-  border-color: #ac00ac !important;
-  color: #ffc6ff;
+  border-color: #f3abf3 !important;
+  color: #f8cdf8;
 }
 .bodyColor11 {
-  color: #ffc6e2 !important;
+  color: #f8cde2 !important;
 }
 .borderColor11 {
-  border-color: #ac0056 !important;
+  border-color: #210513 !important;
 }
 a.linkColor11,
 a.linkColor11:visited {
-  color: #ffecf5;
+  color: #fdeef5;
 }
 .containerColor11 {
-  background-color: #ff80bf !important;
+  background-color: #ef8fbf !important;
 }
 .buttonColor11 {
-  color: #600030 !important;
-  background-color: #ff9fcf;
+  color: #540c30 !important;
+  background-color: #f3abcf;
 }
 .buttonColor11:hover {
-  background-color: #bf0060;
-  color: #ffecf5 !important;
+  background-color: #a71860;
+  color: #fdeef5 !important;
 }
 .inputColor11 {
-  border-color: #ac0056 !important;
-  color: #ffc6e2;
+  border-color: #f3abcf !important;
+  color: #f8cde2;
 }

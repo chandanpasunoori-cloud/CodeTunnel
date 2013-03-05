@@ -1,11 +1,12 @@
 var express = require('express'),
-	passport = require('passport'),
-	stylus = require('stylus'),
-	path = require('path'),
-	socialAuth = require('./socialAuth'),
-	db = require('../db'),
-	MongoSkinSessionStore = require('connect-mongoskin'),
-  moment = require('moment');
+  passport = require('passport'),
+  stylus = require('stylus'),
+  path = require('path'),
+  socialAuth = require('./socialAuth'),
+  db = require('../db'),
+  MongoSkinSessionStore = require('connect-mongoskin'),
+  moment = require('moment'),
+  markdown = require('node-markdown').Markdown;
 
 exports.config = function (app) {
 
@@ -35,11 +36,12 @@ exports.config = function (app) {
 		app.use(stylus.middleware(__dirname + '/../public'));
 		app.use(express.static(path.join(__dirname, '/../public')));
 
-    app.locals = {
-      title: process.env.BANNER_TEXT,
-      bannerText: process.env.BANNER_TEXT,
-      moment: moment
-    };
+		app.locals = {
+			title: process.env.BANNER_TEXT,
+			bannerText: process.env.BANNER_TEXT,
+			moment: moment,
+			markdown: markdown
+		};
 
 		app.use(function (req, res, next) {
 			res.renderView = function (viewName, viewModel) {
@@ -50,8 +52,8 @@ exports.config = function (app) {
 						if (err) return req.next(err);
 						res.json({
 							title: viewModel.title || app.locals.title,
-							bannerText:viewModel.bannerText || app.locals.bannerText,
-							view:view
+							bannerText: viewModel.bannerText || app.locals.bannerText,
+							view: view
 						});
 					});
 			};
@@ -69,9 +71,9 @@ exports.config = function (app) {
 			try {
 				res.status(404);
 				var viewModel = {
-					title:'Page Not Found',
-					bannerText:'Page Not Found',
-					url:req.url
+					title: 'Page Not Found',
+					bannerText: 'Page Not Found',
+					url: req.url
 				};
 				res.renderView('shared/404', viewModel);
 			}
@@ -86,16 +88,16 @@ exports.config = function (app) {
 				var statusCode = err.status || 500;
 				res.status(statusCode);
 				var viewModel = {
-					title:statusCode + ' server error',
-					bannerText:'Uh oh!',
-					statusCode:statusCode,
-					error:err
+					title: statusCode + ' server error',
+					bannerText: 'Uh oh!',
+					statusCode: statusCode,
+					error: err
 				};
 				res.renderView('shared/500', viewModel);
 			}
 			catch (ex) {
-        console.log('Error while rendering error view.');
-        console.log(ex.stack);
+				console.log('Error while rendering error view.');
+				console.log(ex.stack);
 				next(err);
 			}
 		});

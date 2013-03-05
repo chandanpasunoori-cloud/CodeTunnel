@@ -3,7 +3,8 @@ include ../shared/container
     if (user && user.author && user._id.toString() === blogPost.author._id.toString())
       a.hijax.right.button(href='/blog/post/' + blogPost.slug + '/edit') Edit Post
     a.hijax.postTitle(href='/blog/post/' + blogPost.slug)= blogPost.title
-    div.postDate Posted by #{blogPost.author.name.first} #{blogPost.author.name.last} on #{moment(blogPost.date).format('dddd MMMM DD, YYYY')}
+    .postDate Posted #{moment(blogPost.date).fromNow()} by
+      a(href=user.url)= blogPost.author.name.first + ' ' + blogPost.author.name.last
     br
     if (blogPost.content.length > 500)
       div.postContent= blogPost.content.slice(0, 500) + '...'

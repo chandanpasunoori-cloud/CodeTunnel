@@ -1,8 +1,24 @@
 // include ../shared/container
-div.blogPost
+.blogPost
   if (user && user.author && user._id.toString() === blogPost.author._id.toString())
     a.hijax.right.button(href='/blog/post/' + blogPost.slug + '/edit') Edit Post
-  div.postTitle= blogPost.title
-  div.postDate Posted by #{blogPost.author.name.first} #{blogPost.author.name.last} on #{moment(blogPost.date).format('dddd MMMM DD, YYYY')}
+  .postTitle= blogPost.title
+  .postDate Posted #{moment(blogPost.date).fromNow()} by
+    a(href=user.url)= blogPost.author.name.first + ' ' + blogPost.author.name.last
   br
-  div.postContent!= blogPost.content
+  .postContent!= markdown(blogPost.content)
+.comments
+  div #{blogPost.comments ? blogPost.comments.length : 0} Comment(s)
+hr
+if blogPost.comments
+  each comment in blogPost.comments
+    include comment
+if user
+  #writeComment
+    form(action='/blog/post/' + blogPost.slug + '/comment/create', method='POST')
+      label(for="commentContent") Comment <a href="http://daringfireball.net/projects/markdown/syntax" style="font-size: 12px; font-style: italic;">(Markdown syntax supported)</a>
+      br
+      textarea(name="commentContent", style="width: 850px; height: 200px;")
+      br
+      br
+      input.button(type="submit", value="Add Comment")

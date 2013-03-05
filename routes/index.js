@@ -3,7 +3,7 @@ var blogRoutes = require('./blogRoutes'),
   socialAuthRoutes = require('./socialAuthRoutes');
 
 exports.register = function (app) {
-  blogRoutes.register(app);
-  userRoutes.register(app);
-  socialAuthRoutes.register(app);
+	blogRoutes.register(app);
+	userRoutes.register(app);
+	socialAuthRoutes.register(app);
 };
