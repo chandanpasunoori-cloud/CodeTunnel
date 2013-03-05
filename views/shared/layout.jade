@@ -27,7 +27,7 @@ html
               a.hijax(href="/login") Login
             else
               a(href=user.url)
-                img.profilePicture(src=user.picture)
+                img.profilePictureRight(src=user.picture)
               span Welcome, <a href="#{user.url}">#{user.name.first}</a>!
               br
               span(style="font-size: small;") (<a href="/logout">logout</a>)

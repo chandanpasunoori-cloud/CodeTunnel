@@ -49,10 +49,15 @@ body {
   -moz-opacity: 0.075;
   filter: alpha(opacity=8);
 }
-.profilePicture {
+.profilePictureRight {
   width: 50px;
   margin-left: 10px;
   float: right;
+}
+.profilePictureLeft {
+  width: 50px;
+  margin-right: 10px;
+  float: left;
 }
 #banner {
   text-align: center;
@@ -81,7 +86,7 @@ body {
   overflow-x: auto;
 }
 pre {
-  padding: 10px;
+  padding: 15px;
   background: #000;
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -139,6 +144,10 @@ a:hover {
 .comment {
   padding: 15px;
   margin: 12.5px 0 12.5px;
+}
+.commentContent {
+  padding-top: 5px;
+  clear: both;
 }
 .postSummary {
   padding: 10px;

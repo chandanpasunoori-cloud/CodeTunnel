@@ -5,7 +5,8 @@ include ../shared/container
     if (isPostAuthor || isCommentAuthor)
       form(action='/blog/post/' + blogPost.slug + '/comment/' + comment._id + '/delete', method='POST')
         input.right.button(type="submit", value="Delete")
-    div(style="font-weight: bold;")
-      a(href=comment.author.url)= comment.author.name.first + ' ' + comment.author.name.last
+    a(href=comment.author.url)
+      img.profilePictureLeft(src=comment.author.picture)
+    a(href=comment.author.url)= comment.author.name.first + ' ' + comment.author.name.last
     .commentDate posted #{moment(comment.date).fromNow()}
     .commentContent!= markdown(comment.content, true)
