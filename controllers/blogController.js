@@ -73,7 +73,8 @@ exports.createPost = function (req, res) {
                     author: req.user._id,
                     title: req.param('postTitle'),
                     slug: slug,
-                    content: req.param('postContent')
+                    content: req.param('postContent'),
+                    comments: []
                 },
                 function (err, result) {
                     if (err) return req.next(err);
@@ -122,7 +123,6 @@ exports.updatePost = function (req, res) {
 
 exports.createComment = function (req, res) {
     if (!req.blogPost) req.next();
-    if (!req.blogPost.comments) req.blogPost.comments = [];
     var comment = {
         _id: req.blogPost.comments.length,
         author: req.user._id,
@@ -142,7 +142,7 @@ exports.createComment = function (req, res) {
 };
 
 exports.deleteComment = function (req, res) {
-    if (!req.blogPost || !req.blogPost.comments) req.next();
+    if (!req.blogPost) req.next();
     db.collection('blogPosts').updateById(
         req.blogPost._id,
         {

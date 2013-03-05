@@ -22,17 +22,15 @@ db.bind('blogPosts', {
 					callback(null, null);
 				});
 			});
-			if (blogPost.comments) {
-				blogPost.comments.forEach(function (comment) {
-					operationsArray.push(function (callback) {
-						db.collection('users').findById(comment.author, function (err, user) {
-							if (err) callback(err);
-							comment.author = user;
-							callback(null, null);
-						});
-					});
-				});
-			}
+            blogPost.comments.forEach(function (comment) {
+                operationsArray.push(function (callback) {
+                    db.collection('users').findById(comment.author, function (err, user) {
+                        if (err) callback(err);
+                        comment.author = user;
+                        callback(null, null);
+                    });
+                });
+            });
 			async.parallel(operationsArray, function (err, results) {
 				fn(err, blogPost);
 			});

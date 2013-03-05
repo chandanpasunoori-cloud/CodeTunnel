@@ -6,11 +6,10 @@
   .postDate Posted #{moment(blogPost.date).fromNow()} by <a href="#{blogPost.author.url}">#{blogPost.author.name.first} #{blogPost.author.name.last}</a>
   .postContent!= markdown(blogPost.content)
 .comments
-  div #{blogPost.comments ? blogPost.comments.length : 0} Comment(s)
+  div #{blogPost.comments.length} Comment(s)
 hr
-if blogPost.comments
-  each comment in blogPost.comments
-    include comment
+each comment in blogPost.comments
+  include comment
 if user
   #writeComment
     form(action='/blog/post/' + blogPost.slug + '/comment/create', method='POST')

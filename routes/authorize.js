@@ -1,4 +1,9 @@
 module.exports = {
+    isAuthor: function (req, res, next) {
+        if (!req.user) return res.redirect('/login');
+        if (!req.user.author) next(new Error('You are not authorized to access this area.'));
+        next();
+    },
 	isPostAuthor: function (req, res, next) {
 		if (!req.blogPost) return req.next();
 		if (!req.user) return res.redirect('/login');
