@@ -126,6 +126,7 @@ exports.createComment = function (req, res) {
     var comment = {
         _id: req.blogPost.comments.length,
         author: req.user._id,
+        date: new Date(),
         content: req.param('commentContent')
     };
     db.collection('blogPosts').updateById(
