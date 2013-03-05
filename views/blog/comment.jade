@@ -1,12 +1,10 @@
 include ../shared/container
   .comment
-    - var isPostAuthor = user.author && user._id.toString() === blogPost.author._id.toString();
-    - var isCommentAuthor = user._id.toString() === comment.author._id.toString();
-    if (user && (isPostAuthor || isCommentAuthor))
-      a.hijax.right.button(href='/blog/post/' + blogPost.slug + '/comment/' + comment._id + '/delete') Delete Comment
-    div(style="font-weight: bold;")
-      a(href=comment.author.url)= comment.author.name.first + ' ' + comment.author.name.last + ' says:'
-    br
-    .commentContent!= markdown(comment.content)
-    br
+    - var isPostAuthor = user && (user.author && user._id.toString() === blogPost.author._id.toString());
+    - var isCommentAuthor = user && (user._id.toString() === comment.author._id.toString());
+    if (isPostAuthor || isCommentAuthor)
+      form(action='/blog/post/' + blogPost.slug + '/comment/' + comment._id + '/delete', method='POST')
+        input.right.button(type="submit", value="Delete Comment")
+    div(style="font-weight: bold;") <a href="#{comment.author.url}">#{comment.author.name.first} #{comment.author.name.last}</a> says:
+    .commentContent!= markdown(comment.content, true)
     .commentDate posted #{moment(comment.date).fromNow()}

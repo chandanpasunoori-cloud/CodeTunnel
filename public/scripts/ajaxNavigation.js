@@ -15,6 +15,9 @@
 			.text('LOADING')
 			.insertAfter($content);
 
+        $content.find('code').addClass('prettyprint');
+        prettyPrint();
+
 		window.addEventListener('popstate', function (e) {
 			if (e.state)
 				getPageContent(e.state.url);
@@ -45,6 +48,8 @@
 				document.title = data.title;
 				$('#banner').text(data.bannerText);
 				$content.html(data.view);
+                $content.find('code').addClass('prettyprint');
+                prettyPrint();
 				var colorIndex = $(document).data('colorIndex'),
 				  items = $(document).data('colorItems');
 				items.forEach(function (item) {

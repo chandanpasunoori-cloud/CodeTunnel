@@ -30,11 +30,11 @@ exports.register = function (app) {
 		req.params.page = req.params[0];
 		blogController.home(req, res);
 	});
-	app.get('/blog/post/new', authorize.isAuthor, blogController.newPost);
+	app.get('/blog/post/new', authorize.isPostAuthor, blogController.newPost);
 	app.get('/blog/post/:slug', blogController.post);
-	app.get('/blog/post/:slug/edit', authorize.isAuthor, blogController.editPost);
-	app.post('/blog/post/create', authorize.isAuthor, blogController.createPost);
-	app.post('/blog/post/:slug/update', authorize.isAuthor, blogController.updatePost);
+	app.get('/blog/post/:slug/edit', authorize.isPostAuthor, blogController.editPost);
+	app.post('/blog/post/create', authorize.isPostAuthor, blogController.createPost);
+	app.post('/blog/post/:slug/update', authorize.isPostAuthor, blogController.updatePost);
 	app.post('/blog/post/:slug/comment/create', authorize.isAuthenticated, blogController.createComment);
 	app.post('/blog/post/:slug/comment/:commentId/delete', authorize.isCommentAuthor, blogController.deleteComment);
 };
