@@ -14,10 +14,10 @@
   z-index: 1;
   border-radius: 10px;
   -moz-border-radius: 10px;
-  -webkit-transition: background-color 5s linear;
-  -moz-transition: background-color 5s linear;
-  -o-transition: background-color 5s linear;
-  transition: background-color 5s linear;
+  -webkit-transition: background-color 15s linear;
+  -moz-transition: background-color 15s linear;
+  -o-transition: background-color 15s linear;
+  transition: background-color 15s linear;
 }
 .contentFrame {
   position: relative;
@@ -28,10 +28,10 @@ body {
   color: #cdf8cd;
   font-size: 15px;
   font-family: Consolas;
-  -webkit-transition: color 5s linear, background-color 5s linear;
-  -moz-transition: color 5s linear, background-color 5s linear;
-  -o-transition: color 5s linear, background-color 5s linear;
-  transition: color 5s linear, background-color 5s linear;
+  -webkit-transition: color 15s linear, background-color 15s linear;
+  -moz-transition: color 15s linear, background-color 15s linear;
+  -o-transition: color 15s linear, background-color 15s linear;
+  transition: color 15s linear, background-color 15s linear;
 }
 #frame {
   position: relative;
@@ -65,10 +65,10 @@ body {
   padding: 15px;
   font-family: Courier New;
   border-bottom: solid 1px #052105;
-  -webkit-transition: border-color 5s linear;
-  -moz-transition: border-color 5s linear;
-  -o-transition: border-color 5s linear;
-  transition: border-color 5s linear;
+  -webkit-transition: border-color 15s linear;
+  -moz-transition: border-color 15s linear;
+  -o-transition: border-color 15s linear;
+  transition: border-color 15s linear;
 }
 #navigation {
   margin: 0;
@@ -119,10 +119,10 @@ a,
 a:visited {
   color: #eefdee;
   text-decoration: none;
-  -webkit-transition: color 5s linear;
-  -moz-transition: color 5s linear;
-  -o-transition: color 5s linear;
-  transition: color 5s linear;
+  -webkit-transition: color 15s linear;
+  -moz-transition: color 15s linear;
+  -o-transition: color 15s linear;
+  transition: color 15s linear;
 }
 a:hover {
   text-decoration: underline;
@@ -175,10 +175,10 @@ a:hover {
   border: none;
   border-radius: 5px;
   -moz-border-radius: 5px;
-  -webkit-transition: background-color 5s linear;
-  -moz-transition: background-color 5s linear;
-  -o-transition: background-color 5s linear;
-  transition: background-color 5s linear;
+  -webkit-transition: background-color 15s linear;
+  -moz-transition: background-color 15s linear;
+  -o-transition: background-color 15s linear;
+  transition: background-color 15s linear;
   cursor: pointer;
 }
 .button:hover {
