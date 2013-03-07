@@ -8,7 +8,6 @@ include ../shared/container
 			.postDate #{blogPost.comments.length} Comment(s)
 		br
 		if (blogPost.content.length > 500)
-			div.postContent!= markdown(blogPost.content.slice(0, 500), { sanitize: true }) + '...'
-				a.hijax(href='/blog/post/' + blogPost.slug) (read more)
+			div.postContent!= markdown(stringjs(blogPost.content).stripTags().s.slice(0, 500) + '...<a class="hijax" href="/blog/post/' + blogPost.slug + '">(read more)</a>')
 		else
-			div.postContent!= markdown(blogPost.content, { sanitize: true })
+			div.postContent!= markdown(stringjs(blogPost.content).stripTags().s, { sanitize: true })

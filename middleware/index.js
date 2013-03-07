@@ -1,12 +1,13 @@
 var express = require('express'),
-  passport = require('passport'),
-  stylus = require('stylus'),
-  path = require('path'),
-  socialAuth = require('./socialAuth'),
-  db = require('../db'),
-  MongoSkinSessionStore = require('connect-mongoskin'),
-  moment = require('moment'),
-  markdown = require('marked');
+	passport = require('passport'),
+	stylus = require('stylus'),
+	path = require('path'),
+	socialAuth = require('./socialAuth'),
+	db = require('../db'),
+	MongoSkinSessionStore = require('connect-mongoskin'),
+	moment = require('moment'),
+	markdown = require('marked'),
+	stringjs = require('string');
 
 exports.config = function (app) {
 
@@ -40,7 +41,8 @@ exports.config = function (app) {
 			title: process.env.BANNER_TEXT,
 			bannerText: process.env.BANNER_TEXT,
 			moment: moment,
-			markdown: markdown
+			markdown: markdown,
+			stringjs: stringjs
 		};
 
 		app.use(function (req, res, next) {
