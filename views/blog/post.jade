@@ -1,21 +1,21 @@
 // include ../shared/container
 .blogPost
-  if (user && user.author && user._id.toString() === blogPost.author._id.toString())
-    a.hijax.right.button(href='/blog/post/' + blogPost.slug + '/edit') Edit Post
-  .postTitle= blogPost.title
-  .postDate Posted #{moment(blogPost.date).fromNow()} by <a href="#{blogPost.author.url}">#{blogPost.author.name.first} #{blogPost.author.name.last}</a>
-  .postContent!= markdown(blogPost.content)
+	if (user && user.author && user._id.toString() === blogPost.author._id.toString())
+		a.hijax.right.button(href='/blog/post/' + blogPost.slug + '/edit') Edit Post
+	.postTitle= blogPost.title
+	.postDate Posted #{moment(blogPost.date).fromNow()} by <a href="#{blogPost.author.url}">#{blogPost.author.name.first} #{blogPost.author.name.last}</a>
+	.postContent!= markdown(blogPost.content)
 .comments
-  div #{blogPost.comments.length} Comment(s)
+	div #{blogPost.comments.length} Comment(s)
 hr
 each comment in blogPost.comments
-  include comment
+	include comment
 if user
-  #writeComment
-    form(action='/blog/post/' + blogPost.slug + '/comment/create', method='POST')
-      label(for="commentContent") Write Comment <a href="http://daringfireball.net/projects/markdown/syntax" style="font-size: 12px; font-style: italic;">(Markdown syntax supported)</a>
-      br
-      textarea(name="commentContent", style="width: 850px; height: 150px;")
-      br
-      br
-      input.button(type="submit", value="Add Comment")
+	#writeComment
+		form(action='/blog/post/' + blogPost.slug + '/comment/create', method='POST')
+			label(for="commentContent") Write Comment <a href="http://daringfireball.net/projects/markdown/syntax" style="font-size: 12px; font-style: italic;">(Markdown syntax supported)</a>
+			br
+			textarea(name="commentContent", style="width: 850px; height: 150px;")
+			br
+			br
+			input.button(type="submit", value="Add Comment")
