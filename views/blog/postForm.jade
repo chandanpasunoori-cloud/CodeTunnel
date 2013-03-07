@@ -21,6 +21,8 @@ form.hijax(action=blogPost ? 'update' : 'create', method="POST")
 			$postPreview = $('#postPreview');
 		function updatePreview() {
 			$postPreview.html(marked($postContent.val()));
+			$postPreview.find('code').addClass('prettyprint');
+			prettyPrint();
 		}
 		updatePreview();
 		$postContent.typeWatch(updatePreview, 500);
