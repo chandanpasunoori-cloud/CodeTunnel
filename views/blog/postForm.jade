@@ -1,17 +1,28 @@
-form(action=blogPost ? 'update' : 'create', method="POST")
-  if (blogPost)
-    input(name="deletePost", type="checkbox", style="margin-right: 10px;")
-    label(for="deletePost") Delete post
-    br
-    br
-  label(for="postTitle") Title
-  br
-  input(name="postTitle", type="text", style="width: 850px;", value= blogPost ? blogPost.title : null)
-  br
-  br
-  label(for="postContent") Content
-  br
-  textarea(name="postContent", style="width: 850px; height: 400px;")= blogPost ? blogPost.content : null
-  br
-  br
-  input.button(type="submit", value=blogPost ? 'Update' : 'Create')
+form.hijax(action=blogPost ? 'update' : 'create', method="POST")
+	if (blogPost)
+		input(name="deletePost", type="checkbox", style="margin-right: 10px;")
+		label(for="deletePost") Delete post
+		br
+		br
+	label(for="postTitle") Title
+	br
+	input(name="postTitle", type="text", style="width: 850px;", value= blogPost ? blogPost.title : null)
+	br
+	br
+	label(for="postContent") Content
+	br
+	textarea#postContent(name="postContent", style="width: 850px; height: 400px;")= blogPost ? blogPost.content : null
+	#previewContainer(style="display: none;")
+		include ../shared/container
+			#postPreview.preview
+	script(type='text/javascript')
+		$('#previewContainer').show();
+		var $postContent = $('#postContent'),
+			$postPreview = $('#postPreview');
+		function updatePreview() {
+			$postPreview.html(marked($postContent.val()));
+		}
+		updatePreview();
+		$postContent.typeWatch(updatePreview, 500);
+	br
+	input.button(type="submit", value=blogPost ? 'Update' : 'Create')

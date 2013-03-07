@@ -13,11 +13,12 @@ db.bind('blogPosts', {
 	// Retrieve blog post by slug and populate the author.
 	getPost: function (slug, fn) {
 		this.findOne({ slug: slug }, function (err, blogPost) {
-			if (err) fn(err);
+			if (err) return fn(err);
+			if (!blogPost) return fn();
 			var operationsArray = [];
 			operationsArray.push(function (callback) {
 				db.collection('users').findOne({ _id: blogPost.author }, function (err, user) {
-					if (err) callback(err);
+					if (err) return callback(err);
 					blogPost.author = user;
 					callback(null, null);
 				});
@@ -25,7 +26,7 @@ db.bind('blogPosts', {
             blogPost.comments.forEach(function (comment) {
                 operationsArray.push(function (callback) {
                     db.collection('users').findById(comment.author, function (err, user) {
-                        if (err) callback(err);
+                        if (err) return callback(err);
                         comment.author = user;
                         callback(null, null);
                     });
@@ -39,21 +40,22 @@ db.bind('blogPosts', {
 	// Retrieve a page of blog posts and populate the authors.
 	getPage: function (page, itemsPerPage, fn) {
 		this.find({}, { skip: ((page - 1) * itemsPerPage), limit: itemsPerPage, sort: { date: -1 } }).toArray(function (err, blogPosts) {
-			if (err) fn(err);
+			if (err) return fn(err);
+			if (!blogPosts) return fn();
 			var operationsArray = [];
 			blogPosts.forEach(function (blogPost) {
 				operationsArray.push(function (callback) {
 					db.collection('users').findOne({ _id: blogPost.author }, function (err, user) {
-						if (err) callback(err);
+						if (err) return callback(err);
 						blogPost.author = user;
 						callback(null, blogPost);
 					});
 				});
 			});
 			async.parallel(operationsArray, function (err, blogPosts) {
-				if (err) fn(err);
+				if (err) return fn(err);
 				db.collection('blogPosts').count(function (err, totalPosts) {
-					if (err) fn(err);
+					if (err) return fn(err);
 					fn(null, {
 						totalPages: Math.ceil(totalPosts / itemsPerPage),
 						blogPosts: blogPosts

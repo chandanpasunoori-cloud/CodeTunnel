@@ -1,36 +1,39 @@
 doctype 5
 html
-  head
-    title= title
-    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/prettify.css')
-    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
-    script(type='text/javascript', src='/scripts/prettify/prettify.js')
-    script(type='text/javascript', src='/scripts/preloadImages.js')
-    script(type='text/javascript', src='/scripts/ajaxNavigation.js')
-    script(type='text/javascript', src='/scripts/animateColor.js')
-    script(type='text/javascript', src='/scripts/initialize.js')
-  body
-    img.backgroundImage(src="/images/codetunnel.jpg")
-    #frame
-      include container
-        #banner= bannerText
-        ul#navigation
-          li.nav
-            a.hijax(href="/") Blog
-          li.nav
-            a.hijax(href="/portfolio") Portfolio
-          li.nav
-            a.hijax(href="/resume") Hire Me!
-          li.right
-            if (!user)
-              a.hijax(href="/login") Login
-            else
-              a(href=user.url)
-                img.profilePictureRight(src=user.picture)
-              span Welcome, <a href="#{user.url}">#{user.name.first}</a>!
-              br
-              span(style="font-size: small;") (<a href="/logout">logout</a>)
-        #content
-          block content
-        #footer
+	head
+		title= title
+		link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+		link(rel='stylesheet', type='text/css', href='/stylesheets/prettify.css')
+		script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+		script(type='text/javascript', src='/scripts/jquery.scrollTo.js')
+		script(type='text/javascript', src='/scripts/prettify/prettify.js')
+		script(type='text/javascript', src='/scripts/marked.js')
+		script(type='text/javascript', src='/scripts/preloadImages.js')
+		script(type='text/javascript', src='/scripts/ajaxNavigation.js')
+		script(type='text/javascript', src='/scripts/animateColor.js')
+		script(type='text/javascript', src='/scripts/jquery.typeWatch.js')
+		script(type='text/javascript', src='/scripts/initialize.js')
+	body
+		img.backgroundImage(src="/images/codetunnel.jpg")
+		#frame
+			include container
+				#banner= bannerText
+				ul#navigation
+					li.nav
+						a.hijax(href="/") Blog
+					li.nav
+						a.hijax(href="/portfolio") Portfolio
+					li.nav
+						a.hijax(href="/resume") Hire Me!
+					li.right
+						if (!user)
+							a.hijax(href="/login") Login
+						else
+							a(href=user.url)
+								img.profilePictureRight(src=user.picture)
+							span Welcome, <a href="#{user.url}">#{user.name.first}</a>!
+							br
+							span(style="font-size: small;") (<a href="/logout">logout</a>)
+				#content
+					block content
+				#footer

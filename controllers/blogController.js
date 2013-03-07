@@ -82,7 +82,7 @@ exports.createPost = function (req, res) {
                 });
         }
         else {
-            res.next(new Error('Blog post already exists with that slug. Change your title.'));
+            req.next(new Error('Blog post already exists with that slug. Change your title.'));
         }
     });
 };
@@ -123,8 +123,9 @@ exports.updatePost = function (req, res) {
 
 exports.createComment = function (req, res) {
     if (!req.blogPost) req.next();
+	var comments = req.blogPost.comments;
     var comment = {
-        _id: req.blogPost.comments.length,
+        _id: comments.length > 0 ? comments[comments.length - 1]._id + 1 : 0,
         author: req.user._id,
         date: new Date(),
         content: req.param('commentContent')
@@ -136,7 +137,18 @@ exports.createComment = function (req, res) {
         },
         function (err, results) {
             if (err) req.next(err);
-            res.redirect('/blog/post/' + req.blogPost.slug);
+	        if (!req.xhr)
+                res.redirect('/blog/post/' + req.blogPost.slug + '#comment-' + comment._id);
+	        else
+		        db.collection('users').findOne({ _id: comment.author }, function (err, user) {
+			        if (err) req.next(err);
+			        comment.author = user;
+			        var viewModel = {
+				        blogPost: req.blogPost,
+				        comment: comment
+			        };
+			        res.render('blog/comment', viewModel);
+		        });
         }
     );
 };
@@ -150,7 +162,10 @@ exports.deleteComment = function (req, res) {
         },
         function (err, results) {
             if (err) req.next(err);
-            res.redirect('/blog/post/' + req.blogPost.slug);
+	        if (!req.xhr)
+                res.redirect('/blog/post/' + req.blogPost.slug + '#comments');
+	        else
+	            res.json({ success: true });
         }
     );
 };

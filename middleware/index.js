@@ -6,7 +6,7 @@ var express = require('express'),
   db = require('../db'),
   MongoSkinSessionStore = require('connect-mongoskin'),
   moment = require('moment'),
-  markdown = require('node-markdown').Markdown;
+  markdown = require('marked');
 
 exports.config = function (app) {
 
@@ -53,7 +53,8 @@ exports.config = function (app) {
 						res.json({
 							title: viewModel.title || app.locals.title,
 							bannerText: viewModel.bannerText || app.locals.bannerText,
-							view: view
+							view: view,
+							url: req.url
 						});
 					});
 			};
