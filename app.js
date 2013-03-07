@@ -1,3 +1,7 @@
+// Load environment-specific configuration.
+if (process.argv[2]) process.env.NODE_ENV = process.argv[2];
+if (process.env.NODE_ENV) require('./config')[process.env.NODE_ENV]();
+
 // Load required modules.
 var port = process.env.PORT,
   http = require('http'),
