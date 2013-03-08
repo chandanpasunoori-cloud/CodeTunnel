@@ -1,4 +1,22 @@
 (function ($) {
+
+	$.fn.serializeObject = function()
+	{
+		var o = {};
+		var a = this.serializeArray();
+		$.each(a, function() {
+			if (o[this.name] !== undefined) {
+				if (!o[this.name].push) {
+					o[this.name] = [o[this.name]];
+				}
+				o[this.name].push(this.value || '');
+			} else {
+				o[this.name] = this.value || '';
+			}
+		});
+		return o;
+	};
+
 	$(document).bind('initialize', function (e) {
 		if (!e.firstLoad) return;
 
@@ -41,7 +59,28 @@
 			});
 		}
 
+		function postFormContent(url, method, formData) {
+			if ($(document).data('loading'))
+				return;
+
+			$(document).data('loading', true);
+			$loading.fadeIn('fast');
+			$content.slideUp('fast', function () {
+				$content.data('intervalId', loadingAnimation($loading));
+				$.ajax({
+					url: url,
+					type: method,
+					data: formData
+				}).done(displayPageContent).error(function (data) {
+					displayPageContent(JSON.parse(data.responseText));
+				});
+			});
+		}
+
 		function displayPageContent(data) {
+			if (data.url.split('/').pop() !== document.location.href.split('/').pop())
+				history.pushState({ url: data.url }, data.url, data.url);
+
 			$loading.fadeOut('fast', function () {
 				$(document).data('loading', false);
 				clearInterval($content.data('intervalId'));
@@ -64,11 +103,15 @@
 		$(document).on('click', 'a.hijax', function (e) {
 			e.preventDefault();
 			var url = $(this).attr('href');
-
-			if (url.split('/').pop() !== document.location.href.split('/').pop())
-				history.pushState({ url: url }, url, url);
-
 			getPageContent(url);
+		});
+
+		$(document).on('submit', 'form.hijax', function (e) {
+			e.preventDefault();
+			var $form = $(this),
+				url = $form.attr('action'),
+				method = $form.attr('method');
+			postFormContent(url, method, $form.serializeObject());
 		});
 	});
 

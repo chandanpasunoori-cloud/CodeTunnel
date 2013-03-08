@@ -138,9 +138,6 @@ a:hover {
 .managePost {
   font-size: 13px;
 }
-.comments {
-  margin-top: 50px;
-}
 .comment {
   padding: 15px;
   margin: 12.5px 0 12.5px;
@@ -185,6 +182,9 @@ a:hover {
   background-color: #18a718;
   color: #eefdee !important;
   text-decoration: none;
+}
+.preview {
+  padding: 10px;
 }
 .bodyColor0 {
   color: #f8cdcd !important;

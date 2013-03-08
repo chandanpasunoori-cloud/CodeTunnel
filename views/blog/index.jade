@@ -1,6 +1,8 @@
 if (user && user.author === true)
-  a.hijax.right.button(href="/blog/post/new") New Post
+	a.hijax.right.button(href="/blog/post/new") New Post
 include pageControls
 each blogPost in blogPosts
-  include summary
+	include summary
+if (blogPosts.length === 0)
+	h2 There are no posts yet.
 include pageControls

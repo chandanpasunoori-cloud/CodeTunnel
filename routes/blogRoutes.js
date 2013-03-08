@@ -33,6 +33,7 @@ exports.register = function (app) {
 	app.get('/blog/post/new', authorize.isAuthor, blogController.newPost);
 	app.get('/blog/post/:slug', blogController.post);
 	app.get('/blog/post/:slug/edit', authorize.isPostAuthor, blogController.editPost);
+	app.post('/blog/post/autosave', authorize.isAuthenticated, blogController.autoSave);
 	app.post('/blog/post/create', authorize.isAuthor, blogController.createPost);
 	app.post('/blog/post/:slug/update', authorize.isPostAuthor, blogController.updatePost);
 	app.post('/blog/post/:slug/comment/create', authorize.isAuthenticated, blogController.createComment);
