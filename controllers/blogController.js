@@ -5,7 +5,7 @@ exports.home = function (req, res) {
 	db.collection('blogPosts').getPage(currentPage, 5, function (err, page) {
 		if (err) req.next(err);
 		// If current page is greater than the total number of pages then show 404
-		if (currentPage > page.totalPages) req.next();
+		if ((currentPage > page.totalPages) && (page.totalPages > 0)) req.next();
 		var viewModel = {
 			totalPages: page.totalPages,
 			currentPage: currentPage,
