@@ -15,6 +15,11 @@ db.bind('blogPosts', {
 		this.findOne({ slug: slug }, function (err, blogPost) {
 			if (err) return fn(err);
 			if (!blogPost) return fn();
+			blogPost.comments.sort(function(a, b) {
+				a = new Date(a.date);
+				b = new Date(b.date);
+				return a>b ? -1 : a<b ? 1 : 0;
+			});
 			var operationsArray = [];
 			operationsArray.push(function (callback) {
 				db.collection('users').findOne({ _id: blogPost.author }, function (err, user) {
