@@ -17,7 +17,7 @@ exports.config = function () {
 			  if (!user) {
 				  user = {
 					  googleId: profile.id,
-					  email: profile._json.email,
+					  email: profile._json.email.toLowerCase(),
 					  picture: profile._json.picture,
 					  url: profile._json.link,
 					  name: {
@@ -68,7 +68,7 @@ exports.config = function () {
 			  if (!user) {
 				  user = {
 					  facebookId: profile.id,
-					  email: profile._json.email,
+					  email: profile._json.email.toLowerCase(),
 					  url: profile.profileUrl,
 					  name: {
 						  first: profile.displayName.split(' ')[0],

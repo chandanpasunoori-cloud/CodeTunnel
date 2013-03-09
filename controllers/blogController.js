@@ -177,6 +177,14 @@ exports.autoSave = function (req, res) {
 	});
 };
 
+exports.legacyRedirect = function (req, res) {
+	var legacyId = parseInt(req.param('legacyId'));
+	db.collection('legacyBlogPostMappings').findOne( { id: legacyId }, function (err, legacyMapping) {
+		if (err) return req.next(err);
+		res.redirect('/blog/post/' + legacyMapping.slug, 301);
+	});
+};
+
 function convertToSlug(text) {
 	return text.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
 }

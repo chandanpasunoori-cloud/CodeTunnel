@@ -16,6 +16,6 @@ exports.profile = function (req, res) {
 };
 
 exports.create = function (req, res) {
-	db.collection('users').updateById(req.user._id, { $set: { email: req.body.email }});
+	db.collection('users').updateById(req.user._id, { $set: { email: req.body.email.toLowerCase() }});
 	res.redirect('/');
 };
