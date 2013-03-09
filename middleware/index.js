@@ -6,8 +6,7 @@ var express = require('express'),
 	db = require('../db'),
 	MongoSkinSessionStore = require('connect-mongoskin'),
 	moment = require('moment'),
-	markdown = require('marked'),
-	stringjs = require('string');
+	markdown = require('marked');
 
 exports.config = function (app) {
 
@@ -41,8 +40,7 @@ exports.config = function (app) {
 			title: process.env.BANNER_TEXT,
 			bannerText: process.env.BANNER_TEXT,
 			moment: moment,
-			markdown: markdown,
-			stringjs: stringjs
+			markdown: markdown
 		};
 
 		app.use(function (req, res, next) {

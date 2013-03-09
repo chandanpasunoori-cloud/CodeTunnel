@@ -1,4 +1,6 @@
-var db = require('../db');
+var db = require('../db'),
+	stringjs = require('string'),
+	markdown = require('marked');
 
 exports.home = function (req, res) {
 	var currentPage = parseInt(req.param('page')) || 1;
@@ -6,6 +8,18 @@ exports.home = function (req, res) {
 		if (err) req.next(err);
 		// If current page is greater than the total number of pages then show 404
 		if ((currentPage > page.totalPages) && (page.totalPages > 0)) req.next();
+
+		// Turn all posts into summaries.
+		page.blogPosts.forEach(function (blogPost) {
+			blogPost.content = stringjs(blogPost.content).stripTags().s;
+			if (blogPost.content.length >= 1000) {
+				blogPost.content = blogPost.content.substr(0, 1000);
+				if (blogPost.content.indexOf(' ') !== -1)
+					blogPost.content = blogPost.content.substr(0, blogPost.content.lastIndexOf(' '));
+				blogPost.content += '...\n\n<a class="hijax" href="/blog/post/' + blogPost.slug + '">(read more)</a>';
+			}
+		});
+
 		var viewModel = {
 			totalPages: page.totalPages,
 			currentPage: currentPage,

@@ -6,8 +6,14 @@
 			if (isPostAuthor || isCommentAuthor)
 				form.deleteCommentForm(action='/blog/post/' + blogPost.slug + '/comment/' + comment._id + '/delete', method='POST')
 					input.right.button(type="submit", value="Delete")
-			a(href=comment.author.url)
+			if (comment.author.url)
+				a(href=comment.author.url)
+					img.profilePictureLeft(src=comment.author.picture)
+			else
 				img.profilePictureLeft(src=comment.author.picture)
-			a(href=comment.author.url, name= 'comment-' + comment._id)= comment.author.name.first + ' ' + comment.author.name.last
+			if (comment.author.url)
+				a(href=comment.author.url, name= 'comment-' + comment._id)= comment.author.name.first + ' ' + comment.author.name.last
+			else
+				span= comment.author.name.first + ' ' + comment.author.name.last
 			.commentDate posted #{moment(comment.date).fromNow()}
 			.commentContent!= markdown(comment.content, { sanitize: true })
