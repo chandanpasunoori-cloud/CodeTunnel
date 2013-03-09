@@ -32,6 +32,7 @@ exports.register = function (app) {
 	});
 	app.get('/blog/post/new', authorize.isAuthor, blogController.newPost);
 	app.get('/blog/post/:slug', blogController.post);
+	app.get('/blog/post/:legacyId/:legacySlug', blogController.legacyRedirect);
 	app.get('/blog/post/:slug/edit', authorize.isPostAuthor, blogController.editPost);
 	app.post('/blog/post/autosave', authorize.isAuthenticated, blogController.autoSave);
 	app.post('/blog/post/create', authorize.isAuthor, blogController.createPost);
