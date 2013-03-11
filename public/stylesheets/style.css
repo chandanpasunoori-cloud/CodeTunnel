@@ -141,6 +141,8 @@ a:hover {
 }
 .comment {
   padding: 15px;
+}
+.commentContainer {
   margin: 12.5px 0 12.5px;
 }
 .commentContent {

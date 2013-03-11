@@ -1,6 +1,15 @@
 var db = require('../db'),
 	stringjs = require('string'),
-	markdown = require('marked');
+	markdown = require('marked'),
+	nodemailer = require('nodemailer');
+
+var smtp = nodemailer.createTransport("SMTP", {
+	service: "Gmail",
+	auth: {
+		user: process.env.GMAIL_USERNAME,
+		pass: process.env.GMAIL_PASSWORD
+	}
+});
 
 exports.home = function (req, res) {
 	var currentPage = parseInt(req.param('page')) || 1;
@@ -160,6 +169,19 @@ exports.createComment = function (req, res) {
 						comment: comment
 					};
 					res.render('blog/comment', viewModel);
+
+					// Send email notification.
+
+					var emailHtml = comment.author.name.first + ' posted a comment on your blog post titled [' + req.blogPost.title + '](http://' + process.env.DOMAIN + '/blog/post/' + req.blogPost.slug + '#writeComment).\n\n' + comment.content;
+
+					smtp.sendMail({
+						from: "noreply@codetunnel.com",
+						to: process.env.NOTIFICATION_EMAIL,
+						subject: comment.author.name.first + " posted a comment on CodeTunnel!",
+						html: markdown(emailHtml)
+					}, function (err, res) {
+						if(err)	req.next(err);
+					});
 				});
 		});
 };
