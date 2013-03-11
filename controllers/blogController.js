@@ -149,54 +149,80 @@ exports.createComment = function (req, res) {
 	if (!req.blogPost) req.next();
 	var comments = req.blogPost.comments;
 	var comment = {
-		_id: comments.length > 0 ? comments[comments.length - 1]._id + 1 : 0,
+		_id: comments.length > 0 ? comments[0]._id + 1 : 0,
 		author: req.user._id,
 		date: new Date(),
 		content: req.param('commentContent')
 	};
 	db.collection('blogPosts').updateById(req.blogPost._id, {
-			'$push': { comments: comment }
-		}, function (err, results) {
-			if (err) req.next(err);
-			if (!req.xhr)
-				res.redirect('/blog/post/' + req.blogPost.slug + '#comment-' + comment._id);
-			else
-				db.collection('users').findOne({ _id: comment.author }, function (err, user) {
-					if (err) req.next(err);
-					comment.author = user;
-					var viewModel = {
-						blogPost: req.blogPost,
-						comment: comment
-					};
-					res.render('blog/comment', viewModel);
+		'$push': { comments: comment }
+	}, function (err, results) {
+		if (err) return req.next(err);
+		if (!req.xhr)
+			res.redirect('/blog/post/' + req.blogPost.slug + '#comment-' + comment._id);
+		else
+			db.collection('users').findOne({ _id: comment.author }, function (err, user) {
+				if (err) return req.next(err);
+				comment.author = user;
+				var viewModel = {
+					blogPost: req.blogPost,
+					comment: comment
+				};
+				res.render('blog/comment', viewModel);
 
-					// Send email notification.
-
-					var emailHtml = comment.author.name.first + ' posted a comment on your blog post titled [' + req.blogPost.title + '](http://' + process.env.DOMAIN + '/blog/post/' + req.blogPost.slug + '#writeComment).\n\n' + comment.content;
-
+				// Send email notification to author
+				res.render('emailTemplates/authorNotification', { blogPost: req.blogPost, comment: comment }, function (err, view) {
+					if (err) return req.next(err);
+					var sendTo = process.env.NOTIFICATION_EMAIL + (process.env.NOTIFICATION_EMAIL.toLowerCase() === req.blogPost.author.email.toLowerCase() ? ',' + req.blogPost.author.email : '');
 					smtp.sendMail({
 						from: "noreply@codetunnel.com",
-						to: process.env.NOTIFICATION_EMAIL,
-						subject: comment.author.name.first + " posted a comment on CodeTunnel!",
-						html: markdown(emailHtml)
+						to: sendTo,
+						subject: comment.author.name.first + " posted a comment on your post.",
+						html: markdown(view)
 					}, function (err, res) {
-						if(err)	req.next(err);
+						if (err) return req.next(err);
 					});
 				});
+
+				db.collection('notifications').find({ postId: req.blogPost._id }).toArray(function (err, notifications) {
+					if (err) return req.next(err);
+					notifications.forEach(function (notification) {
+						res.render('emailTemplates/commentNotification', { blogPost: req.blogPost, comment: comment, notification: notification }, function (err, view) {
+							if (err) return req.next(err);
+							var sendTo = notification.email;
+							smtp.sendMail({
+								from: "noreply@codetunnel.com",
+								to: sendTo,
+								subject: comment.author.name.first + " posted a comment on a post you are following.",
+								html: markdown(view)
+							}, function (err, res) {
+								if (err) return req.next(err);
+							});
+						});
+					});
+				});
+			});
+	});
+	if (req.param('notify')) {
+		db.collection('notifications').findOne({ postId: req.blogPost._id, email: req.user.email }, function (err, notification) {
+			if (err) return req.next(err);
+			if (!notification)
+				db.collection('notifications').insert({ postId: req.blogPost._id, email: req.user.email });
 		});
+	}
 };
 
 exports.deleteComment = function (req, res) {
 	if (!req.blogPost) req.next();
 	db.collection('blogPosts').updateById(req.blogPost._id, {
-			'$pull': { comments: { _id: req.comment._id } }
-		}, function (err, results) {
-			if (err) req.next(err);
-			if (!req.xhr)
-				res.redirect('/blog/post/' + req.blogPost.slug + '#comments');
-			else
-				res.json({ success: true });
-		});
+		'$pull': { comments: { _id: req.comment._id } }
+	}, function (err, results) {
+		if (err) req.next(err);
+		if (!req.xhr)
+			res.redirect('/blog/post/' + req.blogPost.slug + '#comments');
+		else
+			res.json({ success: true });
+	});
 };
 
 exports.autoSave = function (req, res) {

@@ -2,6 +2,7 @@ var userController = require('../controllers/userController');
 
 exports.register = function (app) {
 	// Setup user routes.
+	app.get('/unsubscribe/:notificationId', userController.unsubscribe);
 	app.get('/login', userController.login);
 	app.get('/logout', function (req, res) {
 		req.logout();

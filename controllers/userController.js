@@ -1,3 +1,19 @@
+var db = require('../db');
+
+exports.unsubscribe = function (req, res) {
+	db.collection('notifications').findById(req.param('notificationId'), function (err, notification) {
+		if (err) return req.next(err);
+		if (!notification) return req.next(new Exception("No notification was found."));
+		db.collection('notifications').removeById(req.param('notificationId'), function (err, result) {
+			if (err) return req.next(err);
+			var viewModel = {
+				message: 'Notifications for this post were successfully disabled.'
+			};
+			res.renderView('shared/message', viewModel);
+		});
+	});
+};
+
 exports.login = function (req, res) {
 	var viewModel = {
 		title: 'Authenticate'

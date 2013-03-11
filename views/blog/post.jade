@@ -16,7 +16,10 @@ if user
 			#previewContainer(style="display: none;")
 				include ../shared/container
 					#commentPreview.preview
-
+			br
+			input(name="notify", type="checkbox", style="margin-right: 10px;")
+			label(for="notify", style="font-size: 12px;") Notify me of future comments.
+			br
 			br
 			input.button(type="submit", value="Add Comment")
 	br
