@@ -5,7 +5,7 @@ exports.blobStorage = function (req, res) {
 	var blobService = azure.createBlobService(),
 		containerName = 'miscellaneous',
 		path = req.params[0],
-		blobName = path;
+		blobName = path.toLowerCase();
 
 	if (path.indexOf('/') !== -1) {
 		blobName = path.substr(path.lastIndexOf('/') + 1).toLowerCase();

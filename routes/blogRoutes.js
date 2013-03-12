@@ -31,12 +31,15 @@ exports.register = function (app) {
 		blogController.home(req, res);
 	});
 	app.get('/blog/post/new', authorize.isAuthor, blogController.newPost);
+	app.get(/^\/blog\/post\/(\d+)(\/.*)?$/, function (req, res) {
+		req.params.legacyId = req.params[0];
+		blogController.legacyRedirect(req, res);
+	});
 	app.get('/blog/post/:slug', blogController.post);
 	app.post('/blog/post/autosave', authorize.isAuthenticated, blogController.autoSave);
 	app.post('/blog/post/create', authorize.isAuthor, blogController.createPost);
 	app.get('/blog/post/:slug/edit', authorize.isPostAuthor, blogController.editPost);
 	app.post('/blog/post/:slug/update', authorize.isPostAuthor, blogController.updatePost);
-	app.get('/blog/post/:legacyId/:legacySlug', blogController.legacyRedirect);
 	app.post('/blog/post/:slug/comment/create', authorize.isAuthenticated, blogController.createComment);
 	app.post('/blog/post/:slug/comment/:commentId/delete', authorize.isCommentAuthor, blogController.deleteComment);
 };

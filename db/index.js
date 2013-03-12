@@ -6,7 +6,8 @@ var async = require('async'),
 		  keepAlive: 1,
 		  timeout: 0,
 		  noDelay: true
-	  }
+	  },
+	  safe: false
   });
 
 db.bind('blogPosts', {

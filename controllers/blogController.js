@@ -243,6 +243,7 @@ exports.legacyRedirect = function (req, res) {
 	var legacyId = parseInt(req.param('legacyId'));
 	db.collection('legacyBlogPostMappings').findOne( { id: legacyId }, function (err, legacyMapping) {
 		if (err) return req.next(err);
+		if (!legacyMapping) return req.next();
 		res.redirect('/blog/post/' + legacyMapping.slug, 301);
 	});
 };
