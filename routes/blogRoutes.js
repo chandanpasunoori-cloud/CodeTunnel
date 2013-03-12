@@ -1,6 +1,7 @@
 var blogController = require('../controllers/blogController'),
-  db = require('../db'),
-  authorize = require('./authorize');
+	db = require('../db'),
+	authorize = require('./authorize'),
+	storeRedirectUrl = require('./redirect');
 
 exports.register = function (app) {
 	// Bind post
@@ -35,12 +36,12 @@ exports.register = function (app) {
 	app.post('/blog/post/create', authorize.isAuthor, blogController.createPost);
 	app.post('/blog/post/autosave', authorize.isAuthenticated, blogController.autoSave);
 	app.get('/blog/post/new', authorize.isAuthor, blogController.newPost);
-	app.get('/blog/post/:slug', blogController.post);
-	app.get(/^(?:\/(?:blog\/)?page(\d+))?\/?$/, function (req, res) {
+	app.get('/blog/post/:slug', storeRedirectUrl, blogController.post);
+	app.get(/^(?:\/(?:blog\/)?page(\d+))?\/?$/, storeRedirectUrl, function (req, res) {
 		// Set named parameter to first capture group. Express, you need to figure this out >:(
 		req.params.page = req.params[0];
 		blogController.home(req, res);
 	});
-	app.get('/portfolio', blogController.portfolio);
-	app.get('/resume', blogController.resume);
+	app.get('/portfolio', storeRedirectUrl, blogController.portfolio);
+	app.get('/resume', storeRedirectUrl, blogController.resume);
 };

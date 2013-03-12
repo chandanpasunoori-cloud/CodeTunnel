@@ -59,7 +59,8 @@ exports.config = function (app) {
 					});
 			};
 			res.locals = {
-				user: req.user
+				user: req.user,
+				currentUrl: encodeURIComponent(req.url)
 			};
 			next();
 		});

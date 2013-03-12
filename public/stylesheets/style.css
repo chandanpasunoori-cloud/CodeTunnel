@@ -199,6 +199,10 @@ a:hover {
 .preview {
   padding: 10px;
 }
+.auth {
+  margin: 15px;
+  display: inline-block;
+}
 .bodyColor0 {
   color: #f8cdcd !important;
 }

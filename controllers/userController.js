@@ -28,10 +28,10 @@ exports.profile = function (req, res) {
 	if (!req.user.email)
 		res.render('user/create', viewModel);
 	else
-		res.redirect('/');
+		res.redirect(req.session.redirectUrl);
 };
 
 exports.create = function (req, res) {
 	db.collection('users').updateById(req.user._id, { $set: { email: req.body.email.toLowerCase() }});
-	res.redirect('/');
+	res.redirect(req.session.redirectUrl);
 };

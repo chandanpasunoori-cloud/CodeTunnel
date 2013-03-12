@@ -7,8 +7,8 @@
 	.postContent!= markdown(blogPost.content)
 br
 hr
-if user
-	#writeComment
+#writeComment
+	if user
 		form#commentForm(action='/blog/post/' + blogPost.slug + '/comment/create', method='POST')
 			label(for="commentContent") Write Comment <a href="https://help.github.com/articles/github-flavored-markdown" style="font-size: 12px; font-style: italic;">(Github Flavored Markdown syntax supported)</a>
 			br
@@ -22,8 +22,16 @@ if user
 			br
 			br
 			input.button(type="submit", value="Add Comment")
-	br
-	br
+		br
+		br
+	else
+		div Login with one of the providers below to comment.
+		a#googleAuth.auth(href="/auth/google?hashTag=writeComment")
+			img(src="/images/google.png", style="width: 50px;")
+		a#twitterAuth.auth(href="/auth/twitter?hashTag=writeComment")
+			img(src="/images/twitter.png", style="width: 50px;")
+		a#facebookAuth.auth(href="/auth/facebook?hashTag=writeComment")
+			img(src="/images/facebook.png", style="width: 50px;")
 div#numComments #{blogPost.comments.length} Comment(s)
 hr
 #comments
