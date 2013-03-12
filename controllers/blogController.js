@@ -172,7 +172,7 @@ exports.createComment = function (req, res) {
 				res.render('blog/comment', viewModel);
 
 				// Send email notification to author
-				if (comment.author.email.toLowerCase() !== process.env.NOTIFICATION_EMAIL.toLowerCase()) {
+				if (comment.author.email.toLowerCase() !== req.blogPost.author.email.toLowerCase()) {
 					res.render('emailTemplates/authorNotification', { blogPost: req.blogPost, comment: comment }, function (err, view) {
 						if (err) return req.next(err);
 						var sendTo = process.env.NOTIFICATION_EMAIL + (process.env.NOTIFICATION_EMAIL.toLowerCase() === req.blogPost.author.email.toLowerCase() ? ',' + req.blogPost.author.email : '');
