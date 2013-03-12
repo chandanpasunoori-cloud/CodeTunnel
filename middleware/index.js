@@ -44,7 +44,7 @@ exports.config = function (app) {
 		};
 
 		app.use(function (req, res, next) {
-			res.session.redirectUrl = '/';
+			req.session.redirectUrl = '/';
 			res.renderView = function (viewName, viewModel) {
 				if (!req.xhr)
 					res.render(viewName + '_full', viewModel);

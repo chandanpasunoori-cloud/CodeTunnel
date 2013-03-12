@@ -29,7 +29,7 @@
   display: block;
 }
 body {
-  background: #000;
+  background: #010701;
   color: #cdf8cd;
   font-size: 15px;
   font-family: Consolas;
@@ -205,6 +205,7 @@ a:hover {
 }
 .bodyColor0 {
   color: #f8cdcd !important;
+  background-color: #070101 !important;
 }
 .borderColor0 {
   border-color: #210505 !important;
@@ -230,6 +231,7 @@ a.linkColor0:visited {
 }
 .bodyColor1 {
   color: #f8e2cd !important;
+  background-color: #070401 !important;
 }
 .borderColor1 {
   border-color: #211305 !important;
@@ -255,6 +257,7 @@ a.linkColor1:visited {
 }
 .bodyColor2 {
   color: #f8f8cd !important;
+  background-color: #070701 !important;
 }
 .borderColor2 {
   border-color: #212105 !important;
@@ -280,6 +283,7 @@ a.linkColor2:visited {
 }
 .bodyColor3 {
   color: #e2f8cd !important;
+  background-color: #040701 !important;
 }
 .borderColor3 {
   border-color: #132105 !important;
@@ -305,6 +309,7 @@ a.linkColor3:visited {
 }
 .bodyColor4 {
   color: #cdf8cd !important;
+  background-color: #010701 !important;
 }
 .borderColor4 {
   border-color: #052105 !important;
@@ -330,6 +335,7 @@ a.linkColor4:visited {
 }
 .bodyColor5 {
   color: #cdf8e2 !important;
+  background-color: #010704 !important;
 }
 .borderColor5 {
   border-color: #052113 !important;
@@ -355,6 +361,7 @@ a.linkColor5:visited {
 }
 .bodyColor6 {
   color: #cdf8f8 !important;
+  background-color: #010707 !important;
 }
 .borderColor6 {
   border-color: #052121 !important;
@@ -380,6 +387,7 @@ a.linkColor6:visited {
 }
 .bodyColor7 {
   color: #cde2f8 !important;
+  background-color: #010407 !important;
 }
 .borderColor7 {
   border-color: #051321 !important;
@@ -405,6 +413,7 @@ a.linkColor7:visited {
 }
 .bodyColor8 {
   color: #cdcdf8 !important;
+  background-color: #010107 !important;
 }
 .borderColor8 {
   border-color: #050521 !important;
@@ -430,6 +439,7 @@ a.linkColor8:visited {
 }
 .bodyColor9 {
   color: #e2cdf8 !important;
+  background-color: #040107 !important;
 }
 .borderColor9 {
   border-color: #130521 !important;
@@ -455,6 +465,7 @@ a.linkColor9:visited {
 }
 .bodyColor10 {
   color: #f8cdf8 !important;
+  background-color: #070107 !important;
 }
 .borderColor10 {
   border-color: #210521 !important;
@@ -480,6 +491,7 @@ a.linkColor10:visited {
 }
 .bodyColor11 {
   color: #f8cde2 !important;
+  background-color: #070104 !important;
 }
 .borderColor11 {
   border-color: #210513 !important;
