@@ -172,34 +172,38 @@ exports.createComment = function (req, res) {
 				res.render('blog/comment', viewModel);
 
 				// Send email notification to author
-				res.render('emailTemplates/authorNotification', { blogPost: req.blogPost, comment: comment }, function (err, view) {
-					if (err) return req.next(err);
-					var sendTo = process.env.NOTIFICATION_EMAIL + (process.env.NOTIFICATION_EMAIL.toLowerCase() === req.blogPost.author.email.toLowerCase() ? ',' + req.blogPost.author.email : '');
-					smtp.sendMail({
-						from: "noreply@codetunnel.com",
-						to: sendTo,
-						subject: comment.author.name.first + " posted a comment on your post.",
-						html: markdown(view)
-					}, function (err, res) {
+				if (comment.author.email.toLowerCase() !== process.env.NOTIFICATION_EMAIL.toLowerCase()) {
+					res.render('emailTemplates/authorNotification', { blogPost: req.blogPost, comment: comment }, function (err, view) {
 						if (err) return req.next(err);
+						var sendTo = process.env.NOTIFICATION_EMAIL + (process.env.NOTIFICATION_EMAIL.toLowerCase() === req.blogPost.author.email.toLowerCase() ? ',' + req.blogPost.author.email : '');
+						smtp.sendMail({
+							from: "noreply@codetunnel.com",
+							to: sendTo,
+							subject: comment.author.name.first + " posted a comment on your post.",
+							html: markdown(view)
+						}, function (err, res) {
+							if (err) return req.next(err);
+						});
 					});
-				});
+				}
 
 				db.collection('notifications').find({ postId: req.blogPost._id }).toArray(function (err, notifications) {
 					if (err) return req.next(err);
 					notifications.forEach(function (notification) {
-						res.render('emailTemplates/commentNotification', { blogPost: req.blogPost, comment: comment, notification: notification }, function (err, view) {
-							if (err) return req.next(err);
-							var sendTo = notification.email;
-							smtp.sendMail({
-								from: "noreply@codetunnel.com",
-								to: sendTo,
-								subject: comment.author.name.first + " posted a comment on a post you are following.",
-								html: markdown(view)
-							}, function (err, res) {
+						if (comment.author.email.toLowerCase() !== notification.email.toLowerCase()) {
+							res.render('emailTemplates/commentNotification', { blogPost: req.blogPost, comment: comment, notification: notification }, function (err, view) {
 								if (err) return req.next(err);
+								var sendTo = notification.email;
+								smtp.sendMail({
+									from: "noreply@codetunnel.com",
+									to: sendTo,
+									subject: comment.author.name.first + " posted a comment on a post you are following.",
+									html: markdown(view)
+								}, function (err, res) {
+									if (err) return req.next(err);
+								});
 							});
-						});
+						}
 					});
 				});
 			});
