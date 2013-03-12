@@ -129,7 +129,7 @@ exports.updatePost = function (req, res) {
 		if (!blogPost || newSlug === req.blogPost.slug) {
 			db.collection('blogPosts').update({ slug: req.blogPost.slug }, {
 					$set: {
-						editDate: new Date(),
+						editedDate: new Date(),
 						title: req.param('postTitle'),
 						slug: newSlug,
 						content: req.param('postContent')
