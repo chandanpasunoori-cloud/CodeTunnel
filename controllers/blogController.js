@@ -57,7 +57,8 @@ exports.resume = function (req, res) {
 exports.post = function (req, res) {
 	if (!req.blogPost) req.next();
 	var viewModel = {
-		blogPost: req.blogPost
+		blogPost: req.blogPost,
+		title: req.blogPost.title
 	};
 	res.renderView('blog/post', viewModel);
 };
