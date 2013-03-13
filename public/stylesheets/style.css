@@ -126,7 +126,7 @@ hr {
 }
 a,
 a:visited {
-  color: #aee4ae;
+  color: #b7e7b7;
   text-decoration: none;
   -webkit-transition: color 15s linear;
   -moz-transition: color 15s linear;
@@ -211,7 +211,7 @@ a:hover {
 }
 a.linkColor0,
 a.linkColor0:visited {
-  color: #e4aeae;
+  color: #e7b7b7;
 }
 .containerColor0 {
   background-color: #df9f9f !important;
@@ -236,7 +236,7 @@ a.linkColor0:visited {
 }
 a.linkColor1,
 a.linkColor1:visited {
-  color: #e4c9ae;
+  color: #e7cfb7;
 }
 .containerColor1 {
   background-color: #dfbf9f !important;
@@ -261,7 +261,7 @@ a.linkColor1:visited {
 }
 a.linkColor2,
 a.linkColor2:visited {
-  color: #e4e4ae;
+  color: #e7e7b7;
 }
 .containerColor2 {
   background-color: #dfdf9f !important;
@@ -286,7 +286,7 @@ a.linkColor2:visited {
 }
 a.linkColor3,
 a.linkColor3:visited {
-  color: #c9e4ae;
+  color: #cfe7b7;
 }
 .containerColor3 {
   background-color: #bfdf9f !important;
@@ -311,7 +311,7 @@ a.linkColor3:visited {
 }
 a.linkColor4,
 a.linkColor4:visited {
-  color: #aee4ae;
+  color: #b7e7b7;
 }
 .containerColor4 {
   background-color: #9fdf9f !important;
@@ -336,7 +336,7 @@ a.linkColor4:visited {
 }
 a.linkColor5,
 a.linkColor5:visited {
-  color: #aee4c9;
+  color: #b7e7cf;
 }
 .containerColor5 {
   background-color: #9fdfbf !important;
@@ -361,7 +361,7 @@ a.linkColor5:visited {
 }
 a.linkColor6,
 a.linkColor6:visited {
-  color: #aee4e4;
+  color: #b7e7e7;
 }
 .containerColor6 {
   background-color: #9fdfdf !important;
@@ -386,7 +386,7 @@ a.linkColor6:visited {
 }
 a.linkColor7,
 a.linkColor7:visited {
-  color: #aec9e4;
+  color: #b7cfe7;
 }
 .containerColor7 {
   background-color: #9fbfdf !important;
@@ -411,7 +411,7 @@ a.linkColor7:visited {
 }
 a.linkColor8,
 a.linkColor8:visited {
-  color: #aeaee4;
+  color: #b7b7e7;
 }
 .containerColor8 {
   background-color: #9f9fdf !important;
@@ -436,7 +436,7 @@ a.linkColor8:visited {
 }
 a.linkColor9,
 a.linkColor9:visited {
-  color: #c9aee4;
+  color: #cfb7e7;
 }
 .containerColor9 {
   background-color: #bf9fdf !important;
@@ -461,7 +461,7 @@ a.linkColor9:visited {
 }
 a.linkColor10,
 a.linkColor10:visited {
-  color: #e4aee4;
+  color: #e7b7e7;
 }
 .containerColor10 {
   background-color: #df9fdf !important;
@@ -486,7 +486,7 @@ a.linkColor10:visited {
 }
 a.linkColor11,
 a.linkColor11:visited {
-  color: #e4aec9;
+  color: #e7b7cf;
 }
 .containerColor11 {
   background-color: #df9fbf !important;
