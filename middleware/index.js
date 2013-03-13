@@ -44,13 +44,14 @@ exports.config = function (app) {
 		};
 
 		app.use(function (req, res, next) {
-			req.session.redirectUrl = '/';
+			if (!req.session.redirectUrl)
+				req.session.redirectUrl = '/';
 			res.renderView = function (viewName, viewModel) {
 				if (!req.xhr)
 					res.render(viewName + '_full', viewModel);
 				else
 					res.render(viewName, viewModel, function (err, view) {
-						if (err) return req.next(err);
+						if (err) return next(err);
 						res.json({
 							title: viewModel.title || app.locals.title,
 							bannerText: viewModel.bannerText || app.locals.bannerText,
