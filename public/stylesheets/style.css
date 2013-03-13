@@ -124,16 +124,14 @@ textarea {
 hr {
   border: solid 1px #0a1d0a;
 }
-a {
+a,
+a:visited {
   color: #aee4ae;
   text-decoration: none;
   -webkit-transition: color 15s linear;
   -moz-transition: color 15s linear;
   -o-transition: color 15s linear;
   transition: color 15s linear;
-}
-a:visited {
-  color: #74d174;
 }
 a:hover {
   text-decoration: underline;
@@ -211,11 +209,9 @@ a:hover {
 .borderColor0 {
   border-color: #1d0a0a !important;
 }
-a.linkColor0 {
-  color: #e4aeae;
-}
+a.linkColor0,
 a.linkColor0:visited {
-  color: #d17474;
+  color: #e4aeae;
 }
 .containerColor0 {
   background-color: #df9f9f !important;
@@ -238,11 +234,9 @@ a.linkColor0:visited {
 .borderColor1 {
   border-color: #1d130a !important;
 }
-a.linkColor1 {
-  color: #e4c9ae;
-}
+a.linkColor1,
 a.linkColor1:visited {
-  color: #d1a374;
+  color: #e4c9ae;
 }
 .containerColor1 {
   background-color: #dfbf9f !important;
@@ -265,11 +259,9 @@ a.linkColor1:visited {
 .borderColor2 {
   border-color: #1d1d0a !important;
 }
-a.linkColor2 {
-  color: #e4e4ae;
-}
+a.linkColor2,
 a.linkColor2:visited {
-  color: #d1d174;
+  color: #e4e4ae;
 }
 .containerColor2 {
   background-color: #dfdf9f !important;
@@ -292,11 +284,9 @@ a.linkColor2:visited {
 .borderColor3 {
   border-color: #131d0a !important;
 }
-a.linkColor3 {
-  color: #c9e4ae;
-}
+a.linkColor3,
 a.linkColor3:visited {
-  color: #a3d174;
+  color: #c9e4ae;
 }
 .containerColor3 {
   background-color: #bfdf9f !important;
@@ -319,11 +309,9 @@ a.linkColor3:visited {
 .borderColor4 {
   border-color: #0a1d0a !important;
 }
-a.linkColor4 {
-  color: #aee4ae;
-}
+a.linkColor4,
 a.linkColor4:visited {
-  color: #74d174;
+  color: #aee4ae;
 }
 .containerColor4 {
   background-color: #9fdf9f !important;
@@ -346,11 +334,9 @@ a.linkColor4:visited {
 .borderColor5 {
   border-color: #0a1d13 !important;
 }
-a.linkColor5 {
-  color: #aee4c9;
-}
+a.linkColor5,
 a.linkColor5:visited {
-  color: #74d1a3;
+  color: #aee4c9;
 }
 .containerColor5 {
   background-color: #9fdfbf !important;
@@ -373,11 +359,9 @@ a.linkColor5:visited {
 .borderColor6 {
   border-color: #0a1d1d !important;
 }
-a.linkColor6 {
-  color: #aee4e4;
-}
+a.linkColor6,
 a.linkColor6:visited {
-  color: #74d1d1;
+  color: #aee4e4;
 }
 .containerColor6 {
   background-color: #9fdfdf !important;
@@ -400,11 +384,9 @@ a.linkColor6:visited {
 .borderColor7 {
   border-color: #0a131d !important;
 }
-a.linkColor7 {
-  color: #aec9e4;
-}
+a.linkColor7,
 a.linkColor7:visited {
-  color: #74a3d1;
+  color: #aec9e4;
 }
 .containerColor7 {
   background-color: #9fbfdf !important;
@@ -427,11 +409,9 @@ a.linkColor7:visited {
 .borderColor8 {
   border-color: #0a0a1d !important;
 }
-a.linkColor8 {
-  color: #aeaee4;
-}
+a.linkColor8,
 a.linkColor8:visited {
-  color: #7474d1;
+  color: #aeaee4;
 }
 .containerColor8 {
   background-color: #9f9fdf !important;
@@ -454,11 +434,9 @@ a.linkColor8:visited {
 .borderColor9 {
   border-color: #130a1d !important;
 }
-a.linkColor9 {
-  color: #c9aee4;
-}
+a.linkColor9,
 a.linkColor9:visited {
-  color: #a374d1;
+  color: #c9aee4;
 }
 .containerColor9 {
   background-color: #bf9fdf !important;
@@ -481,11 +459,9 @@ a.linkColor9:visited {
 .borderColor10 {
   border-color: #1d0a1d !important;
 }
-a.linkColor10 {
-  color: #e4aee4;
-}
+a.linkColor10,
 a.linkColor10:visited {
-  color: #d174d1;
+  color: #e4aee4;
 }
 .containerColor10 {
   background-color: #df9fdf !important;
@@ -508,11 +484,9 @@ a.linkColor10:visited {
 .borderColor11 {
   border-color: #1d0a13 !important;
 }
-a.linkColor11 {
-  color: #e4aec9;
-}
+a.linkColor11,
 a.linkColor11:visited {
-  color: #d174a3;
+  color: #e4aec9;
 }
 .containerColor11 {
   background-color: #df9fbf !important;
