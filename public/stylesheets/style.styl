@@ -117,12 +117,10 @@ input, textarea
 hr
   border: solid 1px darken(mainColor, 90%)
 
-a
+a, a:visited
   color: lighten(mainColor, 15%)
   text-decoration: none
   transition: color colorChangeSpeed linear
-a:visited
-	color: darken(mainColor, 15%)
 a:hover
   text-decoration: underline
 
@@ -195,10 +193,8 @@ for hue, index in colors
     //background-color: darken(color, 98%) !important
   .borderColor{index}
     border-color: darken(color, 90%) !important
-  a.linkColor{index}
+  a.linkColor{index}, a.linkColor{index}:visited
     color: lighten(color, 15%)
-  a.linkColor{index}:visited
-    color: darken(color, 15%)
   .containerColor{index}
     background-color: color !important
   .buttonColor{index}
