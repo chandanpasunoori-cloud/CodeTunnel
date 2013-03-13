@@ -4,7 +4,7 @@
 		if (!e.firstLoad) return;
 
 		var colorIndex = 3,
-		  delay = 1,
+		  delay = 10,
 		  items = [
 			  { element: 'body', cssClass: 'bodyColor' },
 			  { element: '#banner, hr', cssClass: 'borderColor' },
@@ -21,7 +21,7 @@
 				top: 0,
 				left: 0
 			})
-			  .appendTo('body');
+			.appendTo('body');
 		}
 
 		$(document).data('colorItems', items);

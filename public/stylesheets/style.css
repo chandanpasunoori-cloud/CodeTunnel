@@ -18,10 +18,10 @@
   -moz-border-radius: 15px 100px 15px 100px;
   -webkit-border-radius: 15px 100px 15px 100px;
   -o-border-radius: 15px 100px 15px 100px;
-  -webkit-transition: background-color 1s linear;
-  -moz-transition: background-color 1s linear;
-  -o-transition: background-color 1s linear;
-  transition: background-color 1s linear;
+  -webkit-transition: background-color 0.5s linear;
+  -moz-transition: background-color 0.5s linear;
+  -o-transition: background-color 0.5s linear;
+  transition: background-color 0.5s linear;
 }
 .contentFrame {
   position: relative;
@@ -37,10 +37,10 @@ body {
   color: #e7f7e7;
   font-size: 15px;
   font-family: Consolas;
-  -webkit-transition: color 1s linear, background-color 1s linear;
-  -moz-transition: color 1s linear, background-color 1s linear;
-  -o-transition: color 1s linear, background-color 1s linear;
-  transition: color 1s linear, background-color 1s linear;
+  -webkit-transition: color 0.5s linear, background-color 0.5s linear;
+  -moz-transition: color 0.5s linear, background-color 0.5s linear;
+  -o-transition: color 0.5s linear, background-color 0.5s linear;
+  transition: color 0.5s linear, background-color 0.5s linear;
 }
 #frame {
   position: relative;
@@ -79,10 +79,10 @@ body {
   padding: 15px;
   font-family: Courier New;
   border-bottom: solid 1px #0a1d0a;
-  -webkit-transition: border-color 1s linear;
-  -moz-transition: border-color 1s linear;
-  -o-transition: border-color 1s linear;
-  transition: border-color 1s linear;
+  -webkit-transition: border-color 0.5s linear;
+  -moz-transition: border-color 0.5s linear;
+  -o-transition: border-color 0.5s linear;
+  transition: border-color 0.5s linear;
 }
 #navigation {
   margin: 0;
@@ -133,10 +133,10 @@ textarea {
   -o-border-radius: 5px;
   padding: 10px;
   color: #d4f1d4;
-  -webkit-transition: color 1s linear;
-  -moz-transition: color 1s linear;
-  -o-transition: color 1s linear;
-  transition: color 1s linear;
+  -webkit-transition: color 0.5s linear;
+  -moz-transition: color 0.5s linear;
+  -o-transition: color 0.5s linear;
+  transition: color 0.5s linear;
 }
 hr {
   border: solid 1px #0a1d0a;
@@ -145,10 +145,10 @@ a,
 a:visited {
   color: #b7e7b7;
   text-decoration: none;
-  -webkit-transition: color 1s linear;
-  -moz-transition: color 1s linear;
-  -o-transition: color 1s linear;
-  transition: color 1s linear;
+  -webkit-transition: color 0.5s linear;
+  -moz-transition: color 0.5s linear;
+  -o-transition: color 0.5s linear;
+  transition: color 0.5s linear;
 }
 a:hover {
   text-decoration: underline;
@@ -165,7 +165,7 @@ a:hover {
   font-size: 13px;
 }
 .comment {
-  padding: 50px;
+  padding: 50px 25px 50px 25px;
 }
 .commentContainer {
   margin: 12.5px 0 12.5px;
@@ -175,7 +175,7 @@ a:hover {
   clear: both;
 }
 .postSummaryContent {
-  padding: 50px;
+  padding: 50px 25px 50px 25px;
 }
 .postSummary {
   margin-bottom: 15px;
@@ -204,10 +204,10 @@ a:hover {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
   -o-border-radius: 25px;
-  -webkit-transition: background-color 1s linear;
-  -moz-transition: background-color 1s linear;
-  -o-transition: background-color 1s linear;
-  transition: background-color 1s linear;
+  -webkit-transition: background-color 0.5s linear;
+  -moz-transition: background-color 0.5s linear;
+  -o-transition: background-color 0.5s linear;
+  transition: background-color 0.5s linear;
   cursor: pointer;
 }
 .button:hover {
