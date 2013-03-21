@@ -44,4 +44,5 @@ exports.register = function (app) {
 	});
 	app.get('/portfolio', storeRedirectUrl, blogController.portfolio);
 	app.get('/resume', storeRedirectUrl, blogController.resume);
+    app.get('/console', storeRedirectUrl, blogController.console);
 };

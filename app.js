@@ -14,6 +14,13 @@ middleware.config(app);
 routes.register(app);
 
 // Start server
-http.createServer(app).listen(port, function(){
+var server = http.createServer(app).listen(port, function(){
   console.log("App is listening on port " + port);
 });
+
+// Attach shotgun.
+var shotgun = require('shotgun'),
+    shotgunClient = require('shotgun-client'),
+    shell = new shotgun.Shell();
+
+shotgunClient.attach(server, shell);

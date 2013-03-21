@@ -253,6 +253,10 @@ exports.legacyRedirect = function (req, res) {
 	});
 };
 
+exports.console = function (req, res) {
+    res.renderView('blog/console');
+}
+
 function convertToSlug(text) {
 	return text.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
 }
