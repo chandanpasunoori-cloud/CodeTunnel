@@ -26,8 +26,8 @@
     "passport": "0.1.x",
     "passport-google-oauth": "0.1.x",
     "passport-twitter": "0.1.x",
-    "shotgun": "1.0.x",
-    "shotgun-client": "1.0.x"
+    "shotgun": "*",
+    "shotgun-client": "*"
   },
   "subdomain": "codetunnel",
   "engines": {
