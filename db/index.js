@@ -1,5 +1,5 @@
 var async = require('async'),
-  db = require('mongoskin').db(process.env.CUSTOMCONNSTR_MONGODB, {
+  db = require('mongoskin').db(process.env.MONGODB_CONNECTION_STRING, {
 	  auto_reconnect: true,
 	  poolSize: 3,
 	  socketOptions: {
