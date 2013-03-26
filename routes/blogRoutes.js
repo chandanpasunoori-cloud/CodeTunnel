@@ -28,7 +28,7 @@ exports.register = function (app) {
 	app.post('/blog/post/:slug/comment/create', authorize.isAuthenticated, blogController.createComment);
 	app.post('/blog/post/:slug/update', authorize.isPostAuthor, blogController.updatePost);
 	app.get('/blog/post/:slug/edit', authorize.isPostAuthor, blogController.editPost);
-	app.get(/^\/blog\/post\/(\d+)(\/.*)?$/, function (req, res) {
+	app.get(/^\/blog\/post\/(\d+)(\/.*)?$/i, function (req, res) {
 		// Set named parameter to first capture group. Express, you need to figure this out >:(
 		req.params.legacyId = req.params[0];
 		blogController.legacyRedirect(req, res);
@@ -37,7 +37,7 @@ exports.register = function (app) {
 	app.post('/blog/post/autosave', authorize.isAuthenticated, blogController.autoSave);
 	app.get('/blog/post/new', authorize.isAuthor, blogController.newPost);
 	app.get('/blog/post/:slug', storeRedirectUrl, blogController.post);
-	app.get(/^(?:\/(?:blog\/)?page(\d+))?\/?$/, storeRedirectUrl, function (req, res) {
+	app.get(/^(?:\/(?:blog\/)?page(\d+))?\/?$/i, storeRedirectUrl, function (req, res) {
 		// Set named parameter to first capture group. Express, you need to figure this out >:(
 		req.params.page = req.params[0];
 		blogController.home(req, res);
