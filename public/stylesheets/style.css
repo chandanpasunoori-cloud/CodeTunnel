@@ -22,9 +22,6 @@
   -moz-transition: background-color 10s linear;
   -o-transition: background-color 10s linear;
   transition: background-color 10s linear;
-  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));
-  background-image: -moz-linear-gradient(bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));
-  background-image: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));
 }
 .contentFrame {
   position: relative;
@@ -48,7 +45,7 @@ body {
 #frame {
   position: relative;
   margin: 15px auto auto auto;
-  max-width: 900px;
+  max-width: 1000px;
 }
 #footer {
   margin-top: 50px;
@@ -99,7 +96,7 @@ body {
 }
 #content {
   clear: both;
-  padding: 15px;
+  padding: 25px;
   overflow-x: auto;
 }
 pre {
