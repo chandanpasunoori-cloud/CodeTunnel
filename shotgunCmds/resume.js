@@ -145,8 +145,7 @@ exports.invoke = function (res, options, shell) {
             res.type("You know it's the right thing to do. Your company needs me.");
             res.type("But just in case you are still uncertain...");
             res.log('<div style="height: 400px;"><img style="height:400px;" src="/images/hypnotoad.gif" /></div>', { dontType: true });
-            res.log();
-            res.type("You couldn't possibly resist the influence of hypnotoad.")
+            res.type("You couldn't possibly resist the influence of hypnotoad.", 35, 0, 5000);
             res.type("Still not convinced?");
             res.type("Okay okay.....have a look at my résumé.", 35, 0, 2000);
             res.log();
