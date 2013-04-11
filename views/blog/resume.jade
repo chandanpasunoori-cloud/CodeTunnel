@@ -1,1 +1,14 @@
-h1= titles
+style(type="text/css")
+    #console {
+        padding: 15px;
+        height: 500px;
+        width: 700px;
+        margin: auto;
+        border-radius: 5px;
+        overflow: auto;
+        font-size: 15px;
+    }
+#console
+script(type="text/javascript")
+    var shell = $('#console').shotgunConsole();
+    shell.execute('resume');

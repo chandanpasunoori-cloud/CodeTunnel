@@ -1,5 +1,5 @@
 var images = [
-	'/images/ajax-loader.gif'
+    '/images/hypnotoad.gif'
 ];
 $(images).each(function () {
 	$('<img/>')[0].src = this;
