@@ -161,8 +161,7 @@ exports.invoke = function (res, options, shell) {
         if (!hasOptions) hasOptions = options.hasOwnProperty(key);
     }
     if (!hasOptions) {
+        res.setContext('resume');
         res.type("Type '--intro' to get started or '--help' if you've been here before.", 0, 0, 1000);
     }
-
-    res.setContext('resume');
 };
