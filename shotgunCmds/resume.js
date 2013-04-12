@@ -122,7 +122,7 @@ exports.invoke = function (res, options, shell) {
         res.prompt("You do have Disk 1 don't you? (y/n)", "Disk 1?", function (answer) {
             switch (answer.toLowerCase()) {
                 case 'n' || 'no':
-                    res.type("No? wtf");
+                    res.type("No? What's wrong with you?");
                     res.type('Fine......accessing telegraph array...', 0, 0, 500);
                     break;
                 case 'y' || 'yes':
