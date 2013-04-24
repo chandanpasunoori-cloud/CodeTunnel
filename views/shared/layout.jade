@@ -18,7 +18,9 @@ html
         img.backgroundImage(src="/images/codetunnel.jpg")
         #frame
             include container
-                #banner= bannerText
+                #banner
+                    a.hijax(href="/")
+                        img(src="/images/banner.png", alt=bannerText)
                 ul#navigation
                     li.nav
                         a.hijax(href="/") Home
