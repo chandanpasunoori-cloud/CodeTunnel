@@ -91,20 +91,6 @@ exports.invoke = function (res, options, shell) {
     if (options.intro) {
 
         if (!("Disk 1?" in options)) {
-            res.type("Well hello there! My name is Alex Ford.");
-            res.type("I'd just like to say...");
-            res.log();
-            res.log('&nbsp;/$$      /$$           /$$                                            ');
-            res.log('| $$  /$ | $$          | $$                                            ');
-            res.log('| $$ /$$$| $$  /$$$$$$ | $$  /$$$$$$$  /$$$$$$  /$$$$$$/$$$$   /$$$$$$ ');
-            res.log('| $$/$$ $$ $$ /$$__  $$| $$ /$$_____/ /$$__  $$| $$_  $$_  $$ /$$__  $$');
-            res.log('| $$$$_  $$$$| $$$$$$$$| $$| $$      | $$  \\ $$| $$ \\ $$ \\ $$| $$$$$$$$');
-            res.log('| $$$/ \\  $$$| $$_____/| $$| $$      | $$  | $$| $$ | $$ | $$| $$_____/');
-            res.log('| $$/   \\  $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$/| $$ | $$ | $$|  $$$$$$$');
-            res.log('|__/     \\__/ \\_______/|__/ \\_______/ \\______/ |__/ |__/ |__/ \\_______/');
-            res.log();
-            res.type('...to my interactive résumé!');
-            res.log();
             res.type("I bet you thought my resume was going to be dry and boring like everyone else's huh?");
             res.type("Well I showed you!");
             res.type("It's actually super modern and cutting edge.");
@@ -161,6 +147,20 @@ exports.invoke = function (res, options, shell) {
     }
     if (!hasOptions) {
         res.setContext('resume');
+        res.type("Well hello there! My name is Alex Ford.");
+        res.type("I'd just like to say...");
+        res.log();
+        res.log('&nbsp;/$$      /$$           /$$                                            ');
+        res.log('| $$  /$ | $$          | $$                                            ');
+        res.log('| $$ /$$$| $$  /$$$$$$ | $$  /$$$$$$$  /$$$$$$  /$$$$$$/$$$$   /$$$$$$ ');
+        res.log('| $$/$$ $$ $$ /$$__  $$| $$ /$$_____/ /$$__  $$| $$_  $$_  $$ /$$__  $$');
+        res.log('| $$$$_  $$$$| $$$$$$$$| $$| $$      | $$  \\ $$| $$ \\ $$ \\ $$| $$$$$$$$');
+        res.log('| $$$/ \\  $$$| $$_____/| $$| $$      | $$  | $$| $$ | $$ | $$| $$_____/');
+        res.log('| $$/   \\  $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$/| $$ | $$ | $$|  $$$$$$$');
+        res.log('|__/     \\__/ \\_______/|__/ \\_______/ \\______/ |__/ |__/ |__/ \\_______/');
+        res.log();
+        res.type('...to my interactive résumé!');
+        res.log();
         res.type("Type '--intro' to get started or '--help' if you've been here before.", 0, 0, 1000);
     }
 };
