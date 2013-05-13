@@ -13,7 +13,7 @@ exports.blobStorage = function (req, res) {
 	}
 
 	blobService.listContainers(function (err, containers) {
-		if (err) return req.next(err)
+		if (err) return req.next(err);
 		var containerExists = false;
 		containers.forEach(function (container) {
 			if (!containerExists) containerExists = container.name.toLowerCase() === containerName;

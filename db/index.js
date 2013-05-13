@@ -38,8 +38,8 @@ db.bind('blogPosts', {
                     });
                 });
             });
-			async.parallel(operationsArray, function (err, results) {
-				fn(err, blogPost);
+            async.parallel(operationsArray, function (err) {
+                fn(err, blogPost);
 			});
 		});
 	},

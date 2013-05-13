@@ -85,7 +85,7 @@ exports.invoke = function (res, options, shell) {
         res.log('References Section');
     }
     if (options.help) {
-        result = shell.execute('help resume');
+        var result = shell.execute('help resume');
         res.lines.push.apply(res.lines, result.lines);
     }
     if (options.intro) {
@@ -149,7 +149,7 @@ exports.invoke = function (res, options, shell) {
             res.type("Still not convinced?");
             res.type("Okay okay.....have a look at my résumé.", 35, 0, 2000);
             res.log();
-            result = shell.execute('help resume');
+            var result = shell.execute('help resume');
             res.lines.push.apply(res.lines, result.lines);
             res.setContext('resume');
         });

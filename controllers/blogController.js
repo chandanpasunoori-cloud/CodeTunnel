@@ -99,8 +99,8 @@ exports.createPost = function (req, res) {
 					slug: slug,
 					content: req.param('postContent'),
 					comments: []
-				}, function (err, result) {
-					if (err) return req.next(err);
+            }, function (err) {
+                if (err) return req.next(err);
 					db.collection('users').updateById(req.user._id, {
 						$unset: { activePost: 0 }
 					});
@@ -157,8 +157,8 @@ exports.createComment = function (req, res) {
 	};
 	db.collection('blogPosts').updateById(req.blogPost._id, {
 		'$push': { comments: comment }
-	}, function (err, results) {
-		if (err) return req.next(err);
+    }, function (err) {
+        if (err) return req.next(err);
 		if (!req.xhr)
 			res.redirect('/blog/post/' + req.blogPost.slug + '#comment-' + comment._id);
 		else
@@ -181,8 +181,8 @@ exports.createComment = function (req, res) {
 							to: sendTo,
 							subject: comment.author.name.first + " posted a comment on your post.",
 							html: markdown(view)
-						}, function (err, res) {
-							if (err) return req.next(err);
+                        }, function (err) {
+                            if (err) return req.next(err);
 						});
 					});
 				}
@@ -199,8 +199,8 @@ exports.createComment = function (req, res) {
 									to: sendTo,
 									subject: comment.author.name.first + " posted a comment on a post you are following.",
 									html: markdown(view)
-								}, function (err, res) {
-									if (err) return req.next(err);
+                                }, function (err) {
+                                    if (err) return req.next(err);
 								});
 							});
 						}
@@ -221,8 +221,8 @@ exports.deleteComment = function (req, res) {
 	if (!req.blogPost) req.next();
 	db.collection('blogPosts').updateById(req.blogPost._id, {
 		'$pull': { comments: { _id: req.comment._id } }
-	}, function (err, results) {
-		if (err) req.next(err);
+    }, function (err) {
+        if (err) req.next(err);
 		if (!req.xhr)
 			res.redirect('/blog/post/' + req.blogPost.slug + '#comments');
 		else
@@ -238,8 +238,8 @@ exports.autoSave = function (req, res) {
 				content: req.param('postContent')
 			}
 		}
-	}, function (err, result) {
-		if (err) return req.next(err);
+    }, function (err) {
+        if (err) return req.next(err);
 		res.json({ success: true });
 	});
 };
