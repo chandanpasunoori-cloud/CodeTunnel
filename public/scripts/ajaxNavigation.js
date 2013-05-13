@@ -85,7 +85,6 @@
 				$(document).data('loading', false);
 				clearInterval($content.data('intervalId'));
 				document.title = data.title;
-				$('#banner').text(data.bannerText);
 				$content.html(data.view);
                 $content.find('code').addClass('prettyprint');
                 prettyPrint();

@@ -84,6 +84,14 @@ body {
   -o-transition: border-color 10s linear;
   transition: border-color 10s linear;
 }
+#banner a {
+  display: inline-block;
+}
+#banner img {
+  height: 200px;
+  width: auto;
+  display: inline-block;
+}
 #navigation {
   margin: 0;
   padding: 15px;

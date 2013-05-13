@@ -15,10 +15,13 @@ html
         script(type='text/javascript', src='/scripts/initialize.js')
         script(type='text/javascript', src='/shotgun/shotgun.client.js')
     body
+        img(style="display: none;", src="/images/MediaThumbnail.jpg")
         img.backgroundImage(src="/images/codetunnel.jpg")
         #frame
             include container
-                #banner= bannerText
+                #banner
+                    a.hijax(href="/")
+                        img(src="/images/banner.png", alt=bannerText)
                 ul#navigation
                     li.nav
                         a.hijax(href="/") Home
