@@ -21,6 +21,6 @@ var server = http.createServer(app).listen(port, function(){
 // Attach shotgun.
 var shotgun = require('shotgun'),
     shotgunClient = require('shotgun-client'),
-    shell = new shotgun.Shell('shotgunCmds');
+    resumeShell = new shotgun.Shell('resumeCmds');
 
-shotgunClient.attach(server, shell);
+shotgunClient.attach(server, resumeShell);

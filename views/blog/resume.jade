@@ -11,4 +11,10 @@ style(type="text/css")
 #console
 script(type="text/javascript")
     var shell = $('#console').shotgunConsole();
-    shell.execute('resume');
+    var $line = $('<div>').appendTo(shell.$display);
+    $line.coolType('Loading interactive résumé program. Please wait...', {
+        delayAfterType: 0,
+        onComplete: function () {
+            shell.execute('welcome');
+        }
+    });
