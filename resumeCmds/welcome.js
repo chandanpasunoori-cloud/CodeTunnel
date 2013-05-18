@@ -4,7 +4,6 @@ exports.description = 'Displays a welcome message.';
 
 exports.invoke = function (res, options, shell) {
     setupHelpers(res);
-    res.setContext('resume');
     res.type("Well hello there! My name is Alex Ford.");
     res.type("I'd just like to say...");
     res.log();
