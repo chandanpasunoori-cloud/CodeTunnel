@@ -42,7 +42,6 @@ exports.register = function (app) {
 		req.params.page = req.params[0];
 		blogController.home(req, res);
 	});
-	app.get('/portfolio', storeRedirectUrl, blogController.portfolio);
+	app.get('/about', storeRedirectUrl, blogController.about);
 	app.get('/resume', storeRedirectUrl, blogController.resume);
-    app.get('/console', storeRedirectUrl, blogController.console);
 };

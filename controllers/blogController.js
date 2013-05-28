@@ -38,12 +38,12 @@ exports.home = function (req, res) {
 	});
 };
 
-exports.portfolio = function (req, res) {
+exports.about = function (req, res) {
 	var viewModel = {
-		title: 'My Portfolio',
-		bannerText: 'My Portfolio'
+		title: 'About CodeTunnel',
+		bannerText: 'About CodeTunnel'
 	};
-	res.renderView('blog/portfolio', viewModel);
+	res.renderView('blog/about', viewModel);
 };
 
 exports.resume = function (req, res) {
