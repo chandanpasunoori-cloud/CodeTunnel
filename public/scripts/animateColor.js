@@ -26,7 +26,7 @@
 
 		$(document).data('colorItems', items);
 
-		(function changeColors() {
+		function changeColors() {
 			items.forEach(function (item) {
 				$(item.element).removeClass(item.cssClass + colorIndex);
 			});
@@ -34,17 +34,17 @@
 			if (e.debug) $debug.text('colorIndex: ' + colorIndex);
 
 			colorIndex = Math.floor(Math.random()*23);
-			//colorIndex++;
-			if (colorIndex > 11)
-				colorIndex = 0;
+//			colorIndex++;
+//			if (colorIndex > 24)
+//				colorIndex = 0;
 			$(document).data('colorIndex', colorIndex);
 
 			items.forEach(function (item) {
 				$(item.element).addClass(item.cssClass + colorIndex);
 			});
+		}
 
-			setTimeout(changeColors, delay * 1000);
-		})();
+        setInterval(changeColors, delay * 1000);
 	});
 
 })(jQuery);
