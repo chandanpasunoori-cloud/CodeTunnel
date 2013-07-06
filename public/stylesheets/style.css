@@ -18,10 +18,10 @@
   -moz-border-radius: 15px 100px 15px 100px;
   -webkit-border-radius: 15px 100px 15px 100px;
   -o-border-radius: 15px 100px 15px 100px;
-  -webkit-transition: background-color 10s linear;
-  -moz-transition: background-color 10s linear;
-  -o-transition: background-color 10s linear;
-  transition: background-color 10s linear;
+  -webkit-transition: background-color 0.25s linear;
+  -moz-transition: background-color 0.25s linear;
+  -o-transition: background-color 0.25s linear;
+  transition: background-color 0.25s linear;
 }
 .contentFrame {
   position: relative;
@@ -37,10 +37,10 @@ body {
   color: #e7f7e7;
   font-size: 15px;
   font-family: "Consolas", "Courier New";
-  -webkit-transition: color 10s linear, background-color 10s linear;
-  -moz-transition: color 10s linear, background-color 10s linear;
-  -o-transition: color 10s linear, background-color 10s linear;
-  transition: color 10s linear, background-color 10s linear;
+  -webkit-transition: color 0.25s linear, background-color 0.25s linear;
+  -moz-transition: color 0.25s linear, background-color 0.25s linear;
+  -o-transition: color 0.25s linear, background-color 0.25s linear;
+  transition: color 0.25s linear, background-color 0.25s linear;
 }
 #frame {
   position: relative;
@@ -79,10 +79,10 @@ body {
   padding: 15px;
   font-family: Courier New;
   border-bottom: solid 1px #0a1d0a;
-  -webkit-transition: border-color 10s linear;
-  -moz-transition: border-color 10s linear;
-  -o-transition: border-color 10s linear;
-  transition: border-color 10s linear;
+  -webkit-transition: border-color 0.25s linear;
+  -moz-transition: border-color 0.25s linear;
+  -o-transition: border-color 0.25s linear;
+  transition: border-color 0.25s linear;
 }
 #banner a {
   display: inline-block;
@@ -141,10 +141,10 @@ textarea {
   -o-border-radius: 5px;
   padding: 10px;
   color: #d4f1d4;
-  -webkit-transition: color 10s linear;
-  -moz-transition: color 10s linear;
-  -o-transition: color 10s linear;
-  transition: color 10s linear;
+  -webkit-transition: color 0.25s linear;
+  -moz-transition: color 0.25s linear;
+  -o-transition: color 0.25s linear;
+  transition: color 0.25s linear;
 }
 hr {
   border: solid 1px #0a1d0a;
@@ -153,10 +153,10 @@ a,
 a:visited {
   color: #b7e7b7;
   text-decoration: none;
-  -webkit-transition: color 10s linear;
-  -moz-transition: color 10s linear;
-  -o-transition: color 10s linear;
-  transition: color 10s linear;
+  -webkit-transition: color 0.25s linear;
+  -moz-transition: color 0.25s linear;
+  -o-transition: color 0.25s linear;
+  transition: color 0.25s linear;
 }
 a:hover {
   text-decoration: underline;
@@ -212,10 +212,10 @@ a:hover {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
   -o-border-radius: 25px;
-  -webkit-transition: background-color 10s linear;
-  -moz-transition: background-color 10s linear;
-  -o-transition: background-color 10s linear;
-  transition: background-color 10s linear;
+  -webkit-transition: background-color 0.25s linear;
+  -moz-transition: background-color 0.25s linear;
+  -o-transition: background-color 0.25s linear;
+  transition: background-color 0.25s linear;
   cursor: pointer;
 }
 .button:hover {
@@ -256,277 +256,577 @@ a.linkColor0:visited {
   color: #f1d4d4;
 }
 .bodyColor1 {
-  color: #f7efe7 !important;
+  color: #f7ebe7 !important;
 }
 .borderColor1 {
-  border-color: #1d130a !important;
+  border-color: #1d0e0a !important;
 }
 a.linkColor1,
 a.linkColor1:visited {
-  color: #e7cfb7;
+  color: #e7c3b7;
 }
 .containerColor1 {
-  background-color: #dfbf9f !important;
+  background-color: #dfaf9f !important;
 }
 .buttonColor1 {
-  color: #483018 !important;
-  background-color: #e7cfb7;
+  color: #482418 !important;
+  background-color: #e7c3b7;
 }
 .buttonColor1:hover {
-  background-color: #8f6030;
-  color: #faf5f1 !important;
+  background-color: #8f4830;
+  color: #faf3f1 !important;
 }
 .inputColor1 {
-  border-color: #e7cfb7 !important;
-  color: #f1e2d4;
+  border-color: #e7c3b7 !important;
+  color: #f1dbd4;
 }
 .bodyColor2 {
-  color: #f7f7e7 !important;
+  color: #f7efe7 !important;
 }
 .borderColor2 {
-  border-color: #1d1d0a !important;
+  border-color: #1d130a !important;
 }
 a.linkColor2,
 a.linkColor2:visited {
-  color: #e7e7b7;
+  color: #e7cfb7;
 }
 .containerColor2 {
-  background-color: #dfdf9f !important;
+  background-color: #dfbf9f !important;
 }
 .buttonColor2 {
-  color: #484818 !important;
-  background-color: #e7e7b7;
+  color: #483018 !important;
+  background-color: #e7cfb7;
 }
 .buttonColor2:hover {
-  background-color: #8f8f30;
-  color: #fafaf1 !important;
+  background-color: #8f6030;
+  color: #faf5f1 !important;
 }
 .inputColor2 {
-  border-color: #e7e7b7 !important;
-  color: #f1f1d4;
+  border-color: #e7cfb7 !important;
+  color: #f1e2d4;
 }
 .bodyColor3 {
-  color: #eff7e7 !important;
+  color: #f7f3e7 !important;
 }
 .borderColor3 {
-  border-color: #131d0a !important;
+  border-color: #1d180a !important;
 }
 a.linkColor3,
 a.linkColor3:visited {
-  color: #cfe7b7;
+  color: #e7dbb7;
 }
 .containerColor3 {
-  background-color: #bfdf9f !important;
+  background-color: #dfcf9f !important;
 }
 .buttonColor3 {
-  color: #304818 !important;
-  background-color: #cfe7b7;
+  color: #483c18 !important;
+  background-color: #e7dbb7;
 }
 .buttonColor3:hover {
-  background-color: #608f30;
-  color: #f5faf1 !important;
+  background-color: #8f7830;
+  color: #faf8f1 !important;
 }
 .inputColor3 {
-  border-color: #cfe7b7 !important;
-  color: #e2f1d4;
+  border-color: #e7dbb7 !important;
+  color: #f1e9d4;
 }
 .bodyColor4 {
-  color: #e7f7e7 !important;
+  color: #f7f7e7 !important;
 }
 .borderColor4 {
-  border-color: #0a1d0a !important;
+  border-color: #1d1d0a !important;
 }
 a.linkColor4,
 a.linkColor4:visited {
-  color: #b7e7b7;
+  color: #e7e7b7;
 }
 .containerColor4 {
-  background-color: #9fdf9f !important;
+  background-color: #dfdf9f !important;
 }
 .buttonColor4 {
-  color: #184818 !important;
-  background-color: #b7e7b7;
+  color: #484818 !important;
+  background-color: #e7e7b7;
 }
 .buttonColor4:hover {
-  background-color: #308f30;
-  color: #f1faf1 !important;
+  background-color: #8f8f30;
+  color: #fafaf1 !important;
 }
 .inputColor4 {
-  border-color: #b7e7b7 !important;
-  color: #d4f1d4;
+  border-color: #e7e7b7 !important;
+  color: #f1f1d4;
 }
 .bodyColor5 {
-  color: #e7f7ef !important;
+  color: #f3f7e7 !important;
 }
 .borderColor5 {
-  border-color: #0a1d13 !important;
+  border-color: #181d0a !important;
 }
 a.linkColor5,
 a.linkColor5:visited {
-  color: #b7e7cf;
+  color: #dbe7b7;
 }
 .containerColor5 {
-  background-color: #9fdfbf !important;
+  background-color: #cfdf9f !important;
 }
 .buttonColor5 {
-  color: #184830 !important;
-  background-color: #b7e7cf;
+  color: #3c4818 !important;
+  background-color: #dbe7b7;
 }
 .buttonColor5:hover {
-  background-color: #308f60;
-  color: #f1faf5 !important;
+  background-color: #788f30;
+  color: #f8faf1 !important;
 }
 .inputColor5 {
-  border-color: #b7e7cf !important;
-  color: #d4f1e2;
+  border-color: #dbe7b7 !important;
+  color: #e9f1d4;
 }
 .bodyColor6 {
-  color: #e7f7f7 !important;
+  color: #eff7e7 !important;
 }
 .borderColor6 {
-  border-color: #0a1d1d !important;
+  border-color: #131d0a !important;
 }
 a.linkColor6,
 a.linkColor6:visited {
-  color: #b7e7e7;
+  color: #cfe7b7;
 }
 .containerColor6 {
-  background-color: #9fdfdf !important;
+  background-color: #bfdf9f !important;
 }
 .buttonColor6 {
-  color: #184848 !important;
-  background-color: #b7e7e7;
+  color: #304818 !important;
+  background-color: #cfe7b7;
 }
 .buttonColor6:hover {
-  background-color: #308f8f;
-  color: #f1fafa !important;
+  background-color: #608f30;
+  color: #f5faf1 !important;
 }
 .inputColor6 {
-  border-color: #b7e7e7 !important;
-  color: #d4f1f1;
+  border-color: #cfe7b7 !important;
+  color: #e2f1d4;
 }
 .bodyColor7 {
-  color: #e7eff7 !important;
+  color: #ebf7e7 !important;
 }
 .borderColor7 {
-  border-color: #0a131d !important;
+  border-color: #0e1d0a !important;
 }
 a.linkColor7,
 a.linkColor7:visited {
-  color: #b7cfe7;
+  color: #c3e7b7;
 }
 .containerColor7 {
-  background-color: #9fbfdf !important;
+  background-color: #afdf9f !important;
 }
 .buttonColor7 {
-  color: #183048 !important;
-  background-color: #b7cfe7;
+  color: #244818 !important;
+  background-color: #c3e7b7;
 }
 .buttonColor7:hover {
-  background-color: #30608f;
-  color: #f1f5fa !important;
+  background-color: #488f30;
+  color: #f3faf1 !important;
 }
 .inputColor7 {
-  border-color: #b7cfe7 !important;
-  color: #d4e2f1;
+  border-color: #c3e7b7 !important;
+  color: #dbf1d4;
 }
 .bodyColor8 {
-  color: #e7e7f7 !important;
+  color: #e7f7e7 !important;
 }
 .borderColor8 {
-  border-color: #0a0a1d !important;
+  border-color: #0a1d0a !important;
 }
 a.linkColor8,
 a.linkColor8:visited {
-  color: #b7b7e7;
+  color: #b7e7b7;
 }
 .containerColor8 {
-  background-color: #9f9fdf !important;
+  background-color: #9fdf9f !important;
 }
 .buttonColor8 {
-  color: #181848 !important;
-  background-color: #b7b7e7;
+  color: #184818 !important;
+  background-color: #b7e7b7;
 }
 .buttonColor8:hover {
-  background-color: #30308f;
-  color: #f1f1fa !important;
+  background-color: #308f30;
+  color: #f1faf1 !important;
 }
 .inputColor8 {
-  border-color: #b7b7e7 !important;
-  color: #d4d4f1;
+  border-color: #b7e7b7 !important;
+  color: #d4f1d4;
 }
 .bodyColor9 {
-  color: #efe7f7 !important;
+  color: #e7f7eb !important;
 }
 .borderColor9 {
-  border-color: #130a1d !important;
+  border-color: #0a1d0e !important;
 }
 a.linkColor9,
 a.linkColor9:visited {
-  color: #cfb7e7;
+  color: #b7e7c3;
 }
 .containerColor9 {
-  background-color: #bf9fdf !important;
+  background-color: #9fdfaf !important;
 }
 .buttonColor9 {
-  color: #301848 !important;
-  background-color: #cfb7e7;
+  color: #184824 !important;
+  background-color: #b7e7c3;
 }
 .buttonColor9:hover {
-  background-color: #60308f;
-  color: #f5f1fa !important;
+  background-color: #308f48;
+  color: #f1faf3 !important;
 }
 .inputColor9 {
-  border-color: #cfb7e7 !important;
-  color: #e2d4f1;
+  border-color: #b7e7c3 !important;
+  color: #d4f1db;
 }
 .bodyColor10 {
-  color: #f7e7f7 !important;
+  color: #e7f7ef !important;
 }
 .borderColor10 {
-  border-color: #1d0a1d !important;
+  border-color: #0a1d13 !important;
 }
 a.linkColor10,
 a.linkColor10:visited {
-  color: #e7b7e7;
+  color: #b7e7cf;
 }
 .containerColor10 {
-  background-color: #df9fdf !important;
+  background-color: #9fdfbf !important;
 }
 .buttonColor10 {
-  color: #481848 !important;
-  background-color: #e7b7e7;
+  color: #184830 !important;
+  background-color: #b7e7cf;
 }
 .buttonColor10:hover {
-  background-color: #8f308f;
-  color: #faf1fa !important;
+  background-color: #308f60;
+  color: #f1faf5 !important;
 }
 .inputColor10 {
-  border-color: #e7b7e7 !important;
-  color: #f1d4f1;
+  border-color: #b7e7cf !important;
+  color: #d4f1e2;
 }
 .bodyColor11 {
-  color: #f7e7ef !important;
+  color: #e7f7f3 !important;
 }
 .borderColor11 {
-  border-color: #1d0a13 !important;
+  border-color: #0a1d18 !important;
 }
 a.linkColor11,
 a.linkColor11:visited {
-  color: #e7b7cf;
+  color: #b7e7db;
 }
 .containerColor11 {
-  background-color: #df9fbf !important;
+  background-color: #9fdfcf !important;
 }
 .buttonColor11 {
+  color: #18483c !important;
+  background-color: #b7e7db;
+}
+.buttonColor11:hover {
+  background-color: #308f78;
+  color: #f1faf8 !important;
+}
+.inputColor11 {
+  border-color: #b7e7db !important;
+  color: #d4f1e9;
+}
+.bodyColor12 {
+  color: #e7f7f7 !important;
+}
+.borderColor12 {
+  border-color: #0a1d1d !important;
+}
+a.linkColor12,
+a.linkColor12:visited {
+  color: #b7e7e7;
+}
+.containerColor12 {
+  background-color: #9fdfdf !important;
+}
+.buttonColor12 {
+  color: #184848 !important;
+  background-color: #b7e7e7;
+}
+.buttonColor12:hover {
+  background-color: #308f8f;
+  color: #f1fafa !important;
+}
+.inputColor12 {
+  border-color: #b7e7e7 !important;
+  color: #d4f1f1;
+}
+.bodyColor13 {
+  color: #e7f3f7 !important;
+}
+.borderColor13 {
+  border-color: #0a181d !important;
+}
+a.linkColor13,
+a.linkColor13:visited {
+  color: #b7dbe7;
+}
+.containerColor13 {
+  background-color: #9fcfdf !important;
+}
+.buttonColor13 {
+  color: #183c48 !important;
+  background-color: #b7dbe7;
+}
+.buttonColor13:hover {
+  background-color: #30788f;
+  color: #f1f8fa !important;
+}
+.inputColor13 {
+  border-color: #b7dbe7 !important;
+  color: #d4e9f1;
+}
+.bodyColor14 {
+  color: #e7eff7 !important;
+}
+.borderColor14 {
+  border-color: #0a131d !important;
+}
+a.linkColor14,
+a.linkColor14:visited {
+  color: #b7cfe7;
+}
+.containerColor14 {
+  background-color: #9fbfdf !important;
+}
+.buttonColor14 {
+  color: #183048 !important;
+  background-color: #b7cfe7;
+}
+.buttonColor14:hover {
+  background-color: #30608f;
+  color: #f1f5fa !important;
+}
+.inputColor14 {
+  border-color: #b7cfe7 !important;
+  color: #d4e2f1;
+}
+.bodyColor15 {
+  color: #e7ebf7 !important;
+}
+.borderColor15 {
+  border-color: #0a0e1d !important;
+}
+a.linkColor15,
+a.linkColor15:visited {
+  color: #b7c3e7;
+}
+.containerColor15 {
+  background-color: #9fafdf !important;
+}
+.buttonColor15 {
+  color: #182448 !important;
+  background-color: #b7c3e7;
+}
+.buttonColor15:hover {
+  background-color: #30488f;
+  color: #f1f3fa !important;
+}
+.inputColor15 {
+  border-color: #b7c3e7 !important;
+  color: #d4dbf1;
+}
+.bodyColor16 {
+  color: #e7e7f7 !important;
+}
+.borderColor16 {
+  border-color: #0a0a1d !important;
+}
+a.linkColor16,
+a.linkColor16:visited {
+  color: #b7b7e7;
+}
+.containerColor16 {
+  background-color: #9f9fdf !important;
+}
+.buttonColor16 {
+  color: #181848 !important;
+  background-color: #b7b7e7;
+}
+.buttonColor16:hover {
+  background-color: #30308f;
+  color: #f1f1fa !important;
+}
+.inputColor16 {
+  border-color: #b7b7e7 !important;
+  color: #d4d4f1;
+}
+.bodyColor17 {
+  color: #ebe7f7 !important;
+}
+.borderColor17 {
+  border-color: #0e0a1d !important;
+}
+a.linkColor17,
+a.linkColor17:visited {
+  color: #c3b7e7;
+}
+.containerColor17 {
+  background-color: #af9fdf !important;
+}
+.buttonColor17 {
+  color: #241848 !important;
+  background-color: #c3b7e7;
+}
+.buttonColor17:hover {
+  background-color: #48308f;
+  color: #f3f1fa !important;
+}
+.inputColor17 {
+  border-color: #c3b7e7 !important;
+  color: #dbd4f1;
+}
+.bodyColor18 {
+  color: #efe7f7 !important;
+}
+.borderColor18 {
+  border-color: #130a1d !important;
+}
+a.linkColor18,
+a.linkColor18:visited {
+  color: #cfb7e7;
+}
+.containerColor18 {
+  background-color: #bf9fdf !important;
+}
+.buttonColor18 {
+  color: #301848 !important;
+  background-color: #cfb7e7;
+}
+.buttonColor18:hover {
+  background-color: #60308f;
+  color: #f5f1fa !important;
+}
+.inputColor18 {
+  border-color: #cfb7e7 !important;
+  color: #e2d4f1;
+}
+.bodyColor19 {
+  color: #f3e7f7 !important;
+}
+.borderColor19 {
+  border-color: #180a1d !important;
+}
+a.linkColor19,
+a.linkColor19:visited {
+  color: #dbb7e7;
+}
+.containerColor19 {
+  background-color: #cf9fdf !important;
+}
+.buttonColor19 {
+  color: #3c1848 !important;
+  background-color: #dbb7e7;
+}
+.buttonColor19:hover {
+  background-color: #78308f;
+  color: #f8f1fa !important;
+}
+.inputColor19 {
+  border-color: #dbb7e7 !important;
+  color: #e9d4f1;
+}
+.bodyColor20 {
+  color: #f7e7f7 !important;
+}
+.borderColor20 {
+  border-color: #1d0a1d !important;
+}
+a.linkColor20,
+a.linkColor20:visited {
+  color: #e7b7e7;
+}
+.containerColor20 {
+  background-color: #df9fdf !important;
+}
+.buttonColor20 {
+  color: #481848 !important;
+  background-color: #e7b7e7;
+}
+.buttonColor20:hover {
+  background-color: #8f308f;
+  color: #faf1fa !important;
+}
+.inputColor20 {
+  border-color: #e7b7e7 !important;
+  color: #f1d4f1;
+}
+.bodyColor21 {
+  color: #f7e7f3 !important;
+}
+.borderColor21 {
+  border-color: #1d0a18 !important;
+}
+a.linkColor21,
+a.linkColor21:visited {
+  color: #e7b7db;
+}
+.containerColor21 {
+  background-color: #df9fcf !important;
+}
+.buttonColor21 {
+  color: #48183c !important;
+  background-color: #e7b7db;
+}
+.buttonColor21:hover {
+  background-color: #8f3078;
+  color: #faf1f8 !important;
+}
+.inputColor21 {
+  border-color: #e7b7db !important;
+  color: #f1d4e9;
+}
+.bodyColor22 {
+  color: #f7e7ef !important;
+}
+.borderColor22 {
+  border-color: #1d0a13 !important;
+}
+a.linkColor22,
+a.linkColor22:visited {
+  color: #e7b7cf;
+}
+.containerColor22 {
+  background-color: #df9fbf !important;
+}
+.buttonColor22 {
   color: #481830 !important;
   background-color: #e7b7cf;
 }
-.buttonColor11:hover {
+.buttonColor22:hover {
   background-color: #8f3060;
   color: #faf1f5 !important;
 }
-.inputColor11 {
+.inputColor22 {
   border-color: #e7b7cf !important;
   color: #f1d4e2;
+}
+.bodyColor23 {
+  color: #f7e7eb !important;
+}
+.borderColor23 {
+  border-color: #1d0a0e !important;
+}
+a.linkColor23,
+a.linkColor23:visited {
+  color: #e7b7c3;
+}
+.containerColor23 {
+  background-color: #df9faf !important;
+}
+.buttonColor23 {
+  color: #481824 !important;
+  background-color: #e7b7c3;
+}
+.buttonColor23:hover {
+  background-color: #8f3048;
+  color: #faf1f3 !important;
+}
+.inputColor23 {
+  border-color: #e7b7c3 !important;
+  color: #f1d4db;
 }
