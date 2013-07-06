@@ -2,7 +2,8 @@ var setupHelpers = require('./helperFunctions.js');
 
 exports.description = 'Displays a welcome message.';
 
-exports.invoke = function (res, options, shell) {
+exports.invoke = function (options, shell) {
+    var res = this;
     setupHelpers(res);
     res.type("Well hello there! My name is Alex Ford.");
     res.type("I'd just like to say...");

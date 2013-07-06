@@ -15,7 +15,7 @@ form.hijax(action=blogPost ? 'update' : 'create', method="POST")
     #previewContainer(style="display: none;")
         include ../shared/container
             #postPreview.preview
-    script(type='text/javascript')
+    script.
         // Setup post preview.
         $('#previewContainer').show();
         var $postContent = $('#postContent'),
@@ -29,7 +29,7 @@ form.hijax(action=blogPost ? 'update' : 'create', method="POST")
         $postContent.typeWatch(updatePreview, 500);
 
     if (!blogPost)
-        script(type='text/javascript')
+        script.
             // Auto-save current post.
             $('#postContent, #postTitle').typeWatch(function() {
                 $.post('/blog/post/autosave', {

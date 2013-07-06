@@ -4,16 +4,16 @@ html
         title= title
         link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
         link(rel='stylesheet', type='text/css', href='/stylesheets/prettify.css')
-        script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
-        script(type='text/javascript', src='/scripts/jquery.scrollTo.js')
-        script(type='text/javascript', src='/scripts/prettify/prettify.js')
-        script(type='text/javascript', src='/scripts/marked.js')
-        script(type='text/javascript', src='/scripts/preloadImages.js')
-        script(type='text/javascript', src='/scripts/ajaxNavigation.js')
-        script(type='text/javascript', src='/scripts/animateColor.js')
-        script(type='text/javascript', src='/scripts/jquery.typeWatch.js')
-        script(type='text/javascript', src='/scripts/initialize.js')
-        script(type='text/javascript', src='/shotgun/shotgun.client.js')
+        script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+        script(src='/scripts/jquery.scrollTo.js')
+        script(src='/scripts/prettify/prettify.js')
+        script(src='/scripts/marked.js')
+        script(src='/scripts/preloadImages.js')
+        script(src='/scripts/ajaxNavigation.js')
+        script(src='/scripts/animateColor.js')
+        script(src='/scripts/jquery.typeWatch.js')
+        script(src='/scripts/initialize.js')
+        script(src='/shotgun/shotgun.client.js')
     body
         img(style="display: none;", src="/images/MediaThumbnail.jpg")
         img.backgroundImage(src="/images/codetunnel.jpg")
@@ -45,7 +45,7 @@ html
                 #content
                     block content
                 #footer
-    script(type="text/javascript")
+    script.
         try
         {
             // Google Analytics
@@ -63,4 +63,3 @@ html
         {
             alert(err.message);
         }
-    script

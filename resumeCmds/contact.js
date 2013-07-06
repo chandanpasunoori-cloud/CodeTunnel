@@ -2,7 +2,8 @@ var setupHelpers = require('./helperFunctions.js');
 
 exports.description = 'Displays my contact information.';
 
-exports.invoke = function (res, options, shell) {
+exports.invoke = function (options, shell) {
+    var res = this;
     setupHelpers(res);
     res.log('Alex Ford');
     res.log('<a href="mailto:Alex.Ford@CodeTunnel.com">Alex.Ford@CodeTunnel.com</a>', { dontType: true });

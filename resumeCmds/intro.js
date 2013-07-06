@@ -2,7 +2,8 @@ var setupHelpers = require('./helperFunctions.js');
 
 exports.description = 'Introduction to my interactive résumé application.';
 
-exports.invoke = function (res, options, shell) {
+exports.invoke = function (options, shell) {
+    var res = this;
     setupHelpers(res);
     if (!("Disk 1?" in options)) {
         res.type("I bet you thought my resume was going to be dry and boring like everyone else's huh?");

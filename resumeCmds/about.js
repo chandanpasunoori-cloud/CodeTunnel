@@ -2,7 +2,8 @@ var setupHelpers = require('./helperFunctions.js');
 
 exports.description = "Information about my interactive résumé application.";
 
-exports.invoke = function (res, options, shell) {
+exports.invoke = function (options, shell) {
+    var res = this;
     setupHelpers(res);
     res.type('This interactive résumé application was written as a way to show off a node module that I created known as "shotgun".');
     res.log();
