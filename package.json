@@ -10,26 +10,26 @@
     "start": "app.js"
   },
   "dependencies": {
-    "express": "3.0.4",
+    "express": "*",
     "jade": "*",
     "stylus": "*",
-    "async": "0.2.x",
-    "moment": "2.0.x",
-    "marked": "0.2.x",
-    "string": "1.2.x",
-    "azure": "0.6.x",
-    "connect-mongoskin": "0.1.x",
-    "mongoskin": "0.5.x",
-    "passport-facebook": "0.1.x",
-    "nodemailer": "0.3.x",
-    "passport": "0.1.x",
-    "passport-google-oauth": "0.1.x",
-    "passport-twitter": "0.1.x",
+    "async": "*",
+    "moment": "*",
+    "marked": "*",
+    "string": "*",
+    "azure": "*",
+    "connect-mongoskin": "*",
+    "mongoskin": "*",
+    "passport-facebook": "*",
+    "nodemailer": "*",
+    "passport": "*",
+    "passport-google-oauth": "*",
+    "passport-twitter": "*",
     "shotgun": "*",
     "shotgun-client": "*"
   },
   "subdomain": "codetunnel",
   "engines": {
-    "node": "0.8.x"
+    "node": "*"
   }
 }
