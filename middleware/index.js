@@ -15,6 +15,14 @@ exports.config = function (app) {
 	// Default configuration.
 	app.configure(function () {
 
+        // Redirect www.codetunnel.com requests to codetunnel.com.
+        app.use(function (req, res, next) {
+            if (req.get('host').match(/^www.*$/i))
+                res.redirect('http://codetunnel.com' + req.url);
+            else
+                next();
+        });
+
 		// Never cache crap by default. (I'm looking at you IE)
 		app.use(function (req, res, next) {
 			res.header("Cache-Control", "no-cache, no-store, must-revalidate");
