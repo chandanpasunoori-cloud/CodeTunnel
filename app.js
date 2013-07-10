@@ -19,8 +19,8 @@ var server = app.listen(port, function(){
 });
 
 // Attach shotgun.
-//var shotgun = require('shotgun'),
-//    shotgunClient = require('shotgun-client'),
-//    resumeShell = new shotgun.Shell('resumeCmds');
-//
-//shotgunClient.attach(server, resumeShell);
+var shotgun = require('shotgun'),
+    shotgunClient = require('shotgun-client'),
+    resumeShell = new shotgun.Shell('resumeCmds');
+
+shotgunClient.attach(server, resumeShell);
