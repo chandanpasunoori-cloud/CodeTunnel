@@ -1,14 +1,18 @@
 // Load required modules.
 var port = process.env.PORT,
-  http = require('http'),
-  express = require('express'),
-  middleware = require('./middleware'),
-  routes = require('./routes');
+    express = require('express'),
+    routes = require('./routes'),
+    passport = require('./config/passport'),
+    path = require('path'),
+    fs = require('fs');
 
 var app = express();
 
-// Register middleware.
-middleware.config(app);
+// Bootstrap models
+var models_path = path.join(__dirname, '/models');
+fs.readdirSync(models_path).forEach(function (file) {
+    if (~file.indexOf('.js')) require(models_path + '/' + file)
+})
 
 // Register routes.
 routes.register(app);

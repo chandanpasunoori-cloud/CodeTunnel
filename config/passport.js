@@ -37,7 +37,7 @@ module.exports = function (passport, config) {
                     return done(null, false, { message: 'Invalid password' });
                 }
                 return done(null, user);
-            })
+            });
         }
     ));
 
@@ -65,7 +65,7 @@ module.exports = function (passport, config) {
                 else {
                     return done(err, user);
                 }
-            })
+            });
         }
     ));
 
@@ -89,12 +89,12 @@ module.exports = function (passport, config) {
                     user.save(function (err) {
                         if (err) console.log(err);
                         return done(err, user);
-                    })
+                    });
                 }
                 else {
                     return done(err, user);
                 }
-            })
+            });
         }
     ));
 
@@ -106,6 +106,7 @@ module.exports = function (passport, config) {
         },
         function(accessToken, refreshToken, profile, done) {
             User.findOne({ 'github.id': profile.id }, function (err, user) {
+                if (err) { return done(err); }
                 if (!user) {
                     user = new User({
                         name: profile.displayName,
@@ -117,13 +118,13 @@ module.exports = function (passport, config) {
                     user.save(function (err) {
                         if (err) console.log(err);
                         return done(err, user);
-                    })
+                    });
                 } else {
                     return done(err, user);
                 }
-            })
-        };
-    ))
+            });
+        }
+    ));
 
     // use google strategy
     passport.use(new GoogleStrategy({
@@ -133,6 +134,7 @@ module.exports = function (passport, config) {
         },
         function(accessToken, refreshToken, profile, done) {
             User.findOne({ 'google.id': profile.id }, function (err, user) {
+                if (err) { return done(err); }
                 if (!user) {
                     user = new User({
                         name: profile.displayName,
@@ -140,15 +142,15 @@ module.exports = function (passport, config) {
                         username: profile.username,
                         provider: 'google',
                         google: profile._json
-                    })
+                    });
                     user.save(function (err) {
-                        if (err) console.log(err)
-                        return done(err, user)
-                    })
+                        if (err) console.log(err);
+                        return done(err, user);
+                    });
                 } else {
-                    return done(err, user)
+                    return done(err, user);
                 }
-            })
+            });
         }
     ));
 }
