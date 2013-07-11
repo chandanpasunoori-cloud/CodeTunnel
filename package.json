@@ -18,8 +18,6 @@
     "marked": "*",
     "string": "*",
     "azure": "*",
-    "connect-mongoskin": "*",
-    "mongoskin": "*",
     "passport-facebook": "*",
     "nodemailer": "*",
     "passport": "*",
