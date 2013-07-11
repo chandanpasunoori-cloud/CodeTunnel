@@ -3,8 +3,6 @@ var express = require('express'),
 	stylus = require('stylus'),
 	path = require('path'),
 	socialAuth = require('./socialAuth'),
-	db = require('../db'),
-	MongoSkinSessionStore = require('connect-mongoskin'),
 	moment = require('moment'),
 	markdown = require('marked');
 
@@ -38,7 +36,7 @@ exports.config = function (app) {
 		app.use(express.bodyParser());
 		app.use(express.methodOverride());
 		app.use(express.cookieParser('Tide goes in, tide goes out.'));
-		app.use(express.session({ store: new MongoSkinSessionStore(db) }));
+		app.use(express.session());
 		app.use(passport.initialize());
 		app.use(passport.session());
 		app.use(stylus.middleware(__dirname + '/../public'));
