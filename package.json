@@ -28,6 +28,6 @@
   },
   "subdomain": "codetunnel",
   "engines": {
-    "node": "*"
+    "node": "0.10.x"
   }
 }
