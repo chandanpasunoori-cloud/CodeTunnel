@@ -4,7 +4,7 @@
 		if (!e.firstLoad) return;
 
 		var colorIndex = 3,
-		  delay = 10,
+		  delay = 30,
 		  items = [
 			  { element: 'body', cssClass: 'bodyColor' },
 			  { element: '#banner, hr', cssClass: 'borderColor' },
