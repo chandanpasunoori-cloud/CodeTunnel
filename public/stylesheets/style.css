@@ -95,6 +95,8 @@ body {
 #navigation {
   margin: 0;
   padding: 15px;
+  font-size: 17px;
+  font-weight: bold;
 }
 #navigation li {
   display: inline;
@@ -106,6 +108,7 @@ body {
   clear: both;
   padding: 25px;
   overflow-x: auto;
+  line-height: 1.5;
 }
 .postContent img {
   border-radius: 7.5px 30px 7.5px 30px;
@@ -116,7 +119,7 @@ body {
 }
 pre {
   padding: 15px;
-  background: #000;
+  background: #111;
   border-radius: 7.5px 30px 7.5px 30px;
   -moz-border-radius: 7.5px 30px 7.5px 30px;
   -webkit-border-radius: 7.5px 30px 7.5px 30px;
@@ -138,6 +141,7 @@ code {
   -webkit-border-radius: 3px;
   -o-border-radius: 3px;
   font-family: Consolas, "Courier New";
+  line-height: 1;
 }
 blockquote {
   border-radius: 5px;
@@ -181,6 +185,7 @@ a:hover {
 }
 .postTitle {
   font-size: 20px;
+  font-weight: bold;
 }
 .postDate,
 .commentDate {
