@@ -21,7 +21,10 @@ var server = app.listen(port, function(){
 // Load shotgun modules and instantiate any shells.
 var shotgun = require('shotgun'),
     shotgunClient = require('shotgun-client'),
-    resumeShell = new shotgun.Shell('resumeCmds');
+    resumeShell = new shotgun.Shell({
+        cmdsDir: 'resumeCmds',
+        namespace: 'resume'
+    });
 
 // Attach shotgun-client to server instance and associate shell instances.
 shotgunClient.attach(server, resumeShell);
