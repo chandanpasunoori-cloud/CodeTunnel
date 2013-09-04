@@ -88,11 +88,6 @@
 				$content.html(data.view);
                 $content.find('code').addClass('prettyprint');
                 prettyPrint();
-				var colorIndex = $(document).data('colorIndex'),
-				  items = $(document).data('colorItems');
-				items.forEach(function (item) {
-					$content.find(item.element).addClass(item.cssClass + colorIndex);
-				});
 				$content.slideDown('fast', function () {
 					$(document).trigger('initialize');
 				});
