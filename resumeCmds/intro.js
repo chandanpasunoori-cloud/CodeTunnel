@@ -5,6 +5,7 @@ exports.description = 'Introduction to my interactive résumé application.';
 exports.invoke = function (options, shell) {
     var res = this;
     setupHelpers(res);
+    res.clearDisplay = true;
     res.type("I bet you thought my resume was going to be dry and boring like everyone else's huh?");
     res.type("Well I showed you!");
     res.type("It's actually super modern and cutting edge.");
