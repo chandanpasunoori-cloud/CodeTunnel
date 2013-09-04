@@ -4,14 +4,15 @@
 		if (!e.firstLoad) return;
 
 		var colorIndex = 3,
-		  delay = 30,
+		  delay = 10,
 		  items = [
-			  { element: 'body', cssClass: 'bodyColor' },
-			  { element: '#banner, hr', cssClass: 'borderColor' },
-			  { element: 'a', cssClass: 'linkColor' },
-			  { element: '.translucentFrame', cssClass: 'containerColor' },
-			  { element: '.button', cssClass: 'buttonColor' },
-			  { element: 'input, textarea', cssClass: 'inputColor' }
+              { cssClass: 'color', element: '#console, #console input' }
+//			  { element: 'body', cssClass: 'bodyColor' },
+//			  { element: '#banner, hr', cssClass: 'borderColor' },
+//			  { element: 'a', cssClass: 'linkColor' },
+//			  { element: '.translucentFrame', cssClass: 'containerColor' },
+//			  { element: '.button', cssClass: 'buttonColor' },
+//			  { element: 'input, textarea', cssClass: 'inputColor' }
 		  ];
 
 		if (e.debug) {
@@ -24,8 +25,6 @@
 			.appendTo('body');
 		}
 
-		$(document).data('colorItems', items);
-
 		function changeColors() {
 			items.forEach(function (item) {
 				$(item.element).removeClass(item.cssClass + colorIndex);
@@ -37,7 +36,6 @@
 //			colorIndex++;
 //			if (colorIndex > 24)
 //				colorIndex = 0;
-			$(document).data('colorIndex', colorIndex);
 
 			items.forEach(function (item) {
 				$(item.element).addClass(item.cssClass + colorIndex);

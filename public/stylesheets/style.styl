@@ -1,5 +1,5 @@
 mainColor = hsl(120, 50%, 75%)
-colorChangeSpeed = 1s
+colorChangeSpeed = 10s
 
 opacity(value)
   opacity: value
@@ -55,6 +55,9 @@ body
   position: relative
   margin: 15px auto auto auto
   max-width: 1000px
+
+#console
+  transition: color colorChangeSpeed linear
 
 #footer
 	margin-top: 50px
@@ -116,7 +119,7 @@ pre
   padding: 15px
   background: #111
   border-radius: 7.5px 30px 7.5px 30px
-  max-height: 500px
+  max-height: 750px
   overflow: auto
   line-height: 1
   code
@@ -131,7 +134,7 @@ code
 blockquote
   //background: #000
   border-radius: 5px
-  max-height: 1000px
+  max-height: 750px
   overflow: auto
   font-style: italic
   padding: 0 10px 0 10px
@@ -225,21 +228,22 @@ colors = 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240 255 270 285
 
 for hue, index in colors
   color = hsl(hue, 50%, 75%)
-  .bodyColor{index}
-    color: lighten(color, 75%) !important
-    //background-color: darken(color, 98%) !important
-  .borderColor{index}
-    border-color: darken(color, 90%) !important
-  a.linkColor{index}, a.linkColor{index}:visited
-    color: lighten(color, 25%)
-  .containerColor{index}
-    background-color: color !important
-  .buttonColor{index}
-    color: darken(color, 75%) !important
-    background-color: lighten(color, 25%)
-  .buttonColor{index}:hover
-    background-color: darken(color, 50%)
-    color: lighten(color, 85%) !important
-  .inputColor{index}
-    border-color: lighten(color, 25%) !important
-    color: lighten(color, 55%)
+  .color{index}
+    color: color !important
+  //.bodyColor{index}
+  //  color: lighten(color, 75%) !important
+  //.borderColor{index}
+  //  border-color: darken(color, 90%) !important
+  //a.linkColor{index}, a.linkColor{index}:visited
+  //  color: lighten(color, 25%)
+  //.containerColor{index}
+  //  background-color: color !important
+  //.buttonColor{index}
+  //  color: darken(color, 75%) !important
+  //  background-color: lighten(color, 25%)
+  //.buttonColor{index}:hover
+  //  background-color: darken(color, 50%)
+  //  color: lighten(color, 85%) !important
+  //.inputColor{index}
+  //  border-color: lighten(color, 25%) !important
+  //  color: lighten(color, 55%)

@@ -19,7 +19,6 @@ exports.invoke = function (options, shell) {
     res.type("...", 0, 0, 500);
     res.type('...file corrupt!', 0, 0, 1500);
     res.type("Accessing backups (A:)..........no disk", 0, 0, 500);
-    res.type("I don't actually need it for anything.");
     res.type('Accessing telegraph array...', 0, 0, 500);
     res.type("we get signal");
     res.type(".... --- .-- / .- .-. . / -.-- --- ..- / --. . -. - .-.. . -- . -.", 0, 0, 300);
@@ -36,12 +35,6 @@ exports.invoke = function (options, shell) {
     res.type("But just in case you are still uncertain...");
     res.log('<div style="height: 400px;"><img style="height:400px;" src="/images/hypnotoad.gif" /></div>', { dontType: true });
     res.type("You couldn't possibly resist the influence of hypnotoad.", 35, 0, 5000);
-    res.type("Still not convinced?");
-    res.type("Okay okay.....have a look at my résumé.", 35, 0, 2000);
-    res.log();
-    var result = shell.execute('help');
-    res.lines.push.apply(res.lines, result.lines);
-    res.setContext('resume');
     res.type("Still not convinced?");
     res.type("Okay okay.....have a look at my résumé.", 35, 0, 2000);
     res.log();
