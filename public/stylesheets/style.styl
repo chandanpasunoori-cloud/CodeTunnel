@@ -105,10 +105,14 @@ body
   padding: 25px
   overflow-x: auto
 
+.postContent img
+  border-radius: 7.5px 30px 7.5px 30px
+  border: solid 2px #000;
+
 pre
   padding: 15px
   background: #000
-  border-radius: 5px
+  border-radius: 7.5px 30px 7.5px 30px
   max-height: 500px
   overflow: auto
   code
@@ -116,9 +120,23 @@ pre
     border-radius: 0
 
 code
-  padding: 3px
+  padding: 0 3px 0 3px
   border-radius: 3px
   font-family: Consolas, "Courier New"
+
+blockquote
+  //background: #000
+  border-radius: 5px
+  max-height: 1000px
+  overflow: auto
+  font-style: italic
+  padding: 0 10px 0 10px
+  //p:before
+  //  content: '“'
+  //  font-size: 30px
+  //p:after
+  //  content: '”'
+  //  font-size: 30px
 
 input, textarea
   background: transparent
