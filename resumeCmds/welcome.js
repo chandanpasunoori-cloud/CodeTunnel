@@ -17,7 +17,7 @@ exports.invoke = function (options, shell) {
     res.log('| $$/   \\  $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$/| $$ | $$ | $$|  $$$$$$$');
     res.log('|__/     \\__/ \\_______/|__/ \\_______/ \\______/ |__/ |__/ |__/ \\_______/');
     res.log();
-    res.type('...to my interactive résumé!');
+    res.type('...to my interactive résumé! (work in progress)');
     res.log();
     res.type("Type 'intro' to get started or 'help' if you've been here before.", 0, 0, 1000);
 };

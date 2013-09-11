@@ -2,23 +2,19 @@ style.
     #console {
         padding: 15px;
         height: 500px;
-        width: 700px;
-        margin: auto;
-        border-radius: 5px;
         overflow: auto;
         font-size: 15px;
         font-family: Consolas, "Courier New";
         color: #aaa;
-        background-color: #111;
-        border-radius: 5px 50px 5px 50px;
     }
-#console
+div(style="border-radius: 5px 50px 5px 50px; background-color: #111; padding: 30px; width: 700px; margin: auto;")
+    #console
 script.
     var shell = $('#console').shotgunConsole('resume');
     var $line = $('<div>').appendTo(shell.$display);
     $line.coolType('Loading interactive résumé program. Please wait...', {
         delayAfterType: 0,
         onComplete: function () {
-            shell.execute('welcome');
+            //shell.execute('welcome');
         }
     });
