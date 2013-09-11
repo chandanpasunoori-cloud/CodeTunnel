@@ -23,7 +23,10 @@ var shotgun = require('shotgun'),
     shotgunClient = require('shotgun-client'),
     resumeShell = new shotgun.Shell({
         cmdsDir: 'resumeCmds',
-        namespace: 'resume'
+        namespace: 'resume',
+        defaultCmds: {
+            exit: false
+        }
     });
 
 // Attach shotgun-client to server instance and associate shell instances.
