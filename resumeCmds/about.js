@@ -9,7 +9,6 @@ exports.invoke = function (options, shell) {
     res.log = function (text, options) {
         options = extend(options, { dontType: true });
         oldLog(text, options);
-        console.log(options);
     };
     res.log('This interactive résumé application was written as a way to show off a node module that I created known as "shotgun".');
     res.log();
