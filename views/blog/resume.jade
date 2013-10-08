@@ -10,8 +10,8 @@ style.
 div(style="border-radius: 5px 50px 5px 50px; background-color: #111; padding: 30px; width: 700px; margin: auto;")
     #console
 script.
-    var shell = $('#console').shotgunConsole('resume');
-    var $line = $('<div>').appendTo(shell.$display);
+    var shell = $('#console').shotgunConsole({ namespace: 'resume' });
+    var $line = $('<div>').appendTo(shell.ui.$display);
     $line.coolType('Loading interactive résumé program. Please wait...', {
         delayAfterType: 0,
         onComplete: function () {

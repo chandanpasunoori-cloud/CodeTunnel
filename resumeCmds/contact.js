@@ -3,7 +3,7 @@ var setupHelpers = require('./helperFunctions.js');
 exports.description = 'Displays my contact information.';
 
 exports.invoke = function (options, shell) {
-    this.log('This command is currently disabled.');
+    shell.log('This command is currently disabled.');
 //    var res = this;
 //    setupHelpers(res);
 //    res.log('Alex Ford');
